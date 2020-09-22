@@ -1,0 +1,28 @@
+// The uswds breakpoints
+$theme-utility-breakpoints: (
+  'card': 160px,
+  'card-lg': 240px,
+  'mobile': 320px,
+  'mobile-lg': 480px,
+  'tablet': 640px,
+  'tablet-lg': 800px,
+  'desktop': 1040px,
+  'desktop-lg': 1200px, // 1200px,
+  'widescreen': 1400px, // 1400px
+);
+
+// Map breakpoints to a simpler scheme, sm/md/lg/xl that we'll use in the components
+$usx-breakpoint-mapping: (
+  sm: 'mobile-lg',
+  md: 'tablet',
+  lg: 'desktop',
+  xl: 'desktop-lg'
+);
+
+// Set breakpoints in a bootstrap friend way so we can use their utilities
+$grid-breakpoints: (
+  sm: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'sm')),
+  md: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'md')),
+  lg: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'lg')),
+  xl: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'xl'))
+);

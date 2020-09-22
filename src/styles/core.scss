@@ -1,0 +1,55 @@
+@import "~uswds/dist/scss/core/system-tokens/_blue";
+@import "~uswds/dist/scss/core/system-tokens/_blue-cool";
+@import "~uswds/dist/scss/core/system-tokens/_blue-warm";
+@import "~uswds/dist/scss/core/system-tokens/_cyan";
+@import "~uswds/dist/scss/core/system-tokens/_gold";
+@import "~uswds/dist/scss/core/system-tokens/_gray";
+@import "~uswds/dist/scss/core/system-tokens/_gray-cool";
+@import "~uswds/dist/scss/core/system-tokens/_gray-warm";
+@import "~uswds/dist/scss/core/system-tokens/_green";
+@import "~uswds/dist/scss/core/system-tokens/_green-cool";
+@import "~uswds/dist/scss/core/system-tokens/_green-warm";
+@import "~uswds/dist/scss/core/system-tokens/_indigo";
+@import "~uswds/dist/scss/core/system-tokens/_indigo-cool";
+@import "~uswds/dist/scss/core/system-tokens/_indigo-warm";
+@import "~uswds/dist/scss/core/system-tokens/_magenta";
+@import "~uswds/dist/scss/core/system-tokens/_mint";
+@import "~uswds/dist/scss/core/system-tokens/_mint-cool";
+@import "~uswds/dist/scss/core/system-tokens/_orange";
+@import "~uswds/dist/scss/core/system-tokens/_orange-warm";
+@import "~uswds/dist/scss/core/system-tokens/_red";
+@import "~uswds/dist/scss/core/system-tokens/_red-cool";
+@import "~uswds/dist/scss/core/system-tokens/_red-warm";
+@import "~uswds/dist/scss/core/system-tokens/_violet";
+@import "~uswds/dist/scss/core/system-tokens/_violet-warm";
+@import "~uswds/dist/scss/core/system-tokens/_yellow";
+
+$colors: (
+  'blue': $system-color-blue,
+  'blue-cool': $system-color-blue-cool,
+  'blue-warm': $system-color-blue-warm,
+  'cyan': $system-color-cyan,
+  'gold': $system-color-gold,
+  'gray': $system-color-gray,
+  'gray-cool': $system-color-gray-cool,
+  'gray-warm': $system-color-gray-warm,
+  'green': $system-color-green,
+  'green-cool': $system-color-green-cool,
+  'green-warm': $system-color-green-warm,
+  'indigo': $system-color-indigo,
+  'indigo-cool': $system-color-indigo-cool,
+  'indigo-warm': $system-color-indigo-warm,
+  'magenta': $system-color-magenta,
+  'mint': $system-color-mint,
+  'mint-cool': $system-color-mint-cool,
+  'orange': $system-color-orange,
+  'orange-warm': $system-color-orange-warm,
+  'red': $system-color-red,
+  'red-cool': $system-color-red-cool,
+  'red-warm': $system-color-red-warm,
+  'violet': $system-color-violet,
+  'violet-warm': $system-color-violet-warm,
+  'yellow': $system-color-yellow
+);
+
+

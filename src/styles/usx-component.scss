@@ -1,0 +1,25 @@
+@import './core.scss';
+@import './variables.scss';
+@import './functions.scss';
+@import './colors.scss';
+
+/**
+* This is a core class for a usx component
+*/ 
+.usx-component {
+
+    &.variant-light {
+      
+      color: map-get($theme-colors, 'info');
+    
+      &:hover {
+          background-color: green;
+      }
+    
+      &.active {
+          background-color: red;
+      }
+    }
+  
+  }
+  

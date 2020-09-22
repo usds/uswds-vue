@@ -1,0 +1,19 @@
+@function get-color-family($family) {
+    @if not map-has-key($colors, $family) {
+        @error '#{$family} is not a valid color family';
+    }
+
+    @return map-get(map-get($colors, $family), $family);
+}
+
+@function get-color($family, $grade, $isVivid) {
+    $meta: get-color-family($family);
+
+    @if $isVivid {
+        @return map-get(map-get($meta, 'vivid'), $grade);
+    }
+
+    @else {
+        @return map-get($meta, $grade)
+    }
+}

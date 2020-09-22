@@ -1,0 +1,18 @@
+
+// Pull in uswds defaults
+//@import "./uswds/settings/settings-color";
+
+
+@import "./core.scss";
+
+//@import "./usx-component.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./functions.scss";
+@import "./utilities.scss";
+@import "./colors.scss";
+
+// TODO: bring into project.. but only used icons?
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css');
+
+
