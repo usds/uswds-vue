@@ -16,8 +16,10 @@
     "prepublishOnly": "$npm_execpath build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "docs:dev": "yarn --cwd docs dev",
-    "docs:build": "yarn --cwd docs build",
+    "docs2:dev": "yarn --cwd docs dev",
+    "docs2:build": "yarn --cwd docs build",
+    "docs:dev": "vuepress dev src-docs",
+    "docs:build": "vuepress build src-docs",
     "release": "standard-version"
   },
   "files": [
