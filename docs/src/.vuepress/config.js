@@ -1,4 +1,5 @@
 const { description } = require('../../package')
+const path = require("path");
 
 module.exports = {
   /**
@@ -16,10 +17,19 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    ['link', { rel: 'icon', href: '/favicons/favicon-32x32.png' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
+
+  markdown: {
+    lineNumbers: true
+  },  
+
+  //sass: {
+  //  prependData: '@import "@theme/styles/global.scss"'
+  //},  
 
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
@@ -31,7 +41,7 @@ module.exports = {
     editLinks: false,
     docsDir: '',
     editLinkText: '',
-    lastUpdated: false,
+    lastUpdated: false,    
     nav: [
       {
         text: 'Guide',
@@ -52,10 +62,18 @@ module.exports = {
           title: 'Guide',
           collapsable: false,
           children: [
-            '',
-            'using-vue',
+            ''
+          ]
+        },
+        {
+          title: 'Components',
+          collapsable: false,
+          children: [
+            'components/alert',
+            'components/button',
           ]
         }
+
       ],
     }
   },

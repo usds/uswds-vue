@@ -89,40 +89,10 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../styles/uswds-vue.scss";
 .usa-alert {
     &.no-border::before {
         background-color: transparent;
     }
 }
-
-/*
-
-@import "../styles/core.scss";
-@import "../styles/functions.scss";
-@import "../styles/colors.scss";
-
-.usa-alert {
-
-    &.bg-primary::before {
-        background-color: map-get($theme-border-colors, 'primary');
-    }
-
-    &.bg-secondary::before {
-        background-color: map-get($theme-border-colors, 'secondary');
-    }
-
-    &.bg-success::before {
-        background-color: map-get($theme-border-colors, 'secondary');
-    }
-
-    &.bg-info::before {
-        background-color: map-get($theme-border-colors, 'info');
-    }
-
-    &.bg-warning::before {
-        background-color: map-get($theme-border-colors, 'warning');
-    }
-
-}
-*/
 </style>

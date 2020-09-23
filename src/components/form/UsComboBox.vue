@@ -87,7 +87,7 @@ export default {
                 this.init();
             }
         },
-        currentValue(val) {
+        currentValue() {
             if (!this.isUpdating) {
                 this.$emit('input', this.currentValue);
             }
