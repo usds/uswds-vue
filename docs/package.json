@@ -1,0 +1,19 @@
+{
+  "name": "uswds-vue",
+  "version": "0.1.3",
+  "description": "VueJs Components for the U.S. Web Design System",
+  "main": "index.js",
+  "authors": {
+    "name": "Mike Pritchard",
+    "email": "michael.j.pritchard@eop.omb.gov"
+  },
+  "repository": "https://github.com/usds/uswds-vue/uswds-vue",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}

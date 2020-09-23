@@ -2,12 +2,13 @@
   "name": "uswds-vue",
   "version": "0.1.2",
   "private": false,
+  "description": "Vue USWDS component library",
   "main": "dist/uswds-vue.umd.min.js",
-  "author": "Mike Pritchard",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikepif/uswds-vue"
+  "authors": {
+    "name": "Mike Pritchard",
+    "email": "michael.j.pritchard@omb.eop.gov"
   },
+  "repository": "https://github.com/usds/uswds-vue/uswds-vue",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,7 +16,8 @@
     "prepublishOnly": "$npm_execpath build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "yarn --cwd docs dev",
+    "docs:build": "yarn --cwd docs build"
   },
   "files": [
     "dist/*",
@@ -40,7 +42,8 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "standard-version": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.4"
   },
   "eslintConfig": {
     "root": true,

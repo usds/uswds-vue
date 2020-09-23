@@ -1,6 +1,16 @@
 .DS_Store
+**/.DS_Store
 node_modules
+**/node_modules
 dist
+pids
+logs
+coverage/
+run
+.nyc_output
+.basement
+config.local.js
+basement_dist
 
 # local env files
 .env.local
@@ -20,3 +30,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+

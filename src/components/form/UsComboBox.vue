@@ -9,9 +9,12 @@
         }"
     >
         <select class="usa-select" v-if="options" v-model="currentValue" :name="name" :id="divId" :disabled="disabled">
-            <option v-for="(opt, index) in options" :key="index" :value="opt.value">
-                {{ opt.label }}
+            
+            <option v-for="(opt, index) in options" :key="index" :value="keyField ? opt[keyField] : opt.value">
+                <span v-if="labelField">{{ opt[labelField] }}</span>
+                <span v-else>{{ opt.label }}</span>
             </option>
+
         </select>
     </div>
 </template>
@@ -49,6 +52,14 @@ export default {
             type: String,
             default: null
         },
+        labelField: {
+            type: String,
+            default: null
+        },
+        keyField: {
+            type: String,
+            default: null
+        },                
         placeholder: {
             type: String,
             default: null
