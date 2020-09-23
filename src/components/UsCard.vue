@@ -1,8 +1,8 @@
 <template>
     <div class="usa-card">
-        <div class="usa-card__container" :class="[`bg-${bgVariant}`, `text-${textVariant}`, `border-${borderVariant}`]">
+        <div class="usa-card__container" :class="[`bg-${variant}`, `text-complement-${variant}`, `border-${variant}`]">
 
-            <header class="usa-card__header" v-if="title">
+            <header class="usa-card__header">
                 <slot name="title">
                     <h2 v-if="title" class="usa-card__heading">{{ title }}</h2>
                 </slot>
@@ -32,17 +32,9 @@ export default {
             type: String,
             default: null
         },
-        bgVariant: {
+        variant: {
             type: String,
-            default: 'white'
-        },
-        textVariant: {
-            type: String,
-            default: 'black'
-        },
-        borderVariant: {
-            type: String,
-            default: 'light'
+            default: 'info'
         }
     },
     computed: {

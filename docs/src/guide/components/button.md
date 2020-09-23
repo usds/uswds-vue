@@ -30,7 +30,7 @@ The component has built-in support for [vue-router](https://router.vuejs.org/), 
 
 Set the `isLoading` property to display a loading spinner, this will also put the button into a disabled state so it can not be clicked again.
 
-<us-button variant="primary"  :is-loading="true">Submit</us-button>
+<us-button variant="primary" :is-loading="true">Submit</us-button>
 
 ## Contextual variants
 
@@ -38,21 +38,8 @@ For proper styling of `<us-button>`, use one of the contextual variants by setti
 secondary,info, success, danger, warning, outline-primary, outline-secondary, outline-info, outline-success, outline-danger,
 outline-warning, inverse, link. The default is info.
 
-<span v-for="(variant,index) in ['primary',
-                'secondary',
-                'info',
-                'success',
-                'danger',
-                'warning',
-                'outline-primary',
-                'outline-secondary',
-                'outline-info',
-                'outline-success',
-                'outline-danger',
-                'outline-warning',
-                'inverse',
-                'link']" :key="index">
-<us-button :variant="variant" class="mb-1">{{variant}}</us-button>
+<span v-for="(variant,index) in btnVariants" :key="index">
+    <us-button :variant="variant" class="mb-1">{{variant}}</us-button>
 </span>
 
 ## Component Reference
@@ -76,3 +63,28 @@ outline-warning, inverse, link. The default is info.
 | to | string/object | null | Support for vue-router programtic navigation |
 | disabled | boolean | null | Disables button |
 | is-loading | boolean | false | If set, display a loading animation and disable button |
+
+<script>
+export default {
+    data() {
+        return {
+            btnVariants: [
+                'primary',
+                'secondary',
+                'info',
+                'success',
+                'danger',
+                'warning',
+                'outline-primary',
+                'outline-secondary',
+                'outline-info',
+                'outline-success',
+                'outline-danger',
+                'outline-warning',
+                'inverse',
+                'link'
+            ]
+        };
+    }
+}
+</script>

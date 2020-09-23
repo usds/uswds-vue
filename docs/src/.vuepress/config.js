@@ -2,6 +2,9 @@ const { description } = require('../../package')
 const path = require("path");
 
 module.exports = {
+  
+  base: '/uswds-vue/',
+
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -42,15 +45,24 @@ module.exports = {
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,    
+    sidebarDepth: 1,
     nav: [
       {
         text: 'Guide',
         link: '/guide/',
       },
       {
-        text: 'Config',
-        link: '/config/'
+        text: 'USDS',
+        link: 'https://usds.gov/'
+      },      
+      {
+        text: 'USWDS',
+        link: 'https://designsystem.digital.gov/'
       },
+      //{
+      //  text: 'Config',
+      //  link: '/config/'
+      //},
       {
         text: 'VuePress',
         link: 'https://v1.vuepress.vuejs.org'
@@ -71,6 +83,17 @@ module.exports = {
           children: [
             'components/alert',
             'components/button',
+            'components/pill',
+            'components/tag',
+            'components/card',
+            'components/layout',
+            'components/header',
+            'components/footer',
+            'components/forms',
+            'components/form-combobox',
+            'components/form-input',
+            'components/image',
+            'components/lists'
           ]
         }
 

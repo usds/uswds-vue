@@ -1,10 +1,19 @@
 <template>
-    <img :src="value" />
+    <img :src="src" />
 </template>
 
 <script>
 export default {
     name: 'us-img',
-    props: ['alt', 'value', 'title']
+    props: {
+        src: {
+            type: String,
+            default: null
+        },
+        alt: {
+            type: String,
+            default: null
+        }        
+    }
 };
 </script>
