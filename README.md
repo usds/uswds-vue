@@ -1,8 +1,10 @@
 # uswds-vue
 
-Vue USWDS component library
+# Introduction
 
-> This is in alpha state, and is actively being developed - please do not use in production!!
+[Vue USWDS component library](https://usds.github.io/uswds-vue/)
+
+> This is in very "alpha" state, and is actively being developed. It is very much a work in progress - please do not use in production!!
 
 This is a front end component library whose aim is to develop [Vue.js](https://vuejs.org/) implementations of the design patterns defined by the [United States Web Design System (USWDS)](https://designsystem.digital.gov/). 
 
@@ -10,9 +12,13 @@ The primary goal of this library is to document and provide common UI components
 
 This library attempts to follow the conventions laid down by [BootstrapVue](https://bootstrap-vue.org/), as these seem entirely sensible!
 
+## Documentation
+
+Full docs can be found [here](https://usds.github.io/uswds-vue/)
+
 ## Install
 
-```
+``` bash
 # With yarn
 yarn add uswds-vue uswds
 
@@ -22,40 +28,29 @@ npm i uswds-vue uswds
 
 You can import globally;
 
-```
+``` js
+// Import USWDS itself
+import 'uswds/dist/js/uswds.min.js';
+
+// And then import the vue component library
 import { UswdsVue } from 'uswds-vue';
 Vue.use(UswdsVue);
-```
 
-Or import individual components, e.g.;
-
-```
+// Or import individual components, e.g.;
 import { UsCard } from 'uswds-vue';
 Vue.use(UsCard);
 
 ```
 
-And make sure you add the USWDS style sheet and JS
+You will also need to import the USWDS styles;
 
 ```html
-<link rel="stylesheet" href="../../dist/css/uswds.min.css">
-<!-- or @import "~uswds/dist/css/uswds.min.css" -->
-<script src="../../dist/js/uswds.min.js"></script>
+<link rel="stylesheet" href="~uswds/dist/css/uswds.min.css">
 ```
 
-## TODO
+Or in your sass files;
 
-vuepress docs
-* see https://www.xiegerts.com/post/creating-vue-component-library-npm/
+```scss
+@import "~uswds/dist/css/uswds.css";
+```
 
-## Maintainers
-
-- [@thepipster](https://github.com/thepipster)
-
-## Contributing
-
-Interested in contributing? See our [guidelines and dev setup here](./docs/contributing.md).
-
-## License
-
-TBD
