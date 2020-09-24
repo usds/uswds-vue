@@ -67,4 +67,4 @@ For proper styling of `<us-alert>`, use one of the contextual variants by settin
 
 ### Further Reading
 
-See (Alert documentation at USWDS)[https://designsystem.digital.gov/components/alert/]
+See [Alert documentation at USWDS](https://designsystem.digital.gov/components/alert/)
