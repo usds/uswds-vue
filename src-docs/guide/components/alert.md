@@ -4,11 +4,36 @@ An alert keeps users informed of important and sometimes time-sensitive changes.
 
 ## Overview
 
-<us-alert variant="info">This is a info message</us-alert>
+<us-alert variant="info" title="Info">This is a info message</us-alert>
 
 ``` vue
-<us-alert variant="info">
+<us-alert variant="info" title="Info">
     This is a info message
+</us-alert>
+```
+
+## Alert Size
+
+<us-alert variant="info" size="sm">This is a small alert</us-alert>
+<us-alert variant="info" >This is a normal size alert</us-alert>
+
+``` vue
+<us-alert variant="info" size="sm">
+    This is a small alert
+</us-alert>
+
+<us-alert variant="info">
+    This is a normal size alert
+</us-alert>
+```
+
+## No Icon
+
+<us-alert variant="info" no-icon>This is a alert with no icon</us-alert>
+
+``` vue
+<us-alert variant="info" no-icon>
+    This is a alert with no icon
 </us-alert>
 ```
 
@@ -16,8 +41,8 @@ An alert keeps users informed of important and sometimes time-sensitive changes.
 
 For proper styling of `<us-alert>`, use one of the contextual variants by setting the variant prop to one of the following: info, success, warning or danger. The default is info.
 
-<span v-for="(variant,index) in ['primary','secondary','success','danger','warning','info','light','dark']" :key="index">
-    <us-alert :variant="variant">This is a {{variant}} message</us-alert><br/>
+<span v-for="(variant,index) in ['info','success','danger','warning','light','dark', 'primary','secondary']" :key="index">
+    <us-alert :variant="variant">This is a <strong>{{variant}}</strong> message</us-alert><br/>
 </span>
 
 ## Component Reference
@@ -39,3 +64,7 @@ For proper styling of `<us-alert>`, use one of the contextual variants by settin
 | Slot Name | Arguments | Description |
 | -------- | ----- | ------- | ----------- | 
 | title  | none | Content for the header slot |
+
+### Further Reading
+
+See (Alert documentation at USWDS)[https://designsystem.digital.gov/components/alert/]

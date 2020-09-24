@@ -20,6 +20,15 @@
 
 <us-card variant="info" class="m-2"><template v-slot:title><h2>A <i>custom</i> html header</h2></template>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</us-card>
 
+```vue
+<us-card variant="info">
+    <template v-slot:title>
+        <h2>A <i>custom</i> html header</h2>
+    </template>
+    Lorem ipsum dolor sit amet, consectetur...
+</us-card>
+```
+
 ## More docs coming soon....
 
 
@@ -37,7 +46,6 @@ export default {
                 'danger',
                 'dark',
                 'light',
-                'muted',
                 //'transparent',
                 'white',
                 'black'

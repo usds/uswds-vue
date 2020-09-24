@@ -1,6 +1,6 @@
 <template>
     <div class="usa-card">
-        <div class="usa-card__container" :class="[`bg-${variant}`, `text-complement-${variant}`, `border-${variant}`]">
+        <div :class="['usa-card__container', `bg-${variant}`, `border-${variant}`]">
 
             <header class="usa-card__header">
                 <slot name="title">
@@ -62,5 +62,5 @@ usa-card__footer--exdent: Extends the footer element out over the card border. U
 };
 </script>
 <style lang="scss">
-// Fix some weird behaviors, questionable css in WSDS
+
 </style>

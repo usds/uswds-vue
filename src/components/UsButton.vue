@@ -196,10 +196,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import '../styles/core.scss';
-@import '../styles/variables.scss';
-@import '../styles/functions.scss';
-@import '../styles/colors.scss';
+@import "../styles/uswds-vue.scss";
 
 .usa-button {
     &.usx-btn-success {

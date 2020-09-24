@@ -74,7 +74,7 @@ $theme-border-colors: (
 
 @each $name, $color in $theme-background-colors {
   .text-bg-#{$name} {
-    background-color: map-get($theme-background-font-colors, $name);
+    background-color: map-get($theme-background-font-colors, $name) !important;;
   };
   .text-complement-#{$name} {
     color: map-get($theme-background-font-colors, $name);
@@ -83,8 +83,8 @@ $theme-border-colors: (
 
 @each $name, $color in $theme-background-colors {
   .bg-#{$name} {
-    background-color: $color;
-    color: map-get($theme-background-font-colors, $name);
+    background-color: $color !important;
+    color: map-get($theme-background-font-colors, $name) !important;
   };
 }
 

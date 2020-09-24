@@ -42,7 +42,7 @@ export default {
     cursor: pointer;
     position: relative;
     padding: .5rem 1rem;
-    //background-color: #fff;
+    background-color: #fff;
     border: 1px solid rgba(0,0,0,.125);
 
     &:first-child {

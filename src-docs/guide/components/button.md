@@ -1,6 +1,6 @@
 # Button
 
-Custom us-button component for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, as well as programtic navigation.
+Custom `<us-button>` component for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, as well as programtic navigation.
 
 ## Overview
 
@@ -30,7 +30,19 @@ The component has built-in support for [vue-router](https://router.vuejs.org/), 
 
 Set the `isLoading` property to display a loading spinner, this will also put the button into a disabled state so it can not be clicked again.
 
-<us-button variant="primary" :is-loading="true">Submit</us-button>
+<us-button variant="primary" :is-loading="isLoading">Submit</us-button>
+<us-button variant="outline-primary" @click="isLoading = !isLoading">Toggle Loading Flag</us-button>
+
+``` vue
+<us-button variant="primary" :is-loading="isLoading">
+    Submit
+</us-button>
+
+<!-- Button to toggle isLoading flag for testing -->
+<us-button variant="outline-primary" @click="isLoading = !isLoading">
+    Toggle Loading Flag
+</us-button>
+```
 
 ## Contextual variants
 
@@ -68,6 +80,7 @@ outline-warning, inverse, link. The default is info.
 export default {
     data() {
         return {
+            isLoading: true,
             btnVariants: [
                 'primary',
                 'secondary',

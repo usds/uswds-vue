@@ -10,7 +10,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'USWDS Vue Components',
+  title: 'USWDS-Vue',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -54,7 +54,7 @@ module.exports = {
         link: '/guide/',
       },
       {
-        text: 'USDS',
+        text: 'US Digital Service',
         link: 'https://usds.gov/'
       },      
       {
@@ -66,8 +66,8 @@ module.exports = {
       //  link: '/config/'
       //},
       {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
+        text: 'View on Github',
+        link: 'https://github.com/usds/uswds-vue'
       }
     ],
     sidebar: {
