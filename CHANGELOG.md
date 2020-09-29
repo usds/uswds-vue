@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com///compare/v0.1.8...v0.1.9) (2020-09-29)
+
+
+### Bug Fixes
+
+* broken gutter styles for grid ([ce43a75](https://github.com///commit/ce43a75d77429ffa3a5ff3e0a9995d586dc5302a))
+
 ### [0.1.8](https://github.com///compare/v0.1.7...v0.1.8) (2020-09-29)
 
 
