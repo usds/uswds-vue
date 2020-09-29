@@ -1,6 +1,6 @@
 {
   "name": "uswds-vue",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "description": "Vue USWDS component library",
   "main": "dist/uswds-vue.umd.min.js",
@@ -32,7 +32,8 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
-    "uswds": "^2.9.0"
+    "uswds": "^2.9.0",
+    "vue-gtag": "^1.9.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -40,7 +41,6 @@
     "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
-    "@vuepress/plugin-google-analytics": "^1.6.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
