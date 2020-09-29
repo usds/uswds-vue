@@ -60,10 +60,6 @@ export default {
         },
         imgInset: {
             type: Boolean,
-            default: true
-        },    
-        imgInset: {
-            type: Boolean,
             default: false
         },             
         cardExdent: {

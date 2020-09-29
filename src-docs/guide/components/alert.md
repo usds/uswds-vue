@@ -14,8 +14,8 @@ An alert keeps users informed of important and sometimes time-sensitive changes.
 
 ## Alert Size
 
-<us-alert variant="info" size="sm">This is a small alert</us-alert>
-<us-alert variant="info" >This is a normal size alert</us-alert>
+<us-alert variant="info" size="sm" class="mb-3">This is a small alert</us-alert>
+<us-alert variant="info"  class="mb-3">This is a normal size alert</us-alert>
 
 ``` vue
 <us-alert variant="info" size="sm">

@@ -19,7 +19,6 @@ export default {
             default: 'md'
         }
     },
-    /*
     computed: {
         rowClass() {
             let txt = '';
@@ -58,6 +57,5 @@ export default {
             return txt;
         }
     }
-    */
 };
 </script>

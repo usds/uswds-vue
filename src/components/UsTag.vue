@@ -29,8 +29,8 @@ export default {
     } 
 
     display: inline-block;
-    padding: .25em .4em;
-    font-size: 75%;
+    padding: .5em .6em;
+    font-size: 0.75em;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
