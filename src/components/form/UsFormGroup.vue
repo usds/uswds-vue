@@ -4,6 +4,8 @@
             <label v-if="label" class="usa-label" :for="divId">{{ label }}</label>
         </slot>
 
+        <slot v-bind="{ valid, divId }"></slot>
+
         <!-- Error Message -->
         <slot name="validation-error" v-bind:error="error">
             <span v-if="error" class="usa-error-message" id="input-error-message" role="alert">{{ error }}</span>
@@ -16,7 +18,6 @@
             </span>
         </slot>
 
-        <slot v-bind="{ valid, divId }"></slot>
     </div>
 </template>
 
@@ -32,6 +33,12 @@ export default {
             default() {
                 return `id-` + Math.floor(100 + Math.random() * 10000);
             }
+        },
+        // To support column form layouts, break from uswds norms and place help text 
+        // and error messages *below* input
+        colSupport: {
+            type: Boolean,
+            default: false
         },
         name: {
             type: String,

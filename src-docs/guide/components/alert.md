@@ -45,6 +45,33 @@ For proper styling of `<us-alert>`, use one of the contextual variants by settin
     <us-alert :variant="variant">This is a <strong>{{variant}}</strong> message</us-alert><br/>
 </span>
 
+## When to use the alert component <Badge text="uswds"/>
+
+**System status messages.** As a notification that keeps people informed of the status of the system and which may or may not require the user to respond. This includes errors, warnings, and general updates.
+
+**Validation messages.** As a validation message that alerts someone that they just did something that needs to be corrected or as confirmation that a task was completed successfully.
+
+## When to consider something else <Badge text="uswds"/>
+
+**Long forms.** On long forms, always include in-line validation in addition to any error messages that appear at the top of the form.
+
+**Destructive actions.** If an action will result in destroying a user’s work (for example, deleting an application) use a more intrusive pattern, such as a confirmation modal dialogue, to allow the user to confirm that this is what they want.
+
+## Usability guidance <Badge text="uswds"/>
+
+**Consider next steps.** When the user is required to do something in response to an alert, let them know what they need to do and make that task as easy as possible. Think about how much context to provide with your message. For example, a notification of a system change may require more contextual information than a validation message. Write the message in concise, human readable language; avoid jargon and computer code.
+
+**Be polite.** Be polite in error messages — don’t blame the user.
+
+**Alerts are an opportunity.** Users will read a message that helps them resolve an error even if they generally won’t read documentation; include some educational material in your error message.
+
+**Don’t overdo it**. Too many notifications will either overwhelm or annoy the user and are likely to be ignored.
+
+**Allow a user to dismiss a notification wherever appropriate.**
+
+**<strong>**Understand the user’s context.** </strong>** Don’t include notifications that aren’t related to the user’s current goal.
+
+
 ## Component Reference
 
 ### `<us-alert>`

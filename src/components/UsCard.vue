@@ -34,7 +34,7 @@ export default {
         },
         variant: {
             type: String,
-            default: 'info'
+            default: 'none'
         }
     },
     computed: {

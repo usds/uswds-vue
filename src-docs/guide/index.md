@@ -50,3 +50,15 @@ Or in your sass files;
 @import "~uswds/dist/css/uswds.css";
 ```
 
+## Customize with SASS
+
+Support for SASS is backed in. To use, import the scss style sheets from `USWDS` and `uswds-vue`;
+
+```scss
+@import "~uswds/dist/scss/uswds.css";
+@import "~uswds-vue/src/styles/uswds-vue.scss";
+```
+
+## Fontawesome
+
+`uswds-vue` makes use of, and includes, the free version of [fontawesome](https://fontawesome.com/), future versions will include the ability to decouple to decrease the build size.

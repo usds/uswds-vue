@@ -2,7 +2,7 @@
     <section class="usa-banner" aria-label="Official government website" :class="`bg-${variant}`">
         <div class="usa-accordion">
             <header class="usa-banner__header">
-                <div class="usa-banner__inner" :class="`bg-${variant}`">
+                <div class="usa-banner__inner" :class="`bg-${variant} fluid-${this.fluid}`">
                     <slot>
                         <div class="grid-col-auto">
                             <icon-flag class="mr-1 mt-1" />
@@ -69,11 +69,18 @@ export default {
         variant: {
             type: String,
             default: 'dark'
-        }
+        },
+        fluid: {
+            type: String,
+            default: 'none'
+        }          
     }
 };
 </script>
 <style lang="scss">
+
+@import '../../styles/variables.scss';
+
 .usa-banner {
     .usa-banner__button-text,
     .usa-banner__button,
@@ -83,5 +90,34 @@ export default {
             background-color: gray !important;
         }
     }
+
 }
+
+.usa-banner__inner {
+
+    &.fluid-full {
+        max-width: 100% !important;
+    }
+
+    &.fluid-sm {
+        max-width: map-get($grid-breakpoints, 'sm');
+    }
+
+    &.fluid-md {
+        max-width: map-get($grid-breakpoints, 'md');
+    }
+
+    &.fluid-lg {
+        max-width: map-get($grid-breakpoints, 'lg');
+    }
+
+    &.fluid-xl {
+        max-width: map-get($grid-breakpoints, 'xl');
+    }
+}
+
+
+</style>
+
+
 </style>

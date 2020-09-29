@@ -54,7 +54,7 @@ module.exports = {
         link: '/guide/',
       },
       {
-        text: 'US Digital Service',
+        text: 'US Digital',
         link: 'https://usds.gov/'
       },      
       {
@@ -107,7 +107,8 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
+    //'@vuepress/google-analytics', {'ga': '' // UA-00000000-0}
     '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    '@vuepress/plugin-medium-zoom'
   ]
 }

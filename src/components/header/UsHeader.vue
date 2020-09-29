@@ -1,11 +1,10 @@
 <template>
     <div>
         <a class="usa-skipnav" href="#main-content">Skip to main content</a>
-        
         <div class="usa-overlay"></div>
-
+        
         <header class="usa-header usa-header--basic" :class="`bg-${variant}`">
-            <div class="usa-nav-container">
+            <div class="usa-nav-container" :class="`fluid-${this.fluid}`">
                 
 
                 <!--
@@ -120,7 +119,7 @@ export default {
         },
         fluid: {
             type: String,
-            default: 'full'
+            default: 'none'
         }        
     }
 };

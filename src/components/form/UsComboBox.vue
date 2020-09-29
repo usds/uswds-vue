@@ -1,18 +1,19 @@
 <template>
     <div
         class="usa-combo-box mt-1"
-        :data-default-value="currentValue"
-        :data-placeholder="placeholder"
         :class="{
             'usx-error': valid === false,
             'usx-success': valid === true
         }"
     >
-        <select class="usa-select" v-if="options" v-model="currentValue" :name="name" :id="divId" :disabled="disabled">
+        <select class="usa-select" v-model="currentValue" :name="name" :id="divId" :disabled="disabled">
             
-            <option v-for="(opt, index) in options" :key="index" :value="keyField ? opt[keyField] : opt.value">
-                <span v-if="labelField">{{ opt[labelField] }}</span>
-                <span v-else>{{ opt.label }}</span>
+            <option value>
+                <slot name="empty">Select an option</slot>
+            </option>
+
+            <option v-for="(opt, index) in options" :key="index" :value="getValue(index)">
+                <span>{{ getLabel(index) }}</span>
             </option>
 
         </select>
@@ -97,6 +98,38 @@ export default {
         this.init();
     },
     methods: {
+
+        getValue(index){
+
+            let item = this.options[index];
+
+            if (this.keyField && item.hasOwnProperty(this.keyField)){
+                return item[this.keyField];
+            }
+            else if (item.hasOwnProperty('value')){
+                return item['value'];
+            }
+            else {
+                return item;
+            }
+        },
+
+        getLabel(index){
+
+            let item = this.options[index];
+
+            if (this.labelField && item.hasOwnProperty(this.labelField)){
+                return item[this.labelField];
+            }
+            else if (item.hasOwnProperty('label')){
+                return item['label'];
+            }
+            else {
+                return item;
+            }
+        },
+        
+
         /**
          * Update internal value for v-model (currentValue) from what (if anything) was passed in
          * from parent as the v-model
