@@ -85,7 +85,6 @@ module.exports = {
           children: [
             'components/alert',
             'components/button',
-            'components/pill',
             'components/tag',
             'components/card',
             'components/layout',
@@ -107,7 +106,6 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    //'@vuepress/google-analytics', {'ga': '' // UA-00000000-0}
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom'
   ]

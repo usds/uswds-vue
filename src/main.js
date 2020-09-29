@@ -1,5 +1,6 @@
 import UsAlert from './components/UsAlert';
-import UsCard from './components/UsCard';
+import UsCard from './components/cards/UsCard';
+import UsCardGroup from './components/cards/UsCardGroup';
 import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
 import UsFormGroup from './components/form/UsFormGroup';
@@ -30,6 +31,7 @@ const Components = {
     UsCol,
     UsAlert,
     UsCard,
+    UsCardGroup,
     UsButton,
     UsForm,
     UsFormInput,

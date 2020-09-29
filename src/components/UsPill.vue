@@ -1,7 +1,7 @@
 <template>
-    <span class="usa-tag radius-pill" :class="[`bg-${variant}`]">
+    <us-tag pill>
         <slot></slot>
-    </span>
+    </us-tag>
 </template>
 
 <script>
@@ -11,10 +11,6 @@ export default {
         variant: {
             type: String,
             default: 'info'
-        },
-        size: {
-            type: String,
-            default: ''
         }
     }
 };

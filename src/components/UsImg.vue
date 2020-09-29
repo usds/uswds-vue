@@ -1,5 +1,5 @@
 <template>
-    <img :src="src" />
+    <img class="usx-img" :src="src" :class="[{'fluid':fluid}]"/>
 </template>
 
 <script>
@@ -13,7 +13,18 @@ export default {
         alt: {
             type: String,
             default: null
-        }        
+        },
+        fluid: {
+            type: Boolean,
+            default: false
+        }     
     }
 };
 </script>
+<style lang="scss">
+.usx-img {
+    .fluid {
+        max-width: 100%;
+    }
+}
+</style>
