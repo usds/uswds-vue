@@ -12,6 +12,19 @@ Custom `<us-button>` component for actions in forms, dialogs, and more. Includes
 </us-button>
 ```
 
+## Links
+
+The component has built-in support href, simply add a href property to use;
+
+<us-button variant="info" href="https://news.bbc.co.uk" target="_blank" class="mb-1">Go somewhere</us-button>
+
+``` vue
+<us-button variant="info" href="https://news.bbc.co.uk" target="_blank">
+    Go somewhere
+</us-button>
+```
+
+
 ## Progmatic navigation
 
 The component has built-in support for [vue-router](https://router.vuejs.org/), simply add a `to` property to any button such as;
