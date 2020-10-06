@@ -6,7 +6,7 @@
         }">
         <div :class="['usa-card__container', `bg-${variant}`, `border-${variant}`]">
 
-            <header class="usa-card__header">
+            <header class="usa-card__header" v-if="title">
                 <slot name="title">
                     <h2 v-if="title" class="usa-card__heading">{{ title }}</h2>
                 </slot>

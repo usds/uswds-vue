@@ -92,10 +92,38 @@ export default {
             }
             */
 
+            const processSz = (size) => {
+                
+                let propVal = this[size];
+                if (!propVal || !this.sizeMap[size]){
+                    return '';
+                }
+
+                if (propVal == 'auto'){
+                    return `${this.sizeMap[size]}grid-col-auto `
+                }
+                else if (propVal == 'fill'){
+                    return `${this.sizeMap[size]}grid-col-fill `
+                }                
+                else {
+                    return `${this.sizeMap[size]}grid-col-${propVal} `;
+                }
+
+                
+            }
+
+            txt += processSz('sm');
+            txt += processSz('md');
+            txt += processSz('lg');
+            txt += processSz('xl');
+
+            /*
+
             // Supports; fill, auto, [1-12]
             if (this.sm && this.sizeMap['md']) {
                 txt += `${this.sizeMap['sm']}grid-col-${this.sm} `;
             }
+
             if (this.md && this.sizeMap['md']) {
                 txt += `${this.sizeMap['md']}grid-col-${this.md} `;
             }
@@ -105,6 +133,7 @@ export default {
             if (this.xl && this.sizeMap['xl']) {
                 txt += `${this.sizeMap['xl']}grid-col-${this.xl} `;
             }
+            */
 
             return txt;
         }

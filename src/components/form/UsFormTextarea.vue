@@ -5,6 +5,7 @@
         :id="divId"
         v-model="currentValue"
         :type="type"
+        :rows="rows"
         :placeholder="placeholder"
         :disabled="disabled"
         :class="{
@@ -16,6 +17,9 @@
     />
 </template>
 <script>
+
+import _ from 'lodash';
+
 export default {
     name: 'us-form-textarea',
     props: {
@@ -29,8 +33,8 @@ export default {
             }
         },
         debounce: {
-            type: Number,
-            default: null
+            type: Boolean,
+            default: false
         },
         size: {
             type: String,
@@ -84,7 +88,7 @@ export default {
         currentValue(val) {
             // allows us to use v-model on our input.
             if (!this.isUpdating) {
-                if (this.debounce){
+                if (this.debounceMs){
                     this.debouncedOnChange(val);
                 }
                 else {
@@ -93,6 +97,9 @@ export default {
             }
         }
     },
+    mounted(){
+        this.init();
+    },    
     methods: {
         
         init() {
@@ -105,7 +112,12 @@ export default {
 
         debouncedOnChange: _.debounce(function(val){
             this.$emit('input', val);
-        }, this.debounce)
+        }, 500)
     }
 };
 </script>
+<style lang="scss">
+.usa-textarea {
+    max-width: 100%;
+}
+</style>

@@ -74,6 +74,9 @@ export default {
             }
         }
     },
+    mounted(){
+        this.init();
+    },
     methods: {
         init() {
             this.isUpdating = true;
@@ -85,3 +88,8 @@ export default {
     }
 };
 </script>
+<style lang="scss">
+.usa-input {
+    max-width: 100%;
+}
+</style>

@@ -3,6 +3,7 @@ import UsCard from './components/cards/UsCard';
 import UsCardGroup from './components/cards/UsCardGroup';
 import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
+import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsComboBox from './components/form/UsComboBox';
 import UsButton from './components/UsButton';
@@ -18,6 +19,8 @@ import UsOfficialHeader from './components/header/UsOfficialHeader';
 import UsContainer from './components/layout/UsContainer';
 import UsRow from './components/layout/UsRow';
 import UsCol from './components/layout/UsCol';
+import UsTab from './components/tabs/UsTab';
+import UsTabs from './components/tabs/UsTabs';
 import UsListGroup from './components/lists/UsListGroup';
 import UsListGroupItem from './components/lists/UsListGroupItem';
 
@@ -29,12 +32,15 @@ const Components = {
     UsTag,
     UsRow,
     UsCol,
+    UsTab,
+    UsTabs,
     UsAlert,
     UsCard,
     UsCardGroup,
     UsButton,
     UsForm,
     UsFormInput,
+    UsFormTextarea,
     UsFormGroup,
     UsComboBox,
     UsImg,

@@ -88,6 +88,7 @@ module.exports = {
             'components/tag',
             'components/card',
             'components/layout',
+            'components/tabs',
             'components/header',
             'components/footer',
             'components/forms',

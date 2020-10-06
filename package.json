@@ -30,8 +30,8 @@
     "*.js"
   ],
   "dependencies": {
-    "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
     "uswds": "^2.9.0",
     "vue-gtag": "^1.9.1"
   },

@@ -72,7 +72,7 @@ export default {
         // Requires options in array of [value, label]
         // TODO:
         options: {
-            type: Array,
+            type: [Array, Object],
             default: null
         }
     },
@@ -91,6 +91,7 @@ export default {
         currentValue() {
             if (!this.isUpdating) {
                 this.$emit('input', this.currentValue);
+                this.$emit('change', this.currentValue);
             }
         }
     },
@@ -102,11 +103,12 @@ export default {
         getValue(index){
 
             let item = this.options[index];
+            let hasKey = Object.prototype.hasOwnProperty.call(item, this.keyField);
 
-            if (this.keyField && item.hasOwnProperty(this.keyField)){
+            if (this.keyField && hasKey){
                 return item[this.keyField];
             }
-            else if (item.hasOwnProperty('value')){
+            else if (hasKey){
                 return item['value'];
             }
             else {
@@ -117,11 +119,13 @@ export default {
         getLabel(index){
 
             let item = this.options[index];
+            let hasKey = Object.prototype.hasOwnProperty.call(item, this.keyField);
 
-            if (this.labelField && item.hasOwnProperty(this.labelField)){
+
+            if (this.labelField && hasKey){
                 return item[this.labelField];
             }
-            else if (item.hasOwnProperty('label')){
+            else if (hasKey){
                 return item['label'];
             }
             else {
@@ -148,6 +152,9 @@ export default {
 </script>
 <style lang="scss">
 .usa-combo-box {
+    
+    max-width: 100%;
+    
     input {
         // Fix margin bug when using validation classes
         margin-top: 0;
@@ -172,6 +179,7 @@ export default {
     .usa-select {
         // Fix height bug in uswds
         height: auto;
+        max-width: 100%;
     }
 }
 </style>

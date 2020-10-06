@@ -32,6 +32,7 @@ export default {
     padding: .5em .6em;
     font-size: 0.75em;
     line-height: 1;
+    max-height: 2em;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;

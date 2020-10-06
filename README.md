@@ -1,6 +1,6 @@
 # uswds-vue
 
-# Introduction
+## Introduction
 
 [Vue USWDS component library](https://usds.github.io/uswds-vue/)
 
@@ -11,6 +11,10 @@ This is a front end component library whose aim is to develop [Vue.js](https://v
 The primary goal of this library is to document and provide common UI components that can be included in other projects that adhere to or are based off of the USWDS, removing a significant amount of overhead UI development from such projects.
 
 This library attempts to follow the conventions laid down by [BootstrapVue](https://bootstrap-vue.org/), as these seem entirely sensible!
+
+## Vue 3 support
+
+Support for Vue 3 is on the roadmap, but too many 3rd party libraries don't yet support Vue 3 so for now we're sticking with Vue 2. Please submit an issue if you want to push vor Vue 3 support sooner!
 
 ## Documentation
 
