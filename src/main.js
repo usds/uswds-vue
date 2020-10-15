@@ -6,7 +6,9 @@ import UsFormInput from './components/form/UsFormInput';
 import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsComboBox from './components/form/UsComboBox';
+import UsStepIndicator from './components/form/UsStepIndicator';
 import UsButton from './components/UsButton';
+import UsButtonGroup from './components/UsButtonGroup';
 import UsTag from './components/UsTag';
 import UsPill from './components/UsPill';
 import UsImg from './components/UsImg';
@@ -38,6 +40,7 @@ const Components = {
     UsCard,
     UsCardGroup,
     UsButton,
+    UsButtonGroup,
     UsForm,
     UsFormInput,
     UsFormTextarea,
@@ -53,7 +56,8 @@ const Components = {
     UsFooter,
 	UsResponsiveInfo,
 	UsListGroup,
-	UsListGroupItem
+    UsListGroupItem,
+    UsStepIndicator
 };
 
 /**

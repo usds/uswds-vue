@@ -88,14 +88,25 @@ module.exports = {
             'components/tag',
             'components/card',
             'components/layout',
-            'components/tabs',
             'components/header',
             'components/footer',
+            'components/step-indicator',
             'components/forms',
-            'components/form-combobox',
-            'components/form-input',
+            {
+              title: 'Form Inputs',
+              collapsable: false,
+              children: [
+                'components/form-inputs/form-checkbox',
+                'components/form-inputs/form-combobox',
+                'components/form-inputs/form-date',
+                'components/form-inputs/form-fileinput',
+                'components/form-inputs/form-input',
+                'components/form-inputs/form-slider',
+                'components/form-inputs/form-time'
+              ]
+            },
             'components/image',
-            'components/lists'
+            'components/lists',
           ]
         }
 
