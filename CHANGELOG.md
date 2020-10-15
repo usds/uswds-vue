@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com///compare/v0.1.10...v0.1.11) (2020-10-15)
+
+
+### Features
+
+* adding step indicator component ([5e0151e](https://github.com///commit/5e0151eb0c37c21217ff07694c1db60683dd749e))
+
 ### [0.1.10](https://github.com///compare/v0.1.9...v0.1.10) (2020-09-29)
 
 ### [0.1.9](https://github.com///compare/v0.1.8...v0.1.9) (2020-09-29)
