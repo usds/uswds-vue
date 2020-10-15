@@ -95,6 +95,7 @@ export default {
             const processSz = (size) => {
                 
                 let propVal = this[size];
+                
                 if (!propVal || !this.sizeMap[size]){
                     return '';
                 }

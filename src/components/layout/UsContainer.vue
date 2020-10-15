@@ -15,7 +15,7 @@ export default {
     props: {
         fluid: {
             type: String,
-            default: 'full'
+            default: 'lg'
         }
     }
 };

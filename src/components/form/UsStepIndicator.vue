@@ -1,9 +1,12 @@
 <template>
     <div class="usa-step-indicator" aria-label="progress">
-        <ol class="usa-step-indicator__segments">
-
+        <ol v-if="steps" class="usa-step-indicator__segments" :class="{            
+            'usa-step-indicator--counters': showStepNumbers && size != 'sm',
+            'usa-step-indicator--counters-sm': showStepNumbers && size == 'sm',
+            'usa-step-indicator--center': centerLabels
+        }">
             <li 
-                v-for="(title, index) in steps" 
+                v-for="(item, index) in steps" 
                 :key="index" 
                 class="usa-step-indicator__segment" 
                 :aria-current="(step == index) ? true : false"
@@ -12,30 +15,14 @@
                     'usa-step-indicator__segment--current': step == index}"
             >
                 <span class="usa-step-indicator__segment-label">
-                    {{title}} 
+                    <span v-if="item.title && showLabels">{{item.title}}</span>
+                    <span v-else-if="showLabels">{{item}}</span>
                     <span v-if="step < index" class="usa-sr-only">completed</span>
                     <span v-if="step < index" class="usa-sr-only">not completed</span>
                 </span>
             </li>
-
-
-<!--
-            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
-                <span class="usa-step-indicator__segment-label">Household status <span class="usa-sr-only">completed</span></span>
-            </li>
-            <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
-                <span class="usa-step-indicator__segment-label">Supporting documents </span>
-            </li>
-            <li class="usa-step-indicator__segment">
-                <span class="usa-step-indicator__segment-label">Signature <span class="usa-sr-only">not completed</span></span>
-            </li>
-            <li class="usa-step-indicator__segment">
-                <span class="usa-step-indicator__segment-label">Review and submit <span class="usa-sr-only">not completed</span></span>
-            </li>
-
-            -->
         </ol>
-        <div class="usa-step-indicator__header">
+        <div class="usa-step-indicator__header mt-1">
             <h2 class="usa-step-indicator__heading">
                 <span class="usa-step-indicator__heading-counter">
                     <span class="usa-sr-only">Step</span>
@@ -49,49 +36,55 @@
 </template>
 
 <script>
-/*
- .usa-step-indicator--no-labels
 
-Don’t show step labels
-
-.usa-step-indicator--counters
-
-Show step counters
-
-.usa-step-indicator--counters-sm
-
-Show small step counters
-
-.usa-step-indicator--center
-
-Center counters and labels in each step
-
- 
- */
 export default {
     name: 'us-step-indicator',
     components: {},
     props: {
+        // Show step labels
+        showLabels: {
+            type: Boolean,
+            default: false
+        },
+        // Center counters and labels in each step
+        centerLabels: {
+            type: Boolean,
+            default: false
+        },        
+        // Show step counters
+        showStepNumbers: {
+            type: Boolean,
+            default: false
+        },
+        // Show small step counters
+        size: {
+            type: String,
+            default: 'sm'
+        },
         step: {
             type: Number,
             default: 0
         },
         steps: {
             type: Array,
-            default: ['Step 1', 'Step 2', 'Step 3']
+            default: null
         },
         variant: {
             type: String,
             default: 'info'
-        },
-        fluid: {
-            type: String,
-            default: 'none'
         }
     },
     computed: {
         currentTitle(){
-            return this.steps[this.step];
+            if (this.steps && this.steps[this.step]){
+                if (this.steps[this.step].title){
+                    return this.steps[this.step].title;
+                }
+                else {
+                    return this.steps[this.step];
+                }
+            }
+            return '';
         }
     }
 };
@@ -99,9 +92,22 @@ export default {
 <style lang="scss">
 
 .usa-step-indicator__heading {
-    font-size: 1.13rem !important;
+    
+    font-size: 1em !important;
     font-weight: bold !important;
-    margin: 1rem 0 0 !important;
+    margin: 0 !important;
+
+    .usa-step-indicator__current-step {
+        margin-right: 0.2em;
+        height: 1.5em;
+        width: 1.5em;
+        padding: 0;
+        line-height: 1.5em;
+    }
+
+
+
+
 }
 
 </style>
