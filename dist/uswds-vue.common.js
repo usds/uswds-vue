@@ -22767,12 +22767,12 @@ var UsFormTextarea_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsFormTextarea = (UsFormTextarea_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"037c1a88-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormGroup.vue?vue&type=template&id=58eea2f0&
-var UsFormGroupvue_type_template_id_58eea2f0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"usa-form-group",class:{ 'usa-form-group--error': _vm.valid === false }},[_vm._t("label",[(_vm.label)?_c('label',{staticClass:"usa-label",attrs:{"for":_vm.divId}},[_vm._v(_vm._s(_vm.label))]):_vm._e()]),_vm._t("default",null,null,{ valid: _vm.valid, divId: _vm.divId }),_vm._t("validation-error",[(_vm.error && _vm.valid === false)?_c('span',{staticClass:"usa-error-message",attrs:{"id":"input-error-message","role":"alert"}},[_vm._v(_vm._s(_vm.error))]):_vm._e()],{"error":_vm.error}),_vm._t("help-text",[(_vm.helpText)?_c('span',{staticClass:"usa-hint"},[_vm._v(" "+_vm._s(_vm.helpText)+" ")]):_vm._e()])],2)}
-var UsFormGroupvue_type_template_id_58eea2f0_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"037c1a88-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormGroup.vue?vue&type=template&id=01ee4f74&
+var UsFormGroupvue_type_template_id_01ee4f74_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"usa-form-group",class:{ 'usa-form-group--error': _vm.valid === false }},[_vm._t("label",[(_vm.label)?_c('label',{staticClass:"usa-label",attrs:{"for":_vm.divId}},[_vm._v(_vm._s(_vm.label))]):_vm._e()]),_vm._t("default",null,null,{ valid: _vm.valid, divId: _vm.divId }),_vm._t("validation-error",[(_vm.error && _vm.valid === false)?_c('span',{staticClass:"usa-error-message",attrs:{"id":"input-error-message","role":"alert"}},[_vm._v(_vm._s(_vm.error))]):_vm._e()],{"error":_vm.error}),_vm._t("help-text",[(_vm.helpText)?_c('span',{staticClass:"usa-hint"},[_vm._v(" "+_vm._s(_vm.helpText)+" ")]):_vm._e()])],2)}
+var UsFormGroupvue_type_template_id_01ee4f74_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form/UsFormGroup.vue?vue&type=template&id=58eea2f0&
+// CONCATENATED MODULE: ./src/components/form/UsFormGroup.vue?vue&type=template&id=01ee4f74&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.map.js
 var es_array_map = __webpack_require__("d81d");
@@ -22864,9 +22864,8 @@ var es_string_search = __webpack_require__("841c");
     setChildValid: function setChildValid(val) {
       // If there any child form inputs, update their valid prop too
       this.$children.map(function (child) {
-        console.log(child.$options.name);
-
         if (child.$options && child.$options.name.search('us-form-') !== -1) {
+          console.log(child.$options.name);
           child.setValid(val); //child.$options.error = this.error;
         }
       });
@@ -22885,8 +22884,8 @@ var es_string_search = __webpack_require__("841c");
 
 var UsFormGroup_component = normalizeComponent(
   form_UsFormGroupvue_type_script_lang_js_,
-  UsFormGroupvue_type_template_id_58eea2f0_render,
-  UsFormGroupvue_type_template_id_58eea2f0_staticRenderFns,
+  UsFormGroupvue_type_template_id_01ee4f74_render,
+  UsFormGroupvue_type_template_id_01ee4f74_staticRenderFns,
   false,
   null,
   null,

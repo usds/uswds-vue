@@ -79,7 +79,7 @@ export default {
             this.$children.map((child)=>{
                 if (child.$options && child.$options.name.search('us-form-') !== -1){
                     console.log(child.$options.name)
-                    //child.setValid(val);
+                    child.setValid(val);
                     //child.$options.error = this.error;
                 }
             });             
