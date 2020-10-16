@@ -46,7 +46,7 @@ module.exports = {
     editLinks: false,
     docsDir: '',
     editLinkText: '',
-    lastUpdated: false,    
+    lastUpdated: true,    
     sidebarDepth: 1,
     nav: [
       {
@@ -91,7 +91,8 @@ module.exports = {
             'components/header',
             'components/footer',
             'components/step-indicator',
-            'components/forms',
+            'components/form',
+            'components/form-group',
             {
               title: 'Form Inputs',
               collapsable: false,
@@ -105,8 +106,9 @@ module.exports = {
                 'components/form-inputs/form-time'
               ]
             },
-            'components/image',
+            //'components/image',
             'components/lists',
+            'components/tabs',
           ]
         }
 

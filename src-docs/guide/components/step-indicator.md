@@ -79,7 +79,7 @@ Center the step labels with a `center-labels` prop.
 | -------- | ----- | ------- | ----------- | 
 | show-labels  | boolean | false | Show page title labels |
 | center-labels | boolean | false | Center page title labels |
-| show-step-numbers | false | 'button' | Show the page step numbers
+| show-step-numbers | boolean | false | Show the page step numbers
 | size | string | 'sm' | The size of the page step numbers, can be 'sm' or 'lg' |
 | step | number | 0 | The current step (0 referenced) |
 | steps | array | null | An array of step titles, can be a simple array of strings or array of objects with a title key |

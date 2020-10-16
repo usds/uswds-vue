@@ -5,7 +5,8 @@ import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
 import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
-import UsComboBox from './components/form/UsComboBox';
+import UsFormCombobox from './components/form/UsFormCombobox';
+import UsFormCheckbox from './components/form/UsFormCheckbox';
 import UsStepIndicator from './components/form/UsStepIndicator';
 import UsButton from './components/UsButton';
 import UsButtonGroup from './components/UsButtonGroup';
@@ -45,7 +46,8 @@ const Components = {
     UsFormInput,
     UsFormTextarea,
     UsFormGroup,
-    UsComboBox,
+    UsFormCombobox,
+    UsFormCheckbox,
     UsImg,
     UsHeader,
     UsNavItem,
