@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com///compare/v0.1.11...v0.1.12) (2020-10-16)
+
+
+### Features
+
+* added form-group, form and tabs. Plus doc updates ([d97c167](https://github.com///commit/d97c1673ca5a21cd52d5a22b360ac0f79303bf2b))
+
 ### [0.1.11](https://github.com///compare/v0.1.10...v0.1.11) (2020-10-15)
 
 
