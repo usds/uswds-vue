@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com///compare/v0.1.12...v0.1.13) (2020-10-20)
+
+
+### Features
+
+* added checkbox component, updates to docs ([a0ff2f5](https://github.com///commit/a0ff2f504505876c01756fd30081e394f702b6cc))
+
 ### [0.1.12](https://github.com///compare/v0.1.11...v0.1.12) (2020-10-16)
 
 

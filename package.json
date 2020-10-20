@@ -1,6 +1,6 @@
 {
   "name": "uswds-vue",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "private": false,
   "description": "Vue USWDS component library",
   "main": "dist/uswds-vue.umd.min.js",
