@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: 'us-combo-box',
+    name: 'us-form-combobox',
     props: {
         value: {
             default: ''

@@ -78,8 +78,10 @@ export default {
             // If there any child form inputs, update their valid prop too
             this.$children.map((child)=>{
                 if (child.$options && child.$options.name.search('us-form-') !== -1){
-                    console.log(child.$options.name)
-                    child.setValid(val);
+                    console.log(child.$options.name);
+                    if (typeof child.setValid == 'function'){
+                        child.setValid(val);
+                    }
                     //child.$options.error = this.error;
                 }
             });             

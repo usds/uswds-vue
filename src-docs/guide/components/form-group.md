@@ -73,7 +73,7 @@ If you need full support for hmtl with your label, then you can use the label sl
 
 ## Component Reference
 
-
+### `<us-form-group>`
 
 ### Properties 
 

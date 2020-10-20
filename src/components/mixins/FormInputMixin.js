@@ -42,7 +42,7 @@ const FormInputMixin = {
     watch: {
         value(newVal, oldVal) {
             if (newVal != oldVal) {
-                this.init();
+                this.setValid(newVal);
             }
         },
         currentValue(val) {
@@ -79,7 +79,21 @@ const FormInputMixin = {
     methods: {
 
         setValid(val){
-            this.localValid = val;
+            try {
+                // Note that we're updating, so the watcher won't respond
+                this.isUpdating = true;
+
+                // Set the internal value to the v-model value (i.e. copy the
+                // data passed in from parent component as the v-model prop to
+                // a local value so we can mutated it.)
+                this.localValid = val;
+
+                this.$nextTick(() => {
+                    this.isUpdating = false;
+                });
+            } catch (err) {
+                this.$logError('Error in FormInputMixin; ', err);
+            }            
         },
 
         /**
