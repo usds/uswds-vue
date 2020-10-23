@@ -8,6 +8,7 @@
             :label-for="divId"
             :error="opts.error || v.errors[0]"
             label-class="usx-form-label"
+            :valid="getValidationState(v)"
         >
             <us-form-radio
                 :id="divId"
@@ -18,7 +19,6 @@
                 v-model="currentValue"
                 :disabled="opts.disabled"
                 :placeholder="opts.placeholder"
-                :valid="getValidationState(v)"
             />
         </us-form-group>
     

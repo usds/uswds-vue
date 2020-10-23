@@ -7,6 +7,7 @@
             :label-sr-only="opts.hideLabel"
             :label-for="divId"
             :error="opts.error || v.errors[0]"
+            :valid="getValidationState(v)"
             label-class="usx-form-label"
         >
             <us-form-checkbox
@@ -18,7 +19,6 @@
                 v-model="currentValue"
                 :disabled="opts.disabled"
                 :placeholder="opts.placeholder"
-                :valid="getValidationState(v)"
             />
         </us-form-group>
     

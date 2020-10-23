@@ -1,11 +1,13 @@
 <template>
     <validation-provider tag="div" :rules="opts.rules" :name="opts.name" :vid="vid" v-slot="v">
+
         <us-form-group
             :label="opts.label"
             :helpText="opts.help"
             :label-sr-only="opts.hideLabel"
             :label-for="divId"
             :error="opts.error || v.errors[0]"
+            :valid="getValidationState(v)"
             label-class="usx-form-label"
         >
             <us-form-combobox
@@ -17,9 +19,10 @@
                 v-model="currentValue"
                 :disabled="opts.disabled"
                 :placeholder="opts.placeholder"
-                :valid="getValidationState(v)"
             ></us-form-combobox>
+
         </us-form-group>
+
     </validation-provider>
 </template>
 

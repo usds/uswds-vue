@@ -30,6 +30,7 @@ import UsListGroupItem from './components/lists/UsListGroupItem';
 
 // Extended components
 import UsValidatedForm from './components/form-extended/UsValidatedForm';
+//import UsValidatedFormWizard from './components/form-extended/UsValidatedFormWizard';
 
 import UsValidatedInput from './components/form-extended/UsValidatedInput';
 import UsValidatedText from './components/form-extended/inputs/UsValidatedText';
@@ -78,7 +79,8 @@ const Components = {
     UsValidatedCheckbox,
     UsValidatedRadio,
     UsValidatedMaskedText,
-    UsValidatedForm
+    UsValidatedForm,
+    //UsValidatedFormWizard
 };
 
 /**

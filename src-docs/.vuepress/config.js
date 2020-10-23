@@ -107,7 +107,7 @@ module.exports = {
                 'components/form-inputs/form-time'
               ]
             },
-            'components/validated-form/validated-input',
+            'components/validated-form',
             //'components/image',
             'components/lists',
             'components/tabs',

@@ -58,7 +58,7 @@ const FormInputMixin = {
             if (this.$parent && this.$parent.$options.name == 'us-form-group'){
                 return this.$parent.valid;
             }
-            
+            return null;            
         }        
     },
     created() {},

@@ -86,7 +86,8 @@ export default {
         parentValid(){
             if (this.$parent && this.$parent.$options.name == 'us-form-group'){
                 return this.$parent.valid;
-            }            
+            }     
+            return null;       
         }
     },
     watch: {
@@ -159,7 +160,16 @@ export default {
 </script>
 <style lang="scss">
 .usa-combo-box {
-    
+   /* 
+.usa-form-group--error {
+    border-left-width: 0.25rem;
+    border-left-color: #b50909;
+    border-left-style: solid;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    position: relative;
+}
+*/    
     max-width: 100%;
     
     input {
@@ -176,7 +186,7 @@ export default {
     }
 
     &.usx-error {
-        input {
+        select {
             border-width: 0.25rem;
             border-color: #b50909;
             border-style: solid;

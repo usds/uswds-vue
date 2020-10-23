@@ -1,5 +1,5 @@
 <template>
-    <fieldset  class="usa-fieldset">
+    <fieldset class="usa-fieldset">
                 
         <span v-if="localOptions">
             <div class="usa-radio" v-for="(item, index) in localOptions" :key="index">
