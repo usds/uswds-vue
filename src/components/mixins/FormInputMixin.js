@@ -47,6 +47,7 @@ const FormInputMixin = {
             if (!this.isUpdating) {
                 // allows us to use v-model on our input.
                 this.$emit('input', val);
+                this.$emit('changed', val);
             }
         }
     },

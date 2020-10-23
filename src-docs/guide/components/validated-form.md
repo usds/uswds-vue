@@ -134,6 +134,7 @@ export default {
                 {label: 'What is your zip code?', type:'zip', name: 'zipField', description: 'This is a validated zip code input', key:'zip-1', required: true},
                 {label: 'Pick one', type:'combobox', options: ['option 1', 'option 2', 'option 3'], name: 'comboboxField', description: 'This is a validated combobox, you must pick one', key:'combo-1', required: true},
                 {label: 'Pick one', type:'radio', options: ['option 1', 'option 2', 'option 3'], name: 'radioField', description: 'This is a validated radio, you must pick one', key:'radio-1', required: true},
+                {label: 'Yes or no?', type:'boolean', name: 'booleanField', description: 'This is a validated boolean field', key:'bool-1', required: true}
             ],
             config2: [
                 [

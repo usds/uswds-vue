@@ -30,7 +30,7 @@ import { ValidationProvider } from 'vee-validate';
 import InputMixin from '../mixins/InputMixin.js';
 
 export default {
-    name: 'form-input-checkbox',
+    name: 'us-validated-checkbox',
     components: {
         ValidationProvider
     },

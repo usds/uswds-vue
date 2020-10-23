@@ -1,30 +1,28 @@
 <template>
-    <fieldset class="usa-fieldset">
                 
-        <span v-if="localOptions">
-            <div class="usa-radio" v-for="(item, index) in localOptions" :key="index">
-                <input 
-                    class="usa-radio__input" 
-                    v-model="checkedValues"
-                    :id="item.id" 
-                    :name="localOptions.name || `radio-${divId}`"
-                    type="radio" 
-                    :value="item.value" 
-                    :disabled="item.disabled"
-                    :checked="item.checked"                    
-                />
+    <span v-if="localOptions">
+        <div class="usa-radio" v-for="(item, index) in localOptions" :key="index">
+            <input 
+                class="usa-radio__input" 
+                v-model="checkedValues"
+                :id="item.id" 
+                :name="localOptions.name || `radio-${divId}`"
+                type="radio" 
+                :value="item.value" 
+                :disabled="item.disabled"
+                :checked="item.checked"                    
+            />
 
-                <label class="usa-radio__label" :for="item.id">
-                    <slot name="label" v-bind:item="item">
-                        {{item.label}}
-                    </slot>
-                </label>
+            <label class="usa-radio__label" :for="item.id">
+                <slot name="label" v-bind:item="item">
+                    {{item.label}}
+                </slot>
+            </label>
 
 
-            </div>
-        </span>
+        </div>
+    </span>
 
-    </fieldset>
 
 </template>
 <script>
@@ -71,6 +69,7 @@ export default {
             if (!this.isUpdating) {
                 // allows us to use v-model on our input.
                 this.$emit('input', val);
+                this.$emit('changed', val);
                 this.$nextTick(() => {
                     this.isUpdating = false;
                 });                

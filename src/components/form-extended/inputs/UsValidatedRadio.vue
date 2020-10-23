@@ -30,7 +30,7 @@ import { ValidationProvider } from 'vee-validate';
 import InputMixin from '../mixins/InputMixin.js';
 
 export default {
-    name: 'form-input-radio',
+    name: 'us-validated-radio',
     components: {
         ValidationProvider
     },

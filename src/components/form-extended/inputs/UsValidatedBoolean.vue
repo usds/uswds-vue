@@ -9,14 +9,12 @@
             :valid="getValidationState(v)"
             label-class="usx-form-label"
         >                    
-        <us-form-input
+        <us-form-boolean
                 :id="divId"
                 :name="opts.name"
                 v-model="currentValue"
-                :type="type"
                 :disabled="opts.disabled"
-                :placeholder="opts.placeholder"
-            ></us-form-input>
+            />
         </us-form-group>
     </validation-provider>
 </template>
@@ -26,29 +24,10 @@ import { ValidationProvider } from 'vee-validate';
 import InputMixin from '../mixins/InputMixin.js';
 
 export default {
-    name: 'us-validated-text',
+    name: 'us-validated-boolean',
     components: {
         ValidationProvider
     },
     mixins: [InputMixin],
-    props: {
-        // value, required, disabled, name, label, placeholder, description, hideLabel
-        // provided by the InputMixin
-    },
-    mounted() {
-        if (this.opts.type == 'password' || this.opts.type == 'password-confirm') {
-            this.type = 'password';
-        }
-    },
-    data() {
-        // divId, isUpdating, vid, currentValue, inputName
-        // provided by the InputMixin
-        return {
-            type: 'text'
-        };
-    },
-    methods: {
-        // getValidationState method provided by InputMixin
-    }
 };
 </script>

@@ -7,6 +7,7 @@ import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsFormCombobox from './components/form/UsFormCombobox';
 import UsFormRadio from './components/form/UsFormRadio';
+import UsFormBoolean from './components/form/UsFormBoolean';
 import UsFormCheckbox from './components/form/UsFormCheckbox';
 import UsStepIndicator from './components/form/UsStepIndicator';
 import UsButton from './components/UsButton';
@@ -37,6 +38,7 @@ import UsValidatedText from './components/form-extended/inputs/UsValidatedText';
 import UsValidatedCombobox from './components/form-extended/inputs/UsValidatedCombobox';
 import UsValidatedCheckbox from './components/form-extended/inputs/UsValidatedCheckbox';
 import UsValidatedRadio from './components/form-extended/inputs/UsValidatedRadio';
+import UsValidatedBoolean from './components/form-extended/inputs/UsValidatedBoolean';
 import UsValidatedMaskedText from './components/form-extended/inputs/UsValidatedMaskedText';
 // Debug components
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
@@ -60,6 +62,7 @@ const Components = {
     UsFormCombobox,
     UsFormCheckbox,
     UsFormRadio,
+    UsFormBoolean,
     UsImg,
     UsHeader,
     UsNavItem,
@@ -78,6 +81,7 @@ const Components = {
     UsValidatedCombobox,
     UsValidatedCheckbox,
     UsValidatedRadio,
+    UsValidatedBoolean,
     UsValidatedMaskedText,
     UsValidatedForm,
     //UsValidatedFormWizard

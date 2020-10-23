@@ -111,6 +111,15 @@ export default {
         getValue(index){
 
             let item = this.options[index];
+
+            if (item.value){
+                return item.value;
+            }
+            else {
+                return item;
+            }
+
+            /*
             let hasKey = Object.prototype.hasOwnProperty.call(item, this.keyField);
 
             if (this.keyField && hasKey){
@@ -122,11 +131,20 @@ export default {
             else {
                 return item;
             }
+            */
         },
 
         getLabel(index){
-
+            
             let item = this.options[index];
+
+            if (item.label){
+                return item.label;
+            }
+            else {
+                return item;
+            }
+            /*
             let hasKey = Object.prototype.hasOwnProperty.call(item, this.keyField);
 
 
@@ -139,6 +157,7 @@ export default {
             else {
                 return item;
             }
+            */
         },
         
 

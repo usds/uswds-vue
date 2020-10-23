@@ -52,6 +52,10 @@
 
     <us-validated-combobox v-else-if="config.type == 'combobox'" v-model="currentValue" :config="config" />
 
+    <!-- Yes/No input -->
+
+    <us-validated-boolean v-else-if="config.type == 'boolean'" v-model="currentValue" :config="config" />
+
     <!-- Default to text input -->
 
     <us-validated-text v-else-if="config.type == 'text'" v-model="currentValue" :config="config" />

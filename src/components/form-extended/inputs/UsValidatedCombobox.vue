@@ -31,7 +31,7 @@ import { ValidationProvider } from 'vee-validate';
 import InputMixin from '../mixins/InputMixin.js';
 
 export default {
-    name: 'form-input-select',
+    name: 'us-validated-combobox',
     components: {
         ValidationProvider
     },

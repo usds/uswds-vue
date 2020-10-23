@@ -36,7 +36,7 @@ import {TheMask} from 'vue-the-mask'
 import InputMixin from '../mixins/InputMixin.js';
 
 export default {
-    name: 'form-input-masked-text',
+    name: 'us-validated-masked-text',
     components: {
         ValidationProvider,
         TheMask

@@ -104,7 +104,8 @@ module.exports = {
                 'components/form-inputs/form-fileinput',
                 'components/form-inputs/form-input',
                 'components/form-inputs/form-slider',
-                'components/form-inputs/form-time'
+                'components/form-inputs/form-time',
+                'components/form-inputs/form-boolean'
               ]
             },
             'components/validated-form',
