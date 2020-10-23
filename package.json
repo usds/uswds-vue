@@ -47,7 +47,9 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "standard-version": "^9.0.0",
+    "vee-validate": "^3.4.2",
     "vue-template-compiler": "^2.6.11",
+    "vue-the-mask": "^0.11.1",
     "vuepress": "^1.5.4"
   },
   "eslintConfig": {

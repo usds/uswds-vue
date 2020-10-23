@@ -1,15 +1,15 @@
 <template>
     <input
         class="usa-input"
-        :name="localName"
+        :name="name"
         :id="divId"
         v-model="currentValue"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
         :class="{
-            'usa-input--error': localValid === false,
-            'usa-input--success': localValid === true
+            'usa-input--error': valid === false || parentValid === false,
+            'usa-input--success': valid === true || parentValid === true
         }"
     />
 </template>
@@ -27,6 +27,11 @@ export default {
     data() {
         return {
         };
+    },
+    computed: {
+        parentValid(){
+            return this.$parent.valid;
+        }
     },
     watch: {
 

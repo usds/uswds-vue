@@ -57,35 +57,6 @@ export default {
             type: String,
             default: null
         }
-    },
-    watch: {
-        valid(newVal, oldVal) {
-            
-            if (newVal == oldVal){
-                return;
-            }
-
-            this.setChildValid(newVal);
-
-        }
-    },
-    mounted(){
-        this.setChildValid(this.valid);
-    },
-    methods: {
-
-        setChildValid(val){
-            // If there any child form inputs, update their valid prop too
-            this.$children.map((child)=>{
-                if (child.$options && child.$options.name.search('us-form-') !== -1){
-                    console.log(child.$options.name);
-                    if (typeof child.setValid == 'function'){
-                        child.setValid(val);
-                    }
-                    //child.$options.error = this.error;
-                }
-            });             
-        }
     }
 };
 </script>

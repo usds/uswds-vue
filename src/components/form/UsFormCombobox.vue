@@ -2,8 +2,8 @@
     <div
         class="usa-combo-box mt-1"
         :class="{
-            'usx-error': valid === false,
-            'usx-success': valid === true
+            'usx-error': valid === false || parentValid === false,
+            'usx-success': valid === true || parentValid === true
         }"
     >
         <select class="usa-select" v-model="currentValue" :name="name" :id="divId" :disabled="disabled">
@@ -81,6 +81,13 @@ export default {
             isUpdating: false,
             currentValue: ''
         };
+    },
+    computed: {
+        parentValid(){
+            if (this.$parent && this.$parent.$options.name == 'us-form-group'){
+                return this.$parent.valid;
+            }            
+        }
     },
     watch: {
         value(newVal, oldVal) {

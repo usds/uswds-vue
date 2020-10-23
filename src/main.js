@@ -6,6 +6,7 @@ import UsFormInput from './components/form/UsFormInput';
 import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsFormCombobox from './components/form/UsFormCombobox';
+import UsFormRadio from './components/form/UsFormRadio';
 import UsFormCheckbox from './components/form/UsFormCheckbox';
 import UsStepIndicator from './components/form/UsStepIndicator';
 import UsButton from './components/UsButton';
@@ -27,6 +28,15 @@ import UsTabs from './components/tabs/UsTabs';
 import UsListGroup from './components/lists/UsListGroup';
 import UsListGroupItem from './components/lists/UsListGroupItem';
 
+// Extended components
+import UsValidatedForm from './components/form-extended/UsValidatedForm';
+
+import UsValidatedInput from './components/form-extended/UsValidatedInput';
+import UsValidatedText from './components/form-extended/inputs/UsValidatedText';
+import UsValidatedCombobox from './components/form-extended/inputs/UsValidatedCombobox';
+import UsValidatedCheckbox from './components/form-extended/inputs/UsValidatedCheckbox';
+import UsValidatedRadio from './components/form-extended/inputs/UsValidatedRadio';
+import UsValidatedMaskedText from './components/form-extended/inputs/UsValidatedMaskedText';
 // Debug components
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 
@@ -48,6 +58,7 @@ const Components = {
     UsFormGroup,
     UsFormCombobox,
     UsFormCheckbox,
+    UsFormRadio,
     UsImg,
     UsHeader,
     UsNavItem,
@@ -59,7 +70,15 @@ const Components = {
 	UsResponsiveInfo,
 	UsListGroup,
     UsListGroupItem,
-    UsStepIndicator
+    UsStepIndicator,
+
+    UsValidatedInput,
+    UsValidatedText,
+    UsValidatedCombobox,
+    UsValidatedCheckbox,
+    UsValidatedRadio,
+    UsValidatedMaskedText,
+    UsValidatedForm
 };
 
 /**

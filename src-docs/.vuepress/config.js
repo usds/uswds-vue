@@ -98,6 +98,7 @@ module.exports = {
               collapsable: false,
               children: [
                 'components/form-inputs/form-checkbox',
+                'components/form-inputs/form-radio',
                 'components/form-inputs/form-combobox',
                 'components/form-inputs/form-date',
                 'components/form-inputs/form-fileinput',
@@ -106,6 +107,7 @@ module.exports = {
                 'components/form-inputs/form-time'
               ]
             },
+            'components/validated-form/validated-input',
             //'components/image',
             'components/lists',
             'components/tabs',

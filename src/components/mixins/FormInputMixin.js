@@ -34,15 +34,13 @@ const FormInputMixin = {
         return {
             divId: null,
             isUpdating: false,
-            currentValue: '',
-            localName: null,
-            localValid: null
+            currentValue: ''
         };
     },
     watch: {
         value(newVal, oldVal) {
-            if (newVal != oldVal) {
-                this.setValid(newVal);
+            if (newVal != oldVal) {                
+                this.__onInputChanged();
             }
         },
         currentValue(val) {
@@ -55,7 +53,13 @@ const FormInputMixin = {
     computed:{
         isValid(){
             return this.localValid;
-        }
+        },
+        parentValid(){
+            if (this.$parent && this.$parent.$options.name == 'us-form-group'){
+                return this.$parent.valid;
+            }
+            
+        }        
     },
     created() {},
     mounted() {
@@ -65,36 +69,9 @@ const FormInputMixin = {
         // Create a unique div id
         this.divId = `id-${uuid}`;
 
-        this.localValid = this.valid;
-
-        // If the name isn't given, then create (this helps with screen readers)
-        // so we can make sure labels are associated with inputs
-        this.localName = this.name;
-        if (!this.localName) {
-            this.localName = `name-${uuid}`;
-        }
-
         this.__onInputChanged();
     },
     methods: {
-
-        setValid(val){
-            try {
-                // Note that we're updating, so the watcher won't respond
-                this.isUpdating = true;
-
-                // Set the internal value to the v-model value (i.e. copy the
-                // data passed in from parent component as the v-model prop to
-                // a local value so we can mutated it.)
-                this.localValid = val;
-
-                this.$nextTick(() => {
-                    this.isUpdating = false;
-                });
-            } catch (err) {
-                this.$logError('Error in FormInputMixin; ', err);
-            }            
-        },
 
         /**
          * Respond to the input (v-model) being changed

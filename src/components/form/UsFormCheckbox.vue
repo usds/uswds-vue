@@ -1,7 +1,5 @@
 <template>
     <fieldset  class="usa-fieldset">
-
-        <legend class="usa-legend">{{label}}</legend>
                 
         <span v-if="localOptions">
             <div class="usa-checkbox" v-for="(item, index) in localOptions" :key="index">
@@ -9,26 +7,18 @@
                     class="usa-checkbox__input" 
                     v-model="checkedValues"
                     :id="item.id" 
-                    :name="`checkbox-${divID}`"
+                    :name="localOptions.name || `checkbox-${divId}`"
                     type="checkbox" 
                     :value="item.value" 
                     :disabled="item.disabled"
                     :checked="item.checked"                    
                 />
-
                 <label class="usa-checkbox__label" :for="item.id">
                     <slot name="label" v-bind:item="item">
                         {{item.label}}
                         <div class="usx-checkbox-desc" v-if="item.description">{{item.description}}</div>
                     </slot>
                 </label>
-
-                <!--
-                <slot name="label" v-bind:item="item">
-                    <label class="usa-checkbox__label" :for="item.id" :class="{'usx-checkbox-label-with-desc': item.description }">{{item.label}}</label>
-                    <div class="usx-checkbox-desc" v-if="item.description">{{item.description}}</div>
-                </slot>
-                -->
             </div>
         </span>
 

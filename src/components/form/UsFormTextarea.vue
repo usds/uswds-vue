@@ -11,8 +11,8 @@
         :class="{
             'usa-input--small': size == 'sm',
             'usa-input--medium': size == 'md',
-            'usa-input--error': valid === false,
-            'usa-input--success': valid === true
+            'usa-input--error': valid === false || parentValid === false,
+            'usa-input--success': valid === true || parentValid === true  
         }"
     />
 </template>
