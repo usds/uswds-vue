@@ -1,4 +1,4 @@
-import _ from 'lodash';
+//import _ from 'lodash';
 import Validator from '../../utils/Validator';
 
 /**
@@ -43,7 +43,7 @@ const FormInputMixin = {
         return {
             divId: null,
             isUpdating: false,
-            currentValue: '',
+            currentValue: null,
             localValid: null,
             dirty: false,
             errors: [],
@@ -52,13 +52,25 @@ const FormInputMixin = {
         };
     },
     watch: {
-        value(newVal, oldVal) {
-            if (newVal != oldVal) {                
-                this.__onInputChanged();
+        valid(newVal, oldVal) {
+            if (newVal != oldVal) { 
+                this.localValid = newVal;
+                this.updateParentValidState(null);
             }
+        },
+        value(newVal) {
+            this.__updateVal(newVal);
         },
         currentValue(val) {
             if (!this.isUpdating) {
+
+                // Set the field as dirty
+                this.dirty = true;
+
+                if (this.validationMode == 'aggressive'){
+                    this.validate();
+                }
+
                 // allows us to use v-model on our input.
                 this.$emit('input', val);
                 this.$emit('changed', val);
@@ -79,10 +91,16 @@ const FormInputMixin = {
     created() {},
     mounted() {
 
+        console.log('MOUNTED', this.value)
         const uuid = this.__getGuid();
 
         // Create a unique div id
         this.divId = `id-${uuid}`;
+
+        // Set the internal value to the v-model value (i.e. copy the
+        // data passed in from parent component as the v-model prop to
+        // a local value so we can mutated it.)
+        this.__updateVal(this.value);
 
         // Instantiate a validator class
         if (this.rules){
@@ -99,40 +117,44 @@ const FormInputMixin = {
             return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
         },
 
-        /**
-         * Respond to the input (v-model) being changed
-         */
-        __onInputChanged() {
-            try {
-                // Note that we're updating, so the watcher won't respond
-                this.isUpdating = true;
+        __updateVal(newVal){
 
-                // Set the field as dirty
-                this.dirty = true;
+            // Note that we're updating, so the watcher for currentValue won't respond
+            this.isUpdating = true;
 
-                if (this.validationMode == 'aggressive'){
-                    this.validate();
+            // Set the internal value to the v-model value (i.e. copy the
+            // data passed in from parent component as the v-model prop to
+            // a local value so we can mutated it.)
+            console.log('NEW VAL = ', newVal);
+            
+            // Deal with some special cases...
+            if (this.$options.name == 'us-form-checkbox' || this.$options.name == 'us-form-radio'){
+                if (!newVal){
+                    this.currentValue = [];
                 }
-
-                // Set the internal value to the v-model value (i.e. copy the
-                // data passed in from parent component as the v-model prop to
-                // a local value so we can mutated it.)
-                this.currentValue = this.value;
-
-                this.$nextTick(() => {
-                    this.isUpdating = false;
-                });
-            } catch (err) {
-                console.error('Error in FormInputMixin; ', err);
+                else {
+                    this.currentValue = newVal;
+                }
             }
+            else {
+                this.currentValue = newVal;
+            }
+
+            this.$nextTick(() => {
+                this.isUpdating = false;
+            });
+
         },
 
         async validate(){
+
             let errors = [];
+            let isValid = false;
+
             if (this.required){
-                console.log('Running validation...')
-                errors = await this.validator.run(this.currentValue);
-                if (errors.length == 0){
+                isValid = await this.validator.run(this.currentValue);
+                errors = this.validator.getErrors();
+                if (isValid){
                     this.localValid = true;
                 }
                 else {
@@ -143,14 +165,17 @@ const FormInputMixin = {
                 this.localValid = true;
             }
 
-            // if the parent is a form group, let it know this input's valid state
-            if (this.$parent && this.$parent.$options.name == 'us-form-group'){
-                this.$parent.onValidated(this.localValid, errors);
-            }
+            this.updateParentValidState(errors);
             
             return this.localValid;
         },
 
+        updateParentValidState(errors){
+            // if the parent is a form group, let it know this input's valid state
+            if (this.$parent && this.$parent.$options.name == 'us-form-group'){
+                this.$parent.onValidated(this.localValid, errors);
+            }            
+        }
 
     }
 };

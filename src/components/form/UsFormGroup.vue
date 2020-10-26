@@ -69,6 +69,8 @@ export default {
         this.localError = this.error;
     },
     methods: {
+        // This method is called by child components to indicate the validation state 
+        // has changed
         onValidated(state, errors){
             this.localValid = state;
             this.localError = (errors && errors.length > 0) ? errors[0] : null;

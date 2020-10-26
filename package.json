@@ -20,7 +20,8 @@
     "docs2:build": "yarn --cwd docs build",
     "docs:dev": "vuepress dev src-docs",
     "docs:build": "vuepress build src-docs",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "jest"
   },
   "files": [
     "dist/*",
@@ -33,7 +34,8 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "uswds": "^2.9.0",
-    "vue-gtag": "^1.9.1"
+    "vue-gtag": "^1.9.1",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -42,14 +44,14 @@
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
+    "chance": "^1.1.7",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "jest": "^26.6.1",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "standard-version": "^9.0.0",
-    "vee-validate": "^3.4.2",
     "vue-template-compiler": "^2.6.11",
-    "vue-the-mask": "^0.11.1",
     "vuepress": "^1.5.4"
   },
   "eslintConfig": {
@@ -83,7 +85,9 @@
     "not dead"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
+    "preset": "@vue/cli-plugin-unit-jest",
+    "collectCoverage": false,
+    "verbose": true    
   },
   "keywords": [
     "uswds",

@@ -3,6 +3,7 @@ import UsCard from './components/cards/UsCard';
 import UsCardGroup from './components/cards/UsCardGroup';
 import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
+import UsFormInputMasked from './components/form/UsFormInputMasked';
 import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsFormCombobox from './components/form/UsFormCombobox';
@@ -29,17 +30,6 @@ import UsTabs from './components/tabs/UsTabs';
 import UsListGroup from './components/lists/UsListGroup';
 import UsListGroupItem from './components/lists/UsListGroupItem';
 
-// Extended components
-import UsValidatedForm from './components/form-extended/UsValidatedForm';
-//import UsValidatedFormWizard from './components/form-extended/UsValidatedFormWizard';
-
-import UsValidatedInput from './components/form-extended/UsValidatedInput';
-import UsValidatedText from './components/form-extended/inputs/UsValidatedText';
-import UsValidatedCombobox from './components/form-extended/inputs/UsValidatedCombobox';
-import UsValidatedCheckbox from './components/form-extended/inputs/UsValidatedCheckbox';
-import UsValidatedRadio from './components/form-extended/inputs/UsValidatedRadio';
-import UsValidatedBoolean from './components/form-extended/inputs/UsValidatedBoolean';
-import UsValidatedMaskedText from './components/form-extended/inputs/UsValidatedMaskedText';
 // Debug components
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 
@@ -57,6 +47,7 @@ const Components = {
     UsButtonGroup,
     UsForm,
     UsFormInput,
+    UsFormInputMasked,
     UsFormTextarea,
     UsFormGroup,
     UsFormCombobox,
@@ -74,17 +65,7 @@ const Components = {
 	UsResponsiveInfo,
 	UsListGroup,
     UsListGroupItem,
-    UsStepIndicator,
-
-    UsValidatedInput,
-    UsValidatedText,
-    UsValidatedCombobox,
-    UsValidatedCheckbox,
-    UsValidatedRadio,
-    UsValidatedBoolean,
-    UsValidatedMaskedText,
-    UsValidatedForm,
-    //UsValidatedFormWizard
+    UsStepIndicator
 };
 
 /**

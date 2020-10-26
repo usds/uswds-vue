@@ -1,4 +1,4 @@
-'use strict';
+import _ from 'lodash';
 
 class Validator {
     
@@ -6,6 +6,10 @@ class Validator {
         
         this.rules = rules;
         this.valids  = {};
+        Validator.locale = 'en';
+        this.errors = [];
+        this.passed = [];
+        this.isDirty = false;
 
         /*
         Vee-Validate rules not implemented yet;
@@ -37,57 +41,75 @@ class Validator {
         size
 
 */
-        this.defaults = {
-            'length': {
-                validator: (val, length)=>{
-                    return (val && typeof val == 'string') ? val.length>=length : false 
+        this.defaultMessages = {
+            'en' : 'Please enter a value'
+        };
+
+        if (!Validator.ruleLibary){
+            Validator.ruleLibary = {
+                'length': {
+                    validator: (val, length)=>{
+                        return (val && typeof val == 'string') ? val.length>=length : false 
+                    },
+                    message: (length) => {
+                        return {
+                            'en': `Please enter at least ${length} characters`
+                        }
+                    }
+                },            
+                'email': {
+                    validator: (val)=>{
+                        return Validator.isEmailValid(val);
+                    },
+                    message: {'en': 'Please enter a valid email'}
                 },
-                message: `Please enter at least ${length} characters`
-            },            
-            'email': {
-                validator: (val)=>{
-                    return Validator.isEmailValid(val);
-                },
-                message: 'Please enter a valid email'
-            },
-            'zip': {
-                validator: (val)=>{
-                    return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val);
-                },
-                message: 'Please enter a valid zip code'
-            }, 
-            'alpha': {
-                validator: (val)=>{
-                    return /^[a-z]+$/i.test(val);
-                },
-                message: 'Please enter only characters'
-            },             
-            'numeric': {
-                validator: (val)=>{
-                    return /^[0-9]+$/i.test(val);
-                },
-                message: 'Please enter a number'
-            },             
-            'alpha_num': {
-                validator: (val)=>{
-                    return /^[a-z0-9]+$/i.test(val);
-                },
-                message: 'Please enter a alpha-numeric value'
-            },             
-            'required': {
-                validator: (val)=>{
-                    return !!val;
-                },
-                message: 'Please enter a value'
-            }, 
-            'password': {
-                validator: (val)=>{
-                    return Validator.isPasswordComplex(val);
-                },
-                message: 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'
-            }                
+                'zip': {
+                    validator: (val)=>{
+                        return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val);
+                    },
+                    message: {'en': 'Please enter a valid zip code'}
+                }, 
+                'alpha': {
+                    validator: (val)=>{
+                        return /^[a-z]+$/i.test(val);
+                    },
+                    message: {'en': 'Please enter only characters'}
+                },             
+                'numeric': {
+                    validator: (val)=>{
+                        return /^[0-9]+$/i.test(val);
+                    },
+                    message: {'en': 'Please enter a number'}
+                },             
+                'alpha_num': {
+                    validator: (val)=>{
+                        return /^[a-z0-9]+$/i.test(val);
+                    },
+                    message: {'en': 'Please enter a alpha-numeric value'}
+                },             
+                'required': {
+                    validator: (val)=>{
+                        return !!val;
+                    },
+                    message: {'en': 'Please enter a value'}
+                }, 
+                'password': {
+                    validator: (val)=>{
+                        return Validator.isPasswordComplex(val);
+                    },
+                    message: {'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'}
+                }                
+            }
         }
 
+    }
+
+    getErrors(){
+        return this.errors;
+    }
+    
+    getPassed(){
+        return this.passed;
     }
 
     /**
@@ -97,68 +119,117 @@ class Validator {
     async run(val){
 
         let errors = [];
+        let passed = [];
         
         if (!this.rules){
             return;
         }
 
+        // Support of vee-validate style string based rules. i.e. rules are serpated by a pipe
+        // e.g. 'required|length:10'
         if (typeof this.rules == 'string'){
             // TODO: implment vee-validate strings style rules
             throw new Error(`String based rules not supported yet!!`)
+            //let rules = ruleObj.split('|');
+            //let vars = _.map(r)
         }
 
         let keys = Object.keys(this.rules);
 
         for (let i=0; i<keys.length; i+=1){
-            
-            // Start with the default validator
-            let validFunc = this.defaults['required'].validator;
 
-            // Lookup the rule, or check if a validator functuion was passed
-            let rule = this.rules[i];
-            let msg = 'Please enter a value';
+            let name = keys[i];
 
-            // Get the error message, first check for an over-ride. Then check for a default. 
-            // Fallback to a generic messge
-            if (rule.message){
-                msg = rule.message;
-            }
-            else if (this.defaults[rule.type] && this.defaults[rule.type].message){
-                msg = this.defaults[rule.type].message;
-            }
-
-            // Get the validator function, first check for an over-ride. Then check for a default. 
-            // Fallback to a generic validator
-            if (rule.validator){
-                validFunc = rule.validator;
+            // Check this rule exists first
+            if (!Validator.ruleLibary[name]){
+                throw new Error(`Rule ${name} does not exist, and no validator given`);
             }            
-            else if (this.defaults[rule.type] && this.defaults[rule.type].validator){
-                validFunc = this.defaults[rule.type].validator;
-            }
-            
-            // Now do the validation!
-            if (!val){
-                //console.log(`[${rule.field}] EMPTY: ${msg}`)    
-                errors.push(msg);           
+
+            let ruleSettings = this.rules[name];
+            let validFunc = Validator.ruleLibary[name].validator;
+
+            // the rule message could be a function, if so call it to get a string
+            let msg = null;
+
+            if (typeof Validator.ruleLibary[name].message === 'function'){
+                msg = Validator.ruleLibary[name].message(ruleSettings);
             }
             else {
+                msg = Validator.ruleLibary[name].message;
+            }
+
+            if (!msg[Validator.locale]){
+                throw new Error(`Rule ${name} does not have a validation message for the current locale, ${Validator.locale}`);
+            }
+
+            msg = msg[Validator.locale];
+
+            // Lookup the rule, or check if a validator function was passed
+            
+            // Now do the validation!
+            if (_.isEmpty(val) && ruleSettings !== false){
+                //console.log(`[${name}] EMPTY: ${msg}`)    
+                errors.push(msg);           
+            }
+            else if (ruleSettings !== false) {
                 
-                let isValid = await validFunc(val);
+                let isValid = await validFunc(val, ruleSettings);
 
                 if (!isValid){ 
-                    //console.log(`[${rule.field}] ERROR: ${msg}`)    
+                    //console.log(`[${name}] ERROR: ${msg}`)    
                     errors.push(msg);           
                 }
                 else {
-                    console.log(`[${rule.field}] GOOD: ${msg}`)    
                     // store the fields that passed in case we need them
-                    //errors.addValid(rule.field, msg);           
+                    passed.push(msg);
                 }
+            }
+            else {
+                passed.push(msg);
             }
         }
         
-        errors.isDirty = true;
-        return errors;
+        this.errors = errors;
+        this.passed = passed;
+        this.isDirty = true;
+
+        return (errors.length == 0) ? true : false;
+    }
+
+    /**
+     * Add a new rule
+     * @param {*} rule 
+     */
+    static extend(ruleName, settings){
+        
+        let msg = {};
+
+        // Check we have a validator function
+        if (typeof settings.validator != 'function'){
+            throw new Error(`You must supply a validator function`);
+        }
+
+        // Check for custom message
+        if (settings.message) {
+            if (typeof settings.message == 'string'){
+                msg[Validator.locale] = settings.message;
+            }
+            else if (typeof settings.message == 'function' && settings.message()[Validator.locale]){
+                msg = settings.message;
+            }            
+            else if (settings.message[Validator.locale]){
+                msg = settings.message;
+            }
+            else {
+                throw new Error(`Message does not support the current local, ${Validator.locale}`);
+            }
+        }
+
+        Validator.ruleLibary[ruleName] = {
+            validator: settings.validator,
+            message: msg
+        };
+
     }
 
     static isEmailValid(email) {
@@ -226,4 +297,4 @@ class Validator {
 }
 
 
-module.exports = Validator
+export default Validator

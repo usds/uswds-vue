@@ -1,11 +1,11 @@
 <template>
-    <span v-if="localOptions">
+    <span>
         <div class="usa-checkbox" v-for="(item, index) in localOptions" :key="index">
             <input 
                 class="usa-checkbox__input" 
-                v-model="checkedValues"
+                v-model="currentValue"
                 :id="item.id" 
-                :name="localOptions.name || `checkbox-${divId}`"
+                :name="localOptions.name"
                 type="checkbox" 
                 :value="item.value" 
                 :disabled="item.disabled"
@@ -21,22 +21,12 @@
     </span>
 </template>
 <script>
+import FormInputMixins from "../mixins/FormInputMixin";
+
 export default {
     name: 'us-form-checkbox',
+    mixins: [FormInputMixins],
     props: {
-        value: {
-            default: ''
-        },
-        divId: {
-            type: String,
-            default() {
-                return `id-` + Math.floor(100 + Math.random() * 10000);
-            }
-        },
-        valid: {
-            type: Boolean,
-            default: null
-        },
         options: {
             type: Array,
             default: null
@@ -45,28 +35,13 @@ export default {
     data() {
         return {
             isUpdating: false,
-            checkedValues: [],
             localOptions: null
         };
     },
-    watch: {
+    watch: {     
         options(newVal, oldVal){
             if (newVal != oldVal && newVal) {
                 this.init();
-            }
-        },
-        value(newVal, oldVal) {
-            if (newVal != oldVal && !this.isUpdating) {
-                this.checkedValues = this.value;
-            }
-        },
-        checkedValues(val) {
-            if (!this.isUpdating) {
-                // allows us to use v-model on our input.
-                this.$emit('input', val);
-                this.$nextTick(() => {
-                    this.isUpdating = false;
-                });                
             }
         }
     },
@@ -75,16 +50,10 @@ export default {
     },
     methods: {
 
-
         init() {
-
-            this.isUpdating = true;
-
-            this.$nextTick(() => {
-                this.isUpdating = false;
-            });
                         
             if (this.options){
+
                 this.localOptions = [];
 
                 for (let i=0; i<this.options.length; i+=1){
