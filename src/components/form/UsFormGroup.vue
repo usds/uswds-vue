@@ -1,15 +1,15 @@
 <template>
-    <div class="usa-form-group" :class="{ 'usa-form-group--error': valid === false }">
+    <div class="usa-form-group" :class="{ 'usa-form-group--error': localValid === false }">
         
         <slot name="label">
             <label v-if="label" class="usa-label" :for="divId">{{ label }}</label>
         </slot>
 
-        <slot v-bind="{ valid, divId }"></slot>
+        <slot v-bind="{ localValid, divId }"></slot>
 
         <!-- Error Message -->
-        <slot name="validation-error" v-bind:error="error">
-            <span v-if="error" class="usa-error-message" id="input-error-message" role="alert">{{ error }}</span>
+        <slot name="validation-error" v-bind:error="localError">
+            <span v-if="localError" class="usa-error-message" id="input-error-message" role="alert">{{ localError }}</span>
         </slot>
 
         <!-- Help text -->
@@ -57,6 +57,23 @@ export default {
             type: String,
             default: null
         }
-    }
+    },
+    data() {
+        return {
+            localValid: null,
+            localError: null
+        };
+    },    
+    mounted(){
+        this.localValid = this.valid;
+        this.localError = this.error;
+    },
+    methods: {
+        onValidated(state, errors){
+            this.localValid = state;
+            this.localError = (errors && errors.length > 0) ? errors[0] : null;
+        }
+
+    }  
 };
 </script>

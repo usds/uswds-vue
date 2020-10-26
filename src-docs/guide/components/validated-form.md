@@ -3,10 +3,18 @@
 ## Basic Usage 
 
 <div class="mt-3 mb-3">
-    <us-validated-form
-        v-model="formData1" 
-        :config="config1"        
-    />
+    <us-form @submit="onSubmit()"> 
+        <us-form-group label="Enter some text">
+            <us-form-input                 
+                name="textField"
+                :required="true"
+                :rules="{required:true, length:10}"
+                description="This is a validated text input"
+                v-model="formData1['text-1']"
+            /> 
+        </us-form-group>
+        <us-button variant="primary" type="submit">Submit</us-button>
+    </us-form>
     {{formData1}}
 </div>
 
@@ -29,7 +37,7 @@
 <div class="mt-3 mb-3">
     <us-validated-form 
         v-model="formData2" 
-        :config="config2"        
+        :config="config0"        
     />
     {{formData2}}
 </div>
@@ -127,6 +135,9 @@ export default {
             formData1: {},
             formData2: {},
             formData3: {},
+            config0: [
+                {label: 'Enter some text', type:'text', name: 'textField', description: 'This is a validated text input', key:'text-1', required: true},
+            ],
             config1: [
                 {label: 'Enter some text', type:'text', name: 'textField', description: 'This is a validated text input', key:'text-1', required: true},
                 {label: 'What is your Phone number', type:'phone-us', name: 'phoneField', description: 'This is a US phone number, and uses a mask to enforce it', key:'phone-1', required: true},
@@ -166,6 +177,11 @@ export default {
                 {title: 'Page 1', fields: this.config1},
                 {title: 'Page 2', fields: this.config2}
             ];
+        }
+    },
+    methods: {
+        onSubmit(){
+
         }
     }
 }

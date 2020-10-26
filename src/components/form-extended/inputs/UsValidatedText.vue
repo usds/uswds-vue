@@ -1,12 +1,12 @@
 <template>
-    <validation-provider tag="div" :rules="opts.rules" :mode="opts.validationMode" :name="opts.name" :vid="vid" v-slot="v">
+    <div>
         <us-form-group
             :label="opts.label"
             :helpText="opts.help"
             :label-sr-only="opts.hideLabel"
             :label-for="divId"
-            :error="opts.error || v.errors[0]"
-            :valid="getValidationState(v)"
+            :error="errors[0]"
+            :valid="valid"
             label-class="usx-form-label"
         >                    
         <us-form-input
@@ -18,18 +18,15 @@
                 :placeholder="opts.placeholder"
             ></us-form-input>
         </us-form-group>
-    </validation-provider>
+    </div>
 </template>
 
 <script>
-import { ValidationProvider } from 'vee-validate';
 import InputMixin from '../mixins/InputMixin.js';
 
 export default {
     name: 'us-validated-text',
-    components: {
-        ValidationProvider
-    },
+    components: {},
     mixins: [InputMixin],
     props: {
         // value, required, disabled, name, label, placeholder, description, hideLabel

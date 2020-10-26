@@ -1,81 +1,75 @@
 <template>
-    <validation-observer class="usx-validated-form" ref="observer" v-slot="{ handleSubmit }">
+
+    <us-form @submit="handleSubmit(doSubmit)" v-if="formData" size="lg" class="mt-5 pb-3">
 
         <h2 class="page-title" v-if="title">{{ title }}</h2>
 
-        <us-form @submit="handleSubmit(doSubmit)" v-if="formData" size="lg" class="mt-5 pb-3">
+        <span v-for="(item, index) in config" :key="index">
+            
+            <!-- If this item is just an array of other items -->
 
-            <span v-for="(item, index) in config" :key="index">
-                
-                <!-- If this item is just an array of other items -->
+            <us-row v-if="Array.isArray(item)" gutter="6">
+                <us-col                            
+                    v-for="subItem in item"
+                    :key="subItem.key"
+                    :sm="subItem.col && subItem.col.sm ? subItem.col.sm : null"
+                    :md="subItem.col && subItem.col.md ? subItem.col.md : null"
+                    :lg="subItem.col && subItem.col.lg ? subItem.col.lg : null"
+                    :xl="subItem.col && subItem.col.xl ? subItem.col.xl : null"
+                >
+                    <us-validated-input :config="subItem" v-model="formData[subItem.key]" />
+                </us-col>
+            </us-row>
 
-                <us-row v-if="Array.isArray(item)" gutter="6">
-                    <us-col                            
-                        v-for="subItem in item"
-                        :key="subItem.key"
-                        :sm="subItem.col && subItem.col.sm ? subItem.col.sm : null"
-                        :md="subItem.col && subItem.col.md ? subItem.col.md : null"
-                        :lg="subItem.col && subItem.col.lg ? subItem.col.lg : null"
-                        :xl="subItem.col && subItem.col.xl ? subItem.col.xl : null"
-                    >
-                        <us-validated-input :config="subItem" v-model="formData[subItem.key]" />
-                    </us-col>
-                </us-row>
+            <!-- If this item is of type row with more col info -->
 
-                <!-- If this item is of type row with more col info -->
+            <us-row v-else-if="item.type == 'row'">
+                <us-col
+                    v-for="subItem in item.fields"
+                    :key="subItem.key"
+                    :sm="subItem.col && subItem.col.sm ? subItem.col.sm : null"
+                    :md="subItem.col && subItem.col.md ? subItem.col.md : null"
+                    :lg="subItem.col && subItem.col.lg ? subItem.col.lg : null"
+                    :xl="subItem.col && subItem.col.xl ? subItem.col.xl : null"
+                >
+                    <us-validated-input :config="subItem" v-model="formData[subItem.key]" />
+                </us-col>
+            </us-row>
 
-                <us-row v-else-if="item.type == 'row'">
-                    <us-col
-                        v-for="subItem in item.fields"
-                        :key="subItem.key"
-                        :sm="subItem.col && subItem.col.sm ? subItem.col.sm : null"
-                        :md="subItem.col && subItem.col.md ? subItem.col.md : null"
-                        :lg="subItem.col && subItem.col.lg ? subItem.col.lg : null"
-                        :xl="subItem.col && subItem.col.xl ? subItem.col.xl : null"
-                    >
-                        <us-validated-input :config="subItem" v-model="formData[subItem.key]" />
-                    </us-col>
-                </us-row>
+            <!-- Otherwise, simple case -->
 
-                <!-- Otherwise, simple case -->
+            <us-validated-input v-else :config="item" v-model="formData[item.key]" />
 
-                <us-validated-input v-else :config="item" v-model="formData[item.key]" />
+        </span>
 
-            </span>
+        <!-- FORM BUTTON (IF JUST ONE) -->
 
-            <!-- FORM BUTTON (IF JUST ONE) -->
+        <div class="mt-4" align="left">
+            
+            <!--
+            <us-button 
+                type="button" 
+                variant="primary" 
+                class="mr-2" 
+                @click="onBack()" 
+                :disabled="pageIndex == 0">
+                <i class="fas fa-arrow-circle-left"></i> Back
+            </us-button>
 
-            <div class="mt-4" align="left">
-                
-                <!--
-                <us-button 
-                    type="button" 
-                    variant="primary" 
-                    class="mr-2" 
-                    @click="onBack()" 
-                    :disabled="pageIndex == 0">
-                    <i class="fas fa-arrow-circle-left"></i> Back
-                </us-button>
+            <us-button type="submit" variant="primary" class="mr-2" @click="onNext()" v-if="pageIndex < noSteps - 1">
+                Next <i class="fas fa-arrow-circle-right"></i>
+            </us-button>
 
-                <us-button type="submit" variant="primary" class="mr-2" @click="onNext()" v-if="pageIndex < noSteps - 1">
-                    Next <i class="fas fa-arrow-circle-right"></i>
-                </us-button>
+            <us-button type="button" variant="outline-primary" @click="onNext()">Skip</us-button>                    
+            -->
 
-                <us-button type="button" variant="outline-primary" @click="onNext()">Skip</us-button>                    
-                -->
+            <slot>
+                <us-button type="submit" variant="primary" class="mr-2">Submit</us-button>
+            </slot>
 
-                <slot>
-                    <us-button type="submit" variant="primary" class="mr-2">Submit</us-button>
-                </slot>
+        </div>
+    </us-form>
 
-            </div>
-        </us-form>
-
-        <!--
-        <pre class="text-muted">{{ formData }}</pre>
-        -->
-
-    </validation-observer>
 </template>
 
 <script>

@@ -1,3 +1,5 @@
+import {Validator, ValidatorErrors} from '../../../utils/Validator';
+
 /**
  * This mixin provides all the basic machinary to support the props that an input field
  * of any type woild expect.
@@ -17,8 +19,8 @@ const baseInputMixin = {
                     name: '',
                     label: '',
                     // validationMode, @see https://logaretm.github.io/vee-validate/guide/interaction-and-ux.html#interaction-modes
-                    validationMode: 'aggresive',
-                    rules: 'eager',
+                    validationMode: 'eager',
+                    rules: 'required',
                     placeholder: null,
                     description: null
                 };
@@ -32,7 +34,11 @@ const baseInputMixin = {
             isUpdating: false,
             vid: null,
             currentValue: '',
-            valid: null
+            valid: null,
+            dirty: false,
+            errors: [],
+            validationMode: 'aggressive',
+            validator: null
         };
     },
     watch: {
@@ -50,6 +56,7 @@ const baseInputMixin = {
     },
     created() {},
     mounted() {
+
         this.opts = this.config;
 
         // validate on blur, default validates on input and blur
@@ -93,6 +100,9 @@ const baseInputMixin = {
             this.vid = 'vid-' + this.divId;
         }
 
+        // Instantiate a validator class
+        this.validator = new Validator(this.opts.rules);
+
         this.__onInputChanged();
     },
     methods: {
@@ -108,9 +118,17 @@ const baseInputMixin = {
          * Respond to the input (v-model) being changed
          */
         __onInputChanged() {
+            
             try {
                 // Note that we're updating, so the watcher won't respond
                 this.isUpdating = true;
+
+                // Set the field as dirty
+                this.dirty = true;
+
+                if (this.validationMode == 'aggresive'){
+
+                }
 
                 // Set the internal value to the v-model value (i.e. copy the
                 // data passed in from parent component as the v-model prop to
@@ -120,9 +138,19 @@ const baseInputMixin = {
                 this.$nextTick(() => {
                     this.isUpdating = false;
                 });
+
             } catch (err) {
                 this.$logError('Error in InputMixin; ', err);
             }
+        },
+
+        validate(){
+            console.log(this.opts)
+            if (this.opts.required){
+                console.log('Running validation...')
+                return this.validator.run(this.currentValue);
+            }            
+            return true;
         },
 
         getValidationState({ dirty, validated, valid = null }) {
