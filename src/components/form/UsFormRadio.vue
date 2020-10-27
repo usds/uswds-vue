@@ -1,10 +1,9 @@
-<template>
-                
+<template>              
     <span v-if="localOptions">
         <div class="usa-radio" v-for="(item, index) in localOptions" :key="index">
             <input 
                 class="usa-radio__input" 
-                v-model="checkedValues"
+                v-model="currentValue"
                 :id="item.id" 
                 :name="localOptions.name || `radio-${divId}`"
                 type="radio" 
@@ -12,36 +11,20 @@
                 :disabled="item.disabled"
                 :checked="item.checked"                    
             />
-
             <label class="usa-radio__label" :for="item.id">
                 <slot name="label" v-bind:item="item">
                     {{item.label}}
                 </slot>
             </label>
-
-
         </div>
     </span>
-
-
 </template>
 <script>
+import FormInputMixins from "../mixins/FormInputMixin";
 export default {
     name: 'us-form-radio',
+    mixins: [FormInputMixins],
     props: {
-        value: {
-            default: ''
-        },
-        divId: {
-            type: String,
-            default() {
-                return `id-` + Math.floor(100 + Math.random() * 10000);
-            }
-        },
-        valid: {
-            type: Boolean,
-            default: null
-        },
         options: {
             type: Array,
             default: null
@@ -49,8 +32,6 @@ export default {
     },
     data() {
         return {
-            isUpdating: false,
-            checkedValues: [],
             localOptions: null
         };
     },
@@ -58,21 +39,6 @@ export default {
         options(newVal, oldVal){
             if (newVal != oldVal && newVal) {
                 this.init();
-            }
-        },
-        value(newVal, oldVal) {
-            if (newVal != oldVal && !this.isUpdating) {
-                this.checkedValues = this.value;
-            }
-        },
-        checkedValues(val) {
-            if (!this.isUpdating) {
-                // allows us to use v-model on our input.
-                this.$emit('input', val);
-                this.$emit('changed', val);
-                this.$nextTick(() => {
-                    this.isUpdating = false;
-                });                
             }
         }
     },
@@ -83,12 +49,6 @@ export default {
 
 
         init() {
-
-            this.isUpdating = true;
-
-            this.$nextTick(() => {
-                this.isUpdating = false;
-            });
                         
             if (this.options){
                 this.localOptions = [];

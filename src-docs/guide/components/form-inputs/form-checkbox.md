@@ -133,6 +133,47 @@ which will contain the specific item in the options data that you passed in.
 </us-form-group>
 ```
 
+## Validation
+
+You can make use of built-in validation, for example;
+
+<div class="mt-3 mb-3">
+    <us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
+        <us-form-group label="Select any historical figure">
+            <us-form-checkbox
+                name="select historical figure"
+                :options="options2"
+                :rules="{required:true}"
+                v-model="checkedValues2">
+            </us-form-checkbox>
+        </us-form-group>
+        <us-button type="submit" variant="primary">Submit</us-button>
+        <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
+        <us-tag variant="success" v-else-if="isValid === true">Valid</us-tag>
+        <us-tag variant="dark" v-if="isDirty === true">Dirty</us-tag>
+        <us-tag variant="light" v-else-if="isDirty === false">Prestine</us-tag>
+    </us-form>
+    <div class="mt-2">You checked: {{checkedValues2}}</div>
+</div>
+
+```vue
+<us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
+    <us-form-group label="Select any historical figure">
+        <us-form-checkbox
+            name="select historical figure"
+            :options="options2"
+            :rules="{required:true}"
+            v-model="checkedValues2">
+        </us-form-checkbox>
+    </us-form-group>
+    <us-button type="submit" variant="primary">Submit</us-button>
+    <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
+    <us-tag variant="success" v-else-if="isValid === true">Valid</us-tag>
+    <us-tag variant="dark" v-if="isDirty === true">Dirty</us-tag>
+    <us-tag variant="light" v-else-if="isDirty === false">Prestine</us-tag>
+</us-form>
+```
+
 ## Component Reference
 
 ### `<us-form-checkbox>`
@@ -158,6 +199,7 @@ export default {
     data() {
         return {
             checkedValues: null,
+            checkedValues2: null,
             options: [
                 {value: 'sojourner-truth', label: 'Sojourner Truth', default:true},
                 {value: 'frederick-douglass', label: 'Frederick Douglass'},
@@ -186,6 +228,11 @@ export default {
                     disabled:true}
             ]              
         }
-    }
+    },
+    methods: {
+        onSubmit(){
+
+        }
+    } 
 }
 </script>

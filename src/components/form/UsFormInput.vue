@@ -8,8 +8,8 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :class="{
-            'usa-input--error': isValid === false || parentValid === false,
-            'usa-input--success': isValid === true || parentValid === true
+            'usa-input--error': localValid === false || parentValid === false,
+            'usa-input--success': localValid === true || parentValid === true
         }"
     />
 </template>

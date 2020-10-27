@@ -21,34 +21,11 @@
 </template>
 
 <script>
+import FormInputMixins from "../mixins/FormInputMixin";
 export default {
     name: 'us-form-combobox',
+    mixins: [FormInputMixins],
     props: {
-        value: {
-            default: ''
-        },
-        divId: {
-            type: String,
-            default() {
-                return `id-` + Math.floor(100 + Math.random() * 10000);
-            }
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        valid: {
-            type: Boolean,
-            default: null
-        },
-        name: {
-            type: String,
-            default: ''
-        },
-        type: {
-            type: String,
-            default: 'text'
-        },
         label: {
             type: String,
             default: null
@@ -61,50 +38,12 @@ export default {
             type: String,
             default: null
         },                
-        placeholder: {
-            type: String,
-            default: null
-        },
-        description: {
-            type: String,
-            default: null
-        },
         // Requires options in array of [value, label]
         // TODO:
         options: {
             type: [Array, Object],
             default: null
         }
-    },
-    data() {
-        return {
-            isUpdating: false,
-            currentValue: ''
-        };
-    },
-    computed: {
-        parentValid(){
-            if (this.$parent && this.$parent.$options.name == 'us-form-group'){
-                return this.$parent.valid;
-            }     
-            return null;       
-        }
-    },
-    watch: {
-        value(newVal, oldVal) {
-            if (newVal != oldVal) {
-                this.init();
-            }
-        },
-        currentValue() {
-            if (!this.isUpdating) {
-                this.$emit('input', this.currentValue);
-                this.$emit('change', this.currentValue);
-            }
-        }
-    },
-    mounted() {
-        this.init();
     },
     methods: {
 
@@ -158,21 +97,6 @@ export default {
                 return item;
             }
             */
-        },
-        
-
-        /**
-         * Update internal value for v-model (currentValue) from what (if anything) was passed in
-         * from parent as the v-model
-         */
-        init() {
-            if (this.value) {
-                this.isUpdating = false;
-                this.currentValue = this.value;
-                this.$nextTick(() => {
-                    this.isUpdating = false;
-                });
-            }
         }
     }
 };

@@ -108,7 +108,7 @@ module.exports = {
                 'components/form-inputs/form-boolean'
               ]
             },
-            'components/validated-form',
+            'components/validation',
             //'components/image',
             'components/lists',
             'components/tabs',

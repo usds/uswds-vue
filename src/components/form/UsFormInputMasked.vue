@@ -31,6 +31,10 @@ export default {
     },
     mixins: [FormInputMixins],
     props: {
+        type: {
+            type: String,
+            default: 'text'
+        },        
         mask: {
             type: String,
             default: null

@@ -13,11 +13,7 @@ const FormInputMixin = {
         disabled: {
             type: Boolean,
             default: false
-        },
-        required: {
-            type: Boolean,
-            default: false
-        },    
+        }, 
         rules: {
             type: [Object, String],
             default: null
@@ -91,7 +87,6 @@ const FormInputMixin = {
     created() {},
     mounted() {
 
-        console.log('MOUNTED', this.value)
         const uuid = this.__getGuid();
 
         // Create a unique div id
@@ -124,10 +119,8 @@ const FormInputMixin = {
 
             // Set the internal value to the v-model value (i.e. copy the
             // data passed in from parent component as the v-model prop to
-            // a local value so we can mutated it.)
-            console.log('NEW VAL = ', newVal);
-            
-            // Deal with some special cases...
+            // a local value so we can mutated it.)        
+            // But deal with some special cases...
             if (this.$options.name == 'us-form-checkbox' || this.$options.name == 'us-form-radio'){
                 if (!newVal){
                     this.currentValue = [];
@@ -151,7 +144,7 @@ const FormInputMixin = {
             let errors = [];
             let isValid = false;
 
-            if (this.required){
+            if (this.rules && this.validator){
                 isValid = await this.validator.run(this.currentValue);
                 errors = this.validator.getErrors();
                 if (isValid){
@@ -162,7 +155,8 @@ const FormInputMixin = {
                 }
             }            
             else {
-                this.localValid = true;
+                console.log('NO VALIDATION: ', this.rules)
+                this.localValid = null;
             }
 
             this.updateParentValidState(errors);
@@ -171,10 +165,27 @@ const FormInputMixin = {
         },
 
         updateParentValidState(errors){
-            // if the parent is a form group, let it know this input's valid state
-            if (this.$parent && this.$parent.$options.name == 'us-form-group'){
-                this.$parent.onValidated(this.localValid, errors);
-            }            
+
+            const myName = this.$options.name;
+
+            // Go up the stack and inform parents of new valid state
+            const updateParent = (parent, height) => {
+
+                console.log(`PARENT ${parent.$options.name}, isValid = ${this.localValid}, dirty = ${this.dirty}`, errors);
+
+                if (parent && typeof parent.onValidated == 'function'){
+                    parent.onValidated({context: myName, isValid: this.localValid, isDirty: this.dirty, errors: errors});
+                }
+
+                if (parent.$parent && height < 3){
+                    updateParent(parent.$parent, height+1);
+                }
+                
+            }
+
+            updateParent(this.$parent, 0);
+                    
+
         }
 
     }

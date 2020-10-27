@@ -1,6 +1,10 @@
 <template>
-    <form class="usa-form" @submit.stop.prevent="doSubmit" novalidate :class="{ 'usa-form--large': size == 'lg' }">
-        <slot></slot>
+    <form class="usa-form" 
+        @submit.stop.prevent="doSubmit" 
+        novalidate 
+        :class="{ 'usa-form--large': size == 'lg' }"
+    >
+        <slot v-bind="{ isValid, isDirty, errors }"></slot>
     </form>
 </template>
 
@@ -8,21 +12,53 @@
 export default {
     name: 'us-form',
     props: {
+        validate: {
+            type: Boolean,
+            default: false
+        },
         size: {
             type: String,
-            default: ''
+            default: ''            
+        }
+    },
+    data() {
+        return {
+            errors: {},
+            isValid: null,
+            isDirty: false
         }
     },
     methods: {
+        
         async doSubmit() {
 
-            let isValid = await this.__validateChildren(this.$children);
+            if (this.validate){
+                this.isValid = await this.__validateChildren(this.$children);
 
-            if (isValid === false){
-                return false;
+                if (this.isValid === false){
+                    return false;
+                }
+            }
+            else {
+                console.log('>>>> ', this.validate)
             }
 
             this.$emit('submit');
+        },
+
+        onValidated({isValid, isDirty, errors, context}){
+
+            if (isDirty){
+                this.isDirty = true;
+            }
+
+            this.isValid = isValid;
+            
+            if (isDirty){
+                this.isDirty = true;
+            }
+
+            this.errors[context] = errors;
         },
 
         async __validateChildren(kids, depth){

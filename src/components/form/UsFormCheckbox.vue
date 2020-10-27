@@ -22,7 +22,6 @@
 </template>
 <script>
 import FormInputMixins from "../mixins/FormInputMixin";
-
 export default {
     name: 'us-form-checkbox',
     mixins: [FormInputMixins],
@@ -34,7 +33,6 @@ export default {
     },
     data() {
         return {
-            isUpdating: false,
             localOptions: null
         };
     },
