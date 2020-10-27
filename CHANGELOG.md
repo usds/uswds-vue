@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com///compare/v0.1.14...v0.1.15) (2020-10-27)
+
+
+### Features
+
+* new validation, prototype of date component ([3bb73d9](https://github.com///commit/3bb73d96b53270807226c5630c97181d2faae100))
+
 ### [0.1.14](https://github.com///compare/v0.1.13...v0.1.14) (2020-10-27)
 
 
