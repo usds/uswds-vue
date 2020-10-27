@@ -80,7 +80,37 @@ class Validator {
                         return /^[0-9]+$/i.test(val);
                     },
                     message: {'en': 'Please enter a number'}
-                },             
+                },     
+                'between': {
+                    validator: (val, opts)=>{
+                        
+                        if (typeof val == 'string'){
+                            val = parseInt(val);
+                        }
+                        
+                        if (val < opts.min || val > opts.max){
+                            return false;
+                        }
+
+                        return true;
+                    },
+                    checkRule: (opts)=>{
+                        if (!opts){
+                            throw new Error('You must supply a {min, max} object');
+                        }
+                        else if (!opts.min){
+                            throw new Error('You must supply a min');
+                        }
+                        else if (!opts.max){
+                            throw new Error('You must supply a max');
+                        }
+                    },
+                    message: (opts) => {
+                        return {
+                            'en': `Please enter a number between ${opts.min} and ${opts.max}`
+                        }
+                    }
+                },                         
                 'alpha_num': {
                     validator: (val)=>{
                         return /^[a-z0-9]+$/i.test(val);
@@ -102,6 +132,33 @@ class Validator {
             }
         }
 
+        this.__checkRules();
+
+    }
+
+    /**
+     * Check rules are setup correctly, if a rule has a checkRule function
+     */
+    __checkRules(){
+
+        let keys = Object.keys(this.rules);
+
+        for (let i=0; i<keys.length; i+=1){
+            
+            let name = keys[i];
+            let ruleDef = Validator.ruleLibary[name];
+
+            // Check this rule exists first
+            //if (!ruleDef){
+            //    throw new Error(`Rule ${name} does not exist, and no validator given`);
+            //}  
+
+            // Does the rule have a checkRule function?
+            if (ruleDef && typeof ruleDef.checkRule == 'function'){
+                ruleDef.checkRule(this.rules[name]);
+            }
+
+        }
     }
 
     getErrors(){
@@ -167,7 +224,7 @@ class Validator {
             // Lookup the rule, or check if a validator function was passed
             
             // Now do the validation!
-            if (_.isEmpty(val) && ruleSettings !== false){
+            if (_.isObject(val) && _.isEmpty(val) && ruleSettings !== false){
                 //console.log(`[${name}] EMPTY: ${msg}`)    
                 errors.push(msg);           
             }

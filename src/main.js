@@ -7,6 +7,7 @@ import UsFormInputMasked from './components/form/UsFormInputMasked';
 import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsFormCombobox from './components/form/UsFormCombobox';
+import UsFormDate from './components/form/UsFormDate';
 import UsFormRadio from './components/form/UsFormRadio';
 import UsFormBoolean from './components/form/UsFormBoolean';
 import UsFormCheckbox from './components/form/UsFormCheckbox';
@@ -53,6 +54,7 @@ const Components = {
     UsFormCombobox,
     UsFormCheckbox,
     UsFormRadio,
+    UsFormDate,
     UsFormBoolean,
     UsImg,
     UsHeader,

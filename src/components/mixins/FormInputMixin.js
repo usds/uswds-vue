@@ -33,6 +33,11 @@ const FormInputMixin = {
         description: {
             type: String,
             default: null
+        },
+        // Allow you to turn of the error string being displayed by validation
+        suppressError: {
+            type: Boolean,
+            default: false
         }       
     },
     data() {
@@ -147,6 +152,11 @@ const FormInputMixin = {
             if (this.rules && this.validator){
                 isValid = await this.validator.run(this.currentValue);
                 errors = this.validator.getErrors();
+                
+                if (this.suppressError){
+                    errors = [];
+                }
+
                 if (isValid){
                     this.localValid = true;
                 }
@@ -155,7 +165,7 @@ const FormInputMixin = {
                 }
             }            
             else {
-                console.log('NO VALIDATION: ', this.rules)
+                //console.log('NO VALIDATION: ', this.rules)
                 this.localValid = null;
             }
 
@@ -171,10 +181,10 @@ const FormInputMixin = {
             // Go up the stack and inform parents of new valid state
             const updateParent = (parent, height) => {
 
-                console.log(`PARENT ${parent.$options.name}, isValid = ${this.localValid}, dirty = ${this.dirty}`, errors);
+                //console.log(`PARENT ${parent.$options.name}, isValid = ${this.localValid}, dirty = ${this.dirty}`, errors);
 
                 if (parent && typeof parent.onValidated == 'function'){
-                    parent.onValidated({context: myName, isValid: this.localValid, isDirty: this.dirty, errors: errors});
+                    parent.onValidated({context: myName, name: this.name, isValid: this.localValid, isDirty: this.dirty, errors: errors});
                 }
 
                 if (parent.$parent && height < 3){

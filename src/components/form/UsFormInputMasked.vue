@@ -1,6 +1,5 @@
 <template>
 <span>
-    MASK: {{mask}}
     <the-mask 
         class="usa-input"
         :name="name"

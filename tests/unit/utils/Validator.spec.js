@@ -1,7 +1,7 @@
 
 "use strict";
 
-const Validator = require('../../../src/utils/Validator');
+import Validator from '../../../src/utils/Validator';
 const Chance = require('chance');
 const chance = new Chance();
 
@@ -9,12 +9,12 @@ describe('utils/Validator', () => {
 
     test('rule:not-defined', async () => {
 
-        let validator = new Validator({required: true, madeuprule: true});
         let errString = null;
         let msg = 'Error: Rule madeuprule does not exist, and no validator given';
 
         try {
-            await validator.run(chance.string({ length: 5 }));
+            let validator = new Validator({required: true, madeuprule: true});
+            await validator.run('sdgsd');
         }
         catch(err){
             errString = err.toString();
@@ -23,6 +23,55 @@ describe('utils/Validator', () => {
         expect(errString).toEqual(msg)
         return;
     })
+
+    test('rule:between', async () => {
+
+        let err1, err2, err3 = false;
+
+        // Test bad rules trigger errors
+        try {
+            new Validator({between: true});
+        }
+        catch(err){
+            err1 = err;
+        }        
+        try {
+            new Validator({between: {min:65}});
+        }
+        catch(err){
+            err2 = err;
+        }        
+        try {
+            new Validator({between: {max:65}});
+        }
+        catch(err){
+            err3 = err;
+        }        
+
+        expect(err1).not.toEqual(false);
+        expect(err2).not.toEqual(false);
+        expect(err3).not.toEqual(false);
+
+        let validator = new Validator({between: {min:6, max:67}});
+        
+        let test5 = await validator.run('5');
+        expect(test5).toEqual(false);
+        expect(validator.getErrors().length).toEqual(1);
+        expect(validator.getPassed().length).toEqual(0);
+
+        let test46 = await validator.run(46);
+        expect(test46).toEqual(true);
+        expect(validator.getErrors().length).toEqual(0);
+        expect(validator.getPassed().length).toEqual(1);
+
+        let test899 = await validator.run(899);
+        expect(test899).toEqual(false);
+        expect(validator.getErrors().length).toEqual(1);
+        expect(validator.getPassed().length).toEqual(0);
+
+        return;
+
+    });
 
     test('rule:length', async () => {
 

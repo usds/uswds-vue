@@ -1,5 +1,5 @@
 <template>
-    <div class="usa-form-group" :class="{ 'usa-form-group--error': localValid === false }">
+    <div class="usa-form-group" :class="{ 'usa-form-group--error': localValid === false}">
         
         <slot name="label">
             <label v-if="label" class="usa-label" :for="divId">{{ label }}</label>
@@ -56,7 +56,7 @@ export default {
         helpText: {
             type: String,
             default: null
-        }
+        }         
     },
     data() {
         return {
