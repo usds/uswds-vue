@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com///compare/v0.1.17...v0.1.18) (2020-10-28)
+
+
+### Features
+
+* completed date input validation, and handling of v-model correctly ([5aa98d8](https://github.com///commit/5aa98d8dc0eae6997bb54d8865c5c5d4f1a7cecf))
+
 ### [0.1.17](https://github.com///compare/v0.1.15...v0.1.17) (2020-10-28)
 
 
