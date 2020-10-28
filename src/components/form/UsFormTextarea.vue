@@ -18,7 +18,7 @@
 </template>
 <script>
 
-import _ from 'lodash';
+import {debounce} from 'lodash';
 
 export default {
     name: 'us-form-textarea',
@@ -110,7 +110,7 @@ export default {
             });
         },
 
-        debouncedOnChange: _.debounce(function(val){
+        debouncedOnChange: debounce(function(val){
             this.$emit('input', val);
         }, 500)
     }

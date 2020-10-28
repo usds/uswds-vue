@@ -145,9 +145,6 @@ export default {
                 else if (this.month){
                     max = moment(this.month, "MM").daysInMonth()
                 }
-                else {
-                    
-                }
                 //console.log(`MAX: ${max} -- Year: ${this.year}, month: ${this.month}  ${days[this.month]}`);
                 return (val > 0 && val <= max);
             },

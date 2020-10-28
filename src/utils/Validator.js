@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import {isObject, isEmpty} from 'lodash';
 
 class Validator {
     
@@ -224,7 +224,7 @@ class Validator {
             // Lookup the rule, or check if a validator function was passed
             
             // Now do the validation!
-            if (_.isObject(val) && _.isEmpty(val) && ruleSettings !== false){
+            if (isObject(val) && isEmpty(val) && ruleSettings !== false){
                 //console.log(`[${name}] EMPTY: ${msg}`)    
                 errors.push(msg);           
             }

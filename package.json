@@ -35,7 +35,6 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "uswds": "^2.9.0",
-    "vue-gtag": "^1.9.1",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
@@ -52,6 +51,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "standard-version": "^9.0.0",
+    "vue-gtag": "^1.9.1",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.5.4"
   },
