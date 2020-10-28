@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com///compare/v0.1.15...v0.1.17) (2020-10-28)
+
+
+### Bug Fixes
+
+* date validation ([6c153e0](https://github.com///commit/6c153e07df9e15ac78744ea7e552c4e4de08436a))
+* error message showing if valid ([29d248b](https://github.com///commit/29d248b2eca896b40b9e7fa6b070bcb3c8224f03))
+* fix to date validation ([f789610](https://github.com///commit/f7896103bc87c6499832002cbac42b27b91c4e4a))
+
 ### [0.1.16](https://github.com///compare/v0.1.10...v0.1.16) (2020-10-28)
 
 
