@@ -7,8 +7,6 @@
     <!-- Help text -->
     <span v-if="helpText" class="usa-hint">{{ helpText }}</span>
 
-    ERROR: {{localError}}
-
     <div class="usa-memorable-date mt-2">
 
         <div class="usa-form-group usa-form-group--month">        
@@ -30,7 +28,7 @@
                 v-model="day"
                 mask="##"
                 :suppress-error="true"
-                :rules="{required:true, 'require-calendar-day': {month: month, year: year, day: day}}"
+                :rules="{required:true, 'require-calendar-day':true}"
                 :disabled="disabled"
             />
         </div>
@@ -120,18 +118,38 @@ export default {
     mounted(){
 
         Validator.extend('require-calendar-day', {
-            validator: (val, opts) => {
+
+            validator: (val) => {
+
                 let max = 31;
-                if (_.isNumber(opts.year) && _.isNumber(opts.month)){
-                    max = moment(`${opts.year}-${opts.month}`, "YYYY-MM").daysInMonth();
+
+                /*
+                let days = {
+                    '1': 31, // Jan
+                    '2': 28, // Feb
+                    '3': 31, // Mar
+                    '4': 30, // Apr
+                    '5': 31, // May
+                    '6': 30, // Jun
+                    '7': 31, // Jul
+                    '8': 31, // Aug
+                    '9': 30, // Sep
+                    '10': 31, // Oct
+                    '11': 30, // Nov
+                    '12': 31 // Dec
                 }
-                else if (_.isNumber(opts.year)){
-                    max = moment(opts.month, "MM").daysInMonth()
+                */
+
+                if (this.year && this.month){
+                    max = moment(`${this.year}-${this.month}`, "YYYY-MM").daysInMonth();
+                }
+                else if (this.month){
+                    max = moment(this.month, "MM").daysInMonth()
                 }
                 else {
                     
                 }
-                console.log(`MAX: ${max} -- Year: ${opts.year} (${_.isNumber(opts.year)}), month: ${opts.month} (${_.isNumber(opts.month)})`, opts);
+                //console.log(`MAX: ${max} -- Year: ${this.year}, month: ${this.month}  ${days[this.month]}`);
                 return (val > 0 && val <= max);
             },
             message: (length) => {
@@ -145,7 +163,6 @@ export default {
         onValidated({context, name, isValid}){
             if (context == 'us-form-input-masked'){
                 this.$set(this.validationStates, name, isValid);
-                console.log(name, this.validationStates[name]);
             }
         }        
     }
