@@ -9,7 +9,7 @@
 
         <!-- Error Message -->
         <slot name="validation-error" v-bind:error="localError">
-            <span v-if="localError" class="usa-error-message" id="input-error-message" role="alert">{{ localError }}</span>
+            <span v-if="localError && localValid === false" class="usa-error-message" id="input-error-message" role="alert">{{ localError }}</span>
         </slot>
 
         <!-- Help text -->
