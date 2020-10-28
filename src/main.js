@@ -33,9 +33,6 @@ import UsTabs from './components/tabs/UsTabs';
 import UsListGroup from './components/lists/UsListGroup';
 import UsListGroupItem from './components/lists/UsListGroupItem';
 
-// Utils
-import Validator from './utils/Validator';
-
 // Debug components
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 
@@ -74,8 +71,7 @@ const Components = {
 	UsResponsiveInfo,
 	UsListGroup,
     UsListGroupItem,
-    UsStepIndicator,
-    Validator
+    UsStepIndicator    
 };
 
 /**
@@ -110,3 +106,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 //Object.keys(Components).forEach(name => {
 //	export Components[name];
 //});
+
+// Export utils
+import Validator from './utils/Validator';
+export {Validator}
