@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com///compare/v0.1.10...v0.1.16) (2020-10-28)
+
+
+### Features
+
+* added checkbox component, updates to docs ([a0ff2f5](https://github.com///commit/a0ff2f504505876c01756fd30081e394f702b6cc))
+* added form-group, form and tabs. Plus doc updates ([d97c167](https://github.com///commit/d97c1673ca5a21cd52d5a22b360ac0f79303bf2b))
+* Adding in custom validated form components ([ae7fba3](https://github.com///commit/ae7fba3cfdd811bbd9a90d87b9a303d3063c751f))
+* adding in internal validation ([b567313](https://github.com///commit/b56731334fb1190eab40e7c6ac0c49ec2e8c74e5))
+* adding step indicator component ([5e0151e](https://github.com///commit/5e0151eb0c37c21217ff07694c1db60683dd749e))
+* new validation, prototype of date component ([3bb73d9](https://github.com///commit/3bb73d96b53270807226c5630c97181d2faae100))
+
+
+### Bug Fixes
+
+* date validation ([6c153e0](https://github.com///commit/6c153e07df9e15ac78744ea7e552c4e4de08436a))
+* fix to date validation ([f789610](https://github.com///commit/f7896103bc87c6499832002cbac42b27b91c4e4a))
+
 ### [0.1.15](https://github.com///compare/v0.1.14...v0.1.15) (2020-10-27)
 
 
