@@ -44883,8 +44883,8 @@ var Validator_Validator = /*#__PURE__*/function () {
           }
         },
         'password': {
-          validator: function validator(val) {
-            return Validator.isPasswordComplex(val);
+          validator: function validator(val, opts) {
+            return Validator.isPasswordComplex(val, opts);
           },
           message: {
             'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'
@@ -49066,6 +49066,8 @@ var UsResponsiveInfo_component = normalizeComponent(
 
 
 
+ // Utils
+
  // Debug components
 
 
@@ -49104,7 +49106,8 @@ var Components = {
   UsResponsiveInfo: UsResponsiveInfo,
   UsListGroup: UsListGroup,
   UsListGroupItem: UsListGroupItem,
-  UsStepIndicator: UsStepIndicator
+  UsStepIndicator: UsStepIndicator,
+  Validator: utils_Validator
 };
 /**
  * Install function to enable global install;
