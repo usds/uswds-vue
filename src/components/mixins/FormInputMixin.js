@@ -34,6 +34,10 @@ const FormInputMixin = {
             type: String,
             default: null
         },
+        validationMode: {
+            type: String,
+            default: 'aggressive'
+        },        
         // Allow you to turn of the error string being displayed by validation
         suppressError: {
             type: Boolean,
@@ -48,7 +52,6 @@ const FormInputMixin = {
             localValid: null,
             dirty: false,
             errors: [],
-            validationMode: 'aggressive',
             validator: null
         };
     },

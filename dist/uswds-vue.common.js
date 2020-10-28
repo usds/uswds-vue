@@ -45196,6 +45196,10 @@ var FormInputMixin = {
       type: String,
       default: null
     },
+    validationMode: {
+      type: String,
+      default: 'aggressive'
+    },
     // Allow you to turn of the error string being displayed by validation
     suppressError: {
       type: Boolean,
@@ -45210,7 +45214,6 @@ var FormInputMixin = {
       localValid: null,
       dirty: false,
       errors: [],
-      validationMode: 'aggressive',
       validator: null
     };
   },
@@ -45922,12 +45925,12 @@ var UsFormCombobox_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsFormCombobox = (UsFormCombobox_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDate.vue?vue&type=template&id=5373b4a4&
-var UsFormDatevue_type_template_id_5373b4a4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('fieldset',{staticClass:"usa-fieldset"},[(_vm.label)?_c('legend',{staticClass:"usa-legend"},[_vm._v(_vm._s(_vm.label))]):_vm._e(),(_vm.helpText)?_c('span',{staticClass:"usa-hint"},[_vm._v(_vm._s(_vm.helpText))]):_vm._e(),_c('div',{staticClass:"usa-memorable-date mt-2"},[_c('div',{staticClass:"usa-form-group usa-form-group--month"},[_c('label',{attrs:{"for":"month"}},[_vm._v("Month")]),_c('us-form-input-masked',{attrs:{"name":"month","mask":"##","suppress-error":true,"rules":{required:true, between: {min: 1, max: 12}},"disabled":_vm.disabled},model:{value:(_vm.month),callback:function ($$v) {_vm.month=$$v},expression:"month"}})],1),_c('div',{staticClass:"usa-form-group usa-form-group--day"},[_c('label',{attrs:{"for":"day"}},[_vm._v("Day")]),_c('us-form-input-masked',{attrs:{"name":"day","mask":"##","suppress-error":true,"rules":{required:true, 'require-calendar-day':true},"disabled":_vm.disabled},model:{value:(_vm.day),callback:function ($$v) {_vm.day=$$v},expression:"day"}})],1),_c('div',{staticClass:"usa-form-group usa-form-group--year"},[_c('label',{attrs:{"for":"year"}},[_vm._v("Year")]),_c('us-form-input-masked',{attrs:{"name":"year","mask":"####","suppress-error":true,"rules":{required:true},"disabled":_vm.disabled},model:{value:(_vm.year),callback:function ($$v) {_vm.year=$$v},expression:"year"}})],1)]),(_vm.localError)?_c('div',{staticClass:"usa-error-message",attrs:{"id":"input-error-message","role":"alert"}},[_vm._v(_vm._s(_vm.localError))]):_vm._e()])}
-var UsFormDatevue_type_template_id_5373b4a4_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDate.vue?vue&type=template&id=d8239188&
+var UsFormDatevue_type_template_id_d8239188_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"usa-memorable-date pt-2 pb-1"},[_c('div',{staticClass:"usa-form-group usa-form-group--month"},[_c('label',{attrs:{"for":"month"}},[_vm._v("Month")]),_c('us-form-input-masked',{attrs:{"name":"month","mask":"##","suppress-error":true,"rules":{required:true, between: {min: 1, max: 12}},"disabled":_vm.disabled},on:{"changed":function($event){return _vm.onChanged('month')}},model:{value:(_vm.month),callback:function ($$v) {_vm.month=$$v},expression:"month"}})],1),_c('div',{staticClass:"usa-form-group usa-form-group--day"},[_c('label',{attrs:{"for":"day"}},[_vm._v("Day")]),_c('us-form-input-masked',{attrs:{"name":"day","mask":"##","suppress-error":true,"rules":{required:true, 'require-calendar-day':true},"disabled":_vm.disabled},on:{"changed":function($event){return _vm.onChanged('day')}},model:{value:(_vm.day),callback:function ($$v) {_vm.day=$$v},expression:"day"}})],1),_c('div',{staticClass:"usa-form-group usa-form-group--year"},[_c('label',{attrs:{"for":"year"}},[_vm._v("Year")]),_c('us-form-input-masked',{attrs:{"name":"year","mask":"####","suppress-error":true,"rules":{required:true},"disabled":_vm.disabled},on:{"changed":function($event){return _vm.onChanged('year')}},model:{value:(_vm.year),callback:function ($$v) {_vm.year=$$v},expression:"year"}})],1),(_vm.name)?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.currentDateAsString),expression:"currentDateAsString"}],attrs:{"name":_vm.name,"type":"hidden"},domProps:{"value":(_vm.currentDateAsString)},on:{"input":function($event){if($event.target.composing){ return; }_vm.currentDateAsString=$event.target.value}}}):_vm._e()])}
+var UsFormDatevue_type_template_id_d8239188_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form/UsFormDate.vue?vue&type=template&id=5373b4a4&
+// CONCATENATED MODULE: ./src/components/form/UsFormDate.vue?vue&type=template&id=d8239188&
 
 // EXTERNAL MODULE: ./node_modules/moment/moment.js
 var moment = __webpack_require__("c1df");
@@ -45936,11 +45939,9 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDate.vue?vue&type=script&lang=js&
 
 
-//
-//
-//
-//
-//
+
+
+
 //
 //
 //
@@ -46010,21 +46011,29 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
       type: Boolean,
       default: null
     },
-    description: {
+    validationMode: {
+      type: String,
+      default: 'aggressive'
+    },
+    maxYear: {
+      type: Number,
+      default: 9999
+    },
+    minYear: {
+      type: Number,
+      default: 0
+    },
+    name: {
       type: String,
       default: null
     },
-    label: {
+    format: {
       type: String,
-      default: null
+      default: "YYYY-MM-DD"
     },
-    error: {
-      type: String,
-      default: null
-    },
-    helpText: {
-      type: String,
-      default: null
+    valueAsDate: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -46032,10 +46041,20 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
       day: null,
       month: null,
       year: null,
-      validationStates: {}
+      currentDate: null,
+      currentDateAsString: '',
+      validationStates: {},
+      localValid: null
     };
   },
   computed: {
+    validationMessages: function validationMessages() {
+      return {
+        basic: 'Please enter a valid date',
+        maxYear: "Please enter a year less than ".concat(this.maxYear),
+        minYear: "Please enter a year greater than ".concat(this.minYear)
+      };
+    },
     parentValid: function parentValid() {
       return this.$parent.valid;
     },
@@ -46047,7 +46066,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
         if (this.validationStates[key] === false) {
           //return `Please enter a valid ${key}`;
-          return "Please enter a valid date";
+          return this.validationMessages['basic'];
         }
       }
 
@@ -46057,6 +46076,8 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
   mounted: function mounted() {
     var _this = this;
 
+    // Update internals based in v-model value
+    this.onValueUpdate();
     utils_Validator.extend('require-calendar-day', {
       validator: function validator(val) {
         var max = 31;
@@ -46086,23 +46107,161 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
         return val > 0 && val <= max;
       },
-      message: function message(length) {
-        return {
-          'en': "You must enter at least ".concat(length, " characters")
-        };
+      message: {
+        'en': "You must enter a valid day"
       }
     });
   },
   methods: {
+    __safeToDate: function __safeToDate(str) {
+      // Try to decode date
+      var timestamp = Date.parse(str);
+
+      if (isNaN(timestamp) == false) {
+        return new Date(timestamp);
+      }
+
+      return null;
+    },
+    onValueUpdate: function onValueUpdate() {
+      if (!this.value) {
+        this.currentDate = null;
+        this.currentDateAsString = '';
+        return;
+      } // Attempt to create a date object
+
+
+      var tmp = null;
+
+      if (this.valueAsDate && this.value instanceof Date) {
+        tmp = this.value;
+      } else if (!this.valueAsDate && typeof this.value == 'string') {
+        tmp = this.__safeToDate(this.value);
+      }
+
+      if (tmp) {
+        this.currentDate = moment_default()(tmp);
+        this.currentDateAsString = this.currentDate.format(this.format);
+        this.year = tmp.getFullYear();
+        this.month = tmp.getMonth() + 1;
+        this.day = tmp.getDate();
+      } else {
+        this.currentDate = null;
+        this.currentDateAsString = '';
+      }
+    },
+    onChanged: function onChanged() {
+      // Attempt to create a date object
+      if (this.year && this.month && this.day) {
+        this.currentDate = moment_default()("".concat(this.year, "-").concat(this.month, "-").concat(this.day), "YYYY-MM-DD");
+
+        if (this.currentDate.isValid()) {
+          this.currentDateAsString = this.currentDate.format(this.format);
+        }
+      } else if (this.currentDate != null) {
+        this.currentDate = null;
+        this.currentDateAsString = '';
+      } // Now emit changes, if any
+
+
+      if (this.valueAsDate) {
+        this.$emit('input', this.currentDate ? this.currentDate.toDate() : null);
+        this.$emit('changed', this.currentDate ? this.currentDate.toDate() : null);
+      } else {
+        this.$emit('input', this.currentDateAsString);
+        this.$emit('changed', this.currentDateAsString);
+      } // Do validation, if required
+
+
+      if (this.validationMode == 'aggressive') {
+        this.validate();
+      }
+    },
+    validate: function validate() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var errors;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                errors = [];
+
+                if (_this2.required && _this2.currentDate) {
+                  if (_this2.currentDate.year() > _this2.maxYear) {
+                    _this2.localValid = false;
+                    errors = [_this2.validationMessages['maxYear']];
+                  } else if (_this2.currentDate.year() < _this2.minYear) {
+                    _this2.localValid = false;
+                    errors = [_this2.validationMessages['minYear']];
+                  } else {
+                    _this2.localValid = _this2.currentDate.isValid();
+                    errors = [_this2.validationMessages['basic']];
+                  }
+                } else if (_this2.required && !_this2.currentDate) {
+                  _this2.localValid = false;
+                  errors = [_this2.validationMessages['basic']];
+                } else {
+                  _this2.localValid = null;
+                }
+
+                _this2.updateParentValidState(errors);
+
+                return _context.abrupt("return", _this2.localValid);
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    updateParentValidState: function updateParentValidState(errors) {
+      var _this3 = this;
+
+      var myName = this.$options.name; // Go up the stack and inform parents of new valid state
+
+      var updateParent = function updateParent(parent, height) {
+        //console.log(`PARENT ${parent.$options.name}, isValid = ${this.localValid}, dirty = ${this.dirty}`, errors);
+        if (parent && typeof parent.onValidated == 'function') {
+          parent.onValidated({
+            context: myName,
+            name: _this3.name,
+            isValid: _this3.localValid,
+            isDirty: _this3.dirty,
+            errors: errors
+          });
+        }
+
+        if (parent.$parent && height < 3) {
+          updateParent(parent.$parent, height + 1);
+        }
+      };
+
+      updateParent(this.$parent, 0);
+    },
     // Listen in on validation changes from the form input fields
     onValidated: function onValidated(_ref) {
+      var _this4 = this;
+
       var context = _ref.context,
           name = _ref.name,
           isValid = _ref.isValid;
 
-      if (context == 'us-form-input-masked') {
-        this.$set(this.validationStates, name, isValid);
+      if (!this.required) {
+        return;
       }
+
+      if (context == 'us-form-input-masked') {
+        this.$set(this.validationStates, name, isValid); //this.validationStates[name] = isValid;
+      } //if (prevLocalValid != this.localValid){
+
+
+      this.$nextTick(function () {
+        _this4.updateParentValidState([_this4.localError]);
+      }); // }
     }
   }
 });
@@ -46122,8 +46281,8 @@ var UsFormDatevue_type_style_index_0_lang_scss_ = __webpack_require__("3e3b");
 
 var UsFormDate_component = normalizeComponent(
   form_UsFormDatevue_type_script_lang_js_,
-  UsFormDatevue_type_template_id_5373b4a4_render,
-  UsFormDatevue_type_template_id_5373b4a4_staticRenderFns,
+  UsFormDatevue_type_template_id_d8239188_render,
+  UsFormDatevue_type_template_id_d8239188_staticRenderFns,
   false,
   null,
   null,
@@ -46132,6 +46291,76 @@ var UsFormDate_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsFormDate = (UsFormDate_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDateRange.vue?vue&type=template&id=77b7e344&
+var UsFormDateRangevue_type_template_id_77b7e344_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c("div")}
+var UsFormDateRangevue_type_template_id_77b7e344_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/form/UsFormDateRange.vue?vue&type=template&id=77b7e344&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDateRange.vue?vue&type=script&lang=js&
+//
+//
+/* harmony default export */ var UsFormDateRangevue_type_script_lang_js_ = ({
+  name: 'us-form-daterange'
+});
+// CONCATENATED MODULE: ./src/components/form/UsFormDateRange.vue?vue&type=script&lang=js&
+ /* harmony default export */ var form_UsFormDateRangevue_type_script_lang_js_ = (UsFormDateRangevue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/form/UsFormDateRange.vue
+
+
+
+
+
+/* normalize component */
+
+var UsFormDateRange_component = normalizeComponent(
+  form_UsFormDateRangevue_type_script_lang_js_,
+  UsFormDateRangevue_type_template_id_77b7e344_render,
+  UsFormDateRangevue_type_template_id_77b7e344_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var UsFormDateRange = (UsFormDateRange_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDatePicker.vue?vue&type=template&id=48bdb07c&
+var UsFormDatePickervue_type_template_id_48bdb07c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c("div")}
+var UsFormDatePickervue_type_template_id_48bdb07c_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/form/UsFormDatePicker.vue?vue&type=template&id=48bdb07c&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDatePicker.vue?vue&type=script&lang=js&
+//
+//
+/* harmony default export */ var UsFormDatePickervue_type_script_lang_js_ = ({
+  name: 'us-form-datepicker'
+});
+// CONCATENATED MODULE: ./src/components/form/UsFormDatePicker.vue?vue&type=script&lang=js&
+ /* harmony default export */ var form_UsFormDatePickervue_type_script_lang_js_ = (UsFormDatePickervue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/form/UsFormDatePicker.vue
+
+
+
+
+
+/* normalize component */
+
+var UsFormDatePicker_component = normalizeComponent(
+  form_UsFormDatePickervue_type_script_lang_js_,
+  UsFormDatePickervue_type_template_id_48bdb07c_render,
+  UsFormDatePickervue_type_template_id_48bdb07c_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var UsFormDatePicker = (UsFormDatePicker_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormRadio.vue?vue&type=template&id=4319264c&
 var UsFormRadiovue_type_template_id_4319264c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.localOptions)?_c('span',_vm._l((_vm.localOptions),function(item,index){return _c('div',{key:index,staticClass:"usa-radio"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.currentValue),expression:"currentValue"}],staticClass:"usa-radio__input",attrs:{"id":item.id,"name":_vm.localOptions.name || ("radio-" + _vm.divId),"type":"radio","disabled":item.disabled},domProps:{"value":item.value,"checked":item.checked,"checked":_vm._q(_vm.currentValue,item.value)},on:{"change":function($event){_vm.currentValue=item.value}}}),_c('label',{staticClass:"usa-radio__label",attrs:{"for":item.id}},[_vm._t("label",[_vm._v(" "+_vm._s(item.label)+" ")],{"item":item})],2)])}),0):_vm._e()}
 var UsFormRadiovue_type_template_id_4319264c_staticRenderFns = []
@@ -48826,6 +49055,8 @@ var UsResponsiveInfo_component = normalizeComponent(
 
 
 
+
+
  // Debug components
 
 
@@ -48850,6 +49081,8 @@ var Components = {
   UsFormCheckbox: UsFormCheckbox,
   UsFormRadio: UsFormRadio,
   UsFormDate: UsFormDate,
+  UsFormDatePicker: UsFormDatePicker,
+  UsFormDateRange: UsFormDateRange,
   UsFormBoolean: UsFormBoolean,
   UsImg: UsImg,
   UsHeader: UsHeader,

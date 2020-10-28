@@ -101,6 +101,8 @@ module.exports = {
                 'components/form-inputs/form-radio',
                 'components/form-inputs/form-combobox',
                 'components/form-inputs/form-date',
+                'components/form-inputs/form-date-picker',
+                'components/form-inputs/form-date-range',
                 'components/form-inputs/form-fileinput',
                 'components/form-inputs/form-input',
                 'components/form-inputs/form-slider',
