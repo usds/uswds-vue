@@ -6,7 +6,6 @@ class Validator {
         
         this.rules = rules;
         this.valids  = {};
-        Validator.locale = 'en';
         this.errors = [];
         this.passed = [];
         this.isDirty = false;
@@ -45,92 +44,7 @@ class Validator {
             'en' : 'Please enter a value'
         };
 
-        if (!Validator.ruleLibary){
-            Validator.ruleLibary = {
-                'length': {
-                    validator: (val, length)=>{
-                        return (val && typeof val == 'string') ? val.length>=length : false 
-                    },
-                    message: (length) => {
-                        return {
-                            'en': `Please enter at least ${length} characters`
-                        }
-                    }
-                },            
-                'email': {
-                    validator: (val)=>{
-                        return Validator.isEmailValid(val);
-                    },
-                    message: {'en': 'Please enter a valid email'}
-                },
-                'zip': {
-                    validator: (val)=>{
-                        return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val);
-                    },
-                    message: {'en': 'Please enter a valid zip code'}
-                }, 
-                'alpha': {
-                    validator: (val)=>{
-                        return /^[a-z]+$/i.test(val);
-                    },
-                    message: {'en': 'Please enter only characters'}
-                },             
-                'numeric': {
-                    validator: (val)=>{
-                        return /^[0-9]+$/i.test(val);
-                    },
-                    message: {'en': 'Please enter a number'}
-                },     
-                'between': {
-                    validator: (val, opts)=>{
-                        
-                        if (typeof val == 'string'){
-                            val = parseInt(val);
-                        }
-                        
-                        if (val < opts.min || val > opts.max){
-                            return false;
-                        }
 
-                        return true;
-                    },
-                    checkRule: (opts)=>{
-                        if (!opts){
-                            throw new Error('You must supply a {min, max} object');
-                        }
-                        else if (!opts.min){
-                            throw new Error('You must supply a min');
-                        }
-                        else if (!opts.max){
-                            throw new Error('You must supply a max');
-                        }
-                    },
-                    message: (opts) => {
-                        return {
-                            'en': `Please enter a number between ${opts.min} and ${opts.max}`
-                        }
-                    }
-                },                         
-                'alpha_num': {
-                    validator: (val)=>{
-                        return /^[a-z0-9]+$/i.test(val);
-                    },
-                    message: {'en': 'Please enter a alpha-numeric value'}
-                },             
-                'required': {
-                    validator: (val)=>{
-                        return !!val;
-                    },
-                    message: {'en': 'Please enter a value'}
-                }, 
-                'password': {
-                    validator: (val, opts)=>{
-                        return Validator.isPasswordComplex(val, opts);
-                    },
-                    message: {'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'}
-                }                
-            }
-        }
 
         this.__checkRules();
 
@@ -278,7 +192,7 @@ class Validator {
                 msg = settings.message;
             }
             else {
-                throw new Error(`Message does not support the current local, ${Validator.locale}`);
+                throw new Error(`Message does not support the current locale, ${Validator.locale}`);
             }
         }
 
@@ -353,5 +267,94 @@ class Validator {
 
 }
 
+// Setup rules
+
+if (!Validator.ruleLibary){
+    Validator.locale = 'en';
+    Validator.ruleLibary = {
+        'length': {
+            validator: (val, length)=>{
+                return (val && typeof val == 'string') ? val.length>=length : false 
+            },
+            message: (length) => {
+                return {
+                    'en': `Please enter at least ${length} characters`
+                }
+            }
+        },            
+        'email': {
+            validator: (val)=>{
+                return Validator.isEmailValid(val);
+            },
+            message: {'en': 'Please enter a valid email'}
+        },
+        'zip': {
+            validator: (val)=>{
+                return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val);
+            },
+            message: {'en': 'Please enter a valid zip code'}
+        }, 
+        'alpha': {
+            validator: (val)=>{
+                return /^[a-z]+$/i.test(val);
+            },
+            message: {'en': 'Please enter only characters'}
+        },             
+        'numeric': {
+            validator: (val)=>{
+                return /^[0-9]+$/i.test(val);
+            },
+            message: {'en': 'Please enter a number'}
+        },     
+        'between': {
+            validator: (val, opts)=>{
+                
+                if (typeof val == 'string'){
+                    val = parseInt(val);
+                }
+                
+                if (val < opts.min || val > opts.max){
+                    return false;
+                }
+
+                return true;
+            },
+            checkRule: (opts)=>{
+                if (!opts){
+                    throw new Error('You must supply a {min, max} object');
+                }
+                else if (!opts.min){
+                    throw new Error('You must supply a min');
+                }
+                else if (!opts.max){
+                    throw new Error('You must supply a max');
+                }
+            },
+            message: (opts) => {
+                return {
+                    'en': `Please enter a number between ${opts.min} and ${opts.max}`
+                }
+            }
+        },                         
+        'alpha_num': {
+            validator: (val)=>{
+                return /^[a-z0-9]+$/i.test(val);
+            },
+            message: {'en': 'Please enter a alpha-numeric value'}
+        },             
+        'required': {
+            validator: (val)=>{
+                return !!val;
+            },
+            message: {'en': 'Please enter a value'}
+        }, 
+        'password': {
+            validator: (val, opts)=>{
+                return Validator.isPasswordComplex(val, opts);
+            },
+            message: {'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'}
+        }                
+    }
+}
 
 export default Validator

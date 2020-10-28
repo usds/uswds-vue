@@ -8,8 +8,8 @@ import UsFormTextarea from './components/form/UsFormTextarea';
 import UsFormGroup from './components/form/UsFormGroup';
 import UsFormCombobox from './components/form/UsFormCombobox';
 import UsFormDate from './components/form/UsFormDate';
-import UsFormDateRange from './components/form/UsFormDateRange';
-import UsFormDatePicker from './components/form/UsFormDatePicker';
+//import UsFormDateRange from './components/form/UsFormDateRange';
+//import UsFormDatePicker from './components/form/UsFormDatePicker';
 import UsFormRadio from './components/form/UsFormRadio';
 import UsFormBoolean from './components/form/UsFormBoolean';
 import UsFormCheckbox from './components/form/UsFormCheckbox';
@@ -57,8 +57,8 @@ const Components = {
     UsFormCheckbox,
     UsFormRadio,
     UsFormDate,
-    UsFormDatePicker,
-    UsFormDateRange,
+    //UsFormDatePicker,
+    //UsFormDateRange,
     UsFormBoolean,
     UsImg,
     UsHeader,
