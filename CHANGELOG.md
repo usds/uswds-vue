@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com///compare/v0.1.18...v0.1.19) (2020-10-28)
+
+
+### Features
+
+* exposing validator for external use ([346277e](https://github.com///commit/346277eb1e7505da8bc161256b66cb205521c188))
+
 ### [0.1.18](https://github.com///compare/v0.1.17...v0.1.18) (2020-10-28)
 
 
