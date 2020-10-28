@@ -53,7 +53,6 @@
 </fieldset>
 </template>
 <script>
-import _ from 'lodash';
 import Validator from '../../utils/Validator';
 import moment from 'moment';
 export default {
