@@ -124,8 +124,8 @@ class Validator {
                     message: {'en': 'Please enter a value'}
                 }, 
                 'password': {
-                    validator: (val)=>{
-                        return Validator.isPasswordComplex(val);
+                    validator: (val, opts)=>{
+                        return Validator.isPasswordComplex(val, opts);
                     },
                     message: {'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'}
                 }                
