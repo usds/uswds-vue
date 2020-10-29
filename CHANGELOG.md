@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://github.com///compare/v0.1.20...v0.1.21) (2020-10-29)
+
+
+### Bug Fixes
+
+* fix to export ([1904e3a](https://github.com///commit/1904e3a648736ad5f7a29fb9860bf66d7660ca1f))
+* fixes to login and register ([f1c106f](https://github.com///commit/f1c106fae303818abec0721208ca2c4642e4a8b9))
+
 ### [0.1.20](https://github.com///compare/v0.1.19...v0.1.20) (2020-10-28)
 
 ### [0.1.19](https://github.com///compare/v0.1.18...v0.1.19) (2020-10-28)
