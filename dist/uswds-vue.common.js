@@ -44750,7 +44750,6 @@ var Validator_Validator = /*#__PURE__*/function () {
 
     this.rules = rules;
     this.valids = {};
-    Validator.locale = 'en';
     this.errors = [];
     this.passed = [];
     this.isDirty = false;
@@ -44786,104 +44785,6 @@ var Validator_Validator = /*#__PURE__*/function () {
     this.defaultMessages = {
       'en': 'Please enter a value'
     };
-
-    if (!Validator.ruleLibary) {
-      Validator.ruleLibary = {
-        'length': {
-          validator: function validator(val, length) {
-            return val && typeof val == 'string' ? val.length >= length : false;
-          },
-          message: function message(length) {
-            return {
-              'en': "Please enter at least ".concat(length, " characters")
-            };
-          }
-        },
-        'email': {
-          validator: function validator(val) {
-            return Validator.isEmailValid(val);
-          },
-          message: {
-            'en': 'Please enter a valid email'
-          }
-        },
-        'zip': {
-          validator: function validator(val) {
-            return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val);
-          },
-          message: {
-            'en': 'Please enter a valid zip code'
-          }
-        },
-        'alpha': {
-          validator: function validator(val) {
-            return /^[a-z]+$/i.test(val);
-          },
-          message: {
-            'en': 'Please enter only characters'
-          }
-        },
-        'numeric': {
-          validator: function validator(val) {
-            return /^[0-9]+$/i.test(val);
-          },
-          message: {
-            'en': 'Please enter a number'
-          }
-        },
-        'between': {
-          validator: function validator(val, opts) {
-            if (typeof val == 'string') {
-              val = parseInt(val);
-            }
-
-            if (val < opts.min || val > opts.max) {
-              return false;
-            }
-
-            return true;
-          },
-          checkRule: function checkRule(opts) {
-            if (!opts) {
-              throw new Error('You must supply a {min, max} object');
-            } else if (!opts.min) {
-              throw new Error('You must supply a min');
-            } else if (!opts.max) {
-              throw new Error('You must supply a max');
-            }
-          },
-          message: function message(opts) {
-            return {
-              'en': "Please enter a number between ".concat(opts.min, " and ").concat(opts.max)
-            };
-          }
-        },
-        'alpha_num': {
-          validator: function validator(val) {
-            return /^[a-z0-9]+$/i.test(val);
-          },
-          message: {
-            'en': 'Please enter a alpha-numeric value'
-          }
-        },
-        'required': {
-          validator: function validator(val) {
-            return !!val;
-          },
-          message: {
-            'en': 'Please enter a value'
-          }
-        },
-        'password': {
-          validator: function validator(val, opts) {
-            return Validator.isPasswordComplex(val, opts);
-          },
-          message: {
-            'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'
-          }
-        }
-      };
-    }
 
     this.__checkRules();
   }
@@ -45078,7 +44979,7 @@ var Validator_Validator = /*#__PURE__*/function () {
         } else if (settings.message[Validator.locale]) {
           msg = settings.message;
         } else {
-          throw new Error("Message does not support the current local, ".concat(Validator.locale));
+          throw new Error("Message does not support the current locale, ".concat(Validator.locale));
         }
       }
 
@@ -45152,7 +45053,107 @@ var Validator_Validator = /*#__PURE__*/function () {
   }]);
 
   return Validator;
-}();
+}(); // Setup rules
+
+
+if (!Validator_Validator.ruleLibary) {
+  Validator_Validator.locale = 'en';
+  Validator_Validator.ruleLibary = {
+    'length': {
+      validator: function validator(val, length) {
+        return val && typeof val == 'string' ? val.length >= length : false;
+      },
+      message: function message(length) {
+        return {
+          'en': "Please enter at least ".concat(length, " characters")
+        };
+      }
+    },
+    'email': {
+      validator: function validator(val) {
+        return Validator_Validator.isEmailValid(val);
+      },
+      message: {
+        'en': 'Please enter a valid email'
+      }
+    },
+    'zip': {
+      validator: function validator(val) {
+        return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val);
+      },
+      message: {
+        'en': 'Please enter a valid zip code'
+      }
+    },
+    'alpha': {
+      validator: function validator(val) {
+        return /^[a-z]+$/i.test(val);
+      },
+      message: {
+        'en': 'Please enter only characters'
+      }
+    },
+    'numeric': {
+      validator: function validator(val) {
+        return /^[0-9]+$/i.test(val);
+      },
+      message: {
+        'en': 'Please enter a number'
+      }
+    },
+    'between': {
+      validator: function validator(val, opts) {
+        if (typeof val == 'string') {
+          val = parseInt(val);
+        }
+
+        if (val < opts.min || val > opts.max) {
+          return false;
+        }
+
+        return true;
+      },
+      checkRule: function checkRule(opts) {
+        if (!opts) {
+          throw new Error('You must supply a {min, max} object');
+        } else if (!opts.min) {
+          throw new Error('You must supply a min');
+        } else if (!opts.max) {
+          throw new Error('You must supply a max');
+        }
+      },
+      message: function message(opts) {
+        return {
+          'en': "Please enter a number between ".concat(opts.min, " and ").concat(opts.max)
+        };
+      }
+    },
+    'alpha_num': {
+      validator: function validator(val) {
+        return /^[a-z0-9]+$/i.test(val);
+      },
+      message: {
+        'en': 'Please enter a alpha-numeric value'
+      }
+    },
+    'required': {
+      validator: function validator(val) {
+        return !!val;
+      },
+      message: {
+        'en': 'Please enter a value'
+      }
+    },
+    'password': {
+      validator: function validator(val, opts) {
+        return Validator_Validator.isPasswordComplex(val, opts);
+      },
+      message: {
+        'en': 'Passwords must be at least 8 characters long and contain at least one number and one uppercase letter'
+      }
+    }
+  };
+}
 
 /* harmony default export */ var utils_Validator = (Validator_Validator);
 // CONCATENATED MODULE: ./src/components/mixins/FormInputMixin.js
@@ -46292,76 +46293,6 @@ var UsFormDate_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsFormDate = (UsFormDate_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDateRange.vue?vue&type=template&id=77b7e344&
-var UsFormDateRangevue_type_template_id_77b7e344_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c("div")}
-var UsFormDateRangevue_type_template_id_77b7e344_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/form/UsFormDateRange.vue?vue&type=template&id=77b7e344&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDateRange.vue?vue&type=script&lang=js&
-//
-//
-/* harmony default export */ var UsFormDateRangevue_type_script_lang_js_ = ({
-  name: 'us-form-daterange'
-});
-// CONCATENATED MODULE: ./src/components/form/UsFormDateRange.vue?vue&type=script&lang=js&
- /* harmony default export */ var form_UsFormDateRangevue_type_script_lang_js_ = (UsFormDateRangevue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/form/UsFormDateRange.vue
-
-
-
-
-
-/* normalize component */
-
-var UsFormDateRange_component = normalizeComponent(
-  form_UsFormDateRangevue_type_script_lang_js_,
-  UsFormDateRangevue_type_template_id_77b7e344_render,
-  UsFormDateRangevue_type_template_id_77b7e344_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var UsFormDateRange = (UsFormDateRange_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDatePicker.vue?vue&type=template&id=48bdb07c&
-var UsFormDatePickervue_type_template_id_48bdb07c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c("div")}
-var UsFormDatePickervue_type_template_id_48bdb07c_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/form/UsFormDatePicker.vue?vue&type=template&id=48bdb07c&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormDatePicker.vue?vue&type=script&lang=js&
-//
-//
-/* harmony default export */ var UsFormDatePickervue_type_script_lang_js_ = ({
-  name: 'us-form-datepicker'
-});
-// CONCATENATED MODULE: ./src/components/form/UsFormDatePicker.vue?vue&type=script&lang=js&
- /* harmony default export */ var form_UsFormDatePickervue_type_script_lang_js_ = (UsFormDatePickervue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/form/UsFormDatePicker.vue
-
-
-
-
-
-/* normalize component */
-
-var UsFormDatePicker_component = normalizeComponent(
-  form_UsFormDatePickervue_type_script_lang_js_,
-  UsFormDatePickervue_type_template_id_48bdb07c_render,
-  UsFormDatePickervue_type_template_id_48bdb07c_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var UsFormDatePicker = (UsFormDatePicker_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormRadio.vue?vue&type=template&id=4319264c&
 var UsFormRadiovue_type_template_id_4319264c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.localOptions)?_c('span',_vm._l((_vm.localOptions),function(item,index){return _c('div',{key:index,staticClass:"usa-radio"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.currentValue),expression:"currentValue"}],staticClass:"usa-radio__input",attrs:{"id":item.id,"name":_vm.localOptions.name || ("radio-" + _vm.divId),"type":"radio","disabled":item.disabled},domProps:{"value":item.value,"checked":item.checked,"checked":_vm._q(_vm.currentValue,item.value)},on:{"change":function($event){_vm.currentValue=item.value}}}),_c('label',{staticClass:"usa-radio__label",attrs:{"for":item.id}},[_vm._t("label",[_vm._v(" "+_vm._s(item.label)+" ")],{"item":item})],2)])}),0):_vm._e()}
 var UsFormRadiovue_type_template_id_4319264c_staticRenderFns = []
@@ -49034,8 +48965,8 @@ var UsResponsiveInfo_component = normalizeComponent(
 
 
 
-
-
+ //import UsFormDateRange from './components/form/UsFormDateRange';
+//import UsFormDatePicker from './components/form/UsFormDatePicker';
 
 
 
@@ -49082,8 +49013,8 @@ var Components = {
   UsFormCheckbox: UsFormCheckbox,
   UsFormRadio: UsFormRadio,
   UsFormDate: UsFormDate,
-  UsFormDatePicker: UsFormDatePicker,
-  UsFormDateRange: UsFormDateRange,
+  //UsFormDatePicker,
+  //UsFormDateRange,
   UsFormBoolean: UsFormBoolean,
   UsImg: UsImg,
   UsHeader: UsHeader,
