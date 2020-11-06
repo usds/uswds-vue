@@ -1,6 +1,7 @@
 <template>
-    <div class="usx-tabs">
-        <ul role="tablist" class="nav-tabs" v-if="children">
+    <div class="usx-tabs" :class="{'usx-tabs-card': card}">
+
+        <ul role="tablist" class="nav-tabs" v-if="children && !pills">
             <li 
                 v-for="(tab, index) in children" :key="index"
                 role="presentation" 
@@ -10,12 +11,30 @@
                 {{tab.title}}
             </li>
         </ul>
+
+        <div v-else>
+            <span v-for="(tab, index) in children" :key="index" role="presentation" >
+                <us-tag v-if="selectedTab && selectedTab.id == tab.id" variant="primary" class="mr-1">{{tab.title}}</us-tag>
+                <us-tag v-else variant="white" class="mr-1" @click="onSelectTab(tab)">{{tab.title}}</us-tag>
+            </span>
+        </div>
+
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
     name: 'us-tabs',
+    props: {
+        pills: {
+            type: Boolean,
+            default: null
+        },
+        card: {
+            type: Boolean,
+            default: null
+        }        
+    },     
     data() {
         return {
             children: null,
@@ -67,6 +86,19 @@ export default {
 <style lang="scss">
 .usx-tabs {
 
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+    &.usx-tabs-card {
+        //margin-left: -15px;
+        //margin-right: -15px;
+        background-color: gray;
+    }
+
     //display: flex;
     //flex-wrap: wrap;
     //padding-left: 0;
@@ -97,12 +129,11 @@ export default {
                 color: #495057;
                 background-color: #fff;
                 border-color: #dee2e6 #dee2e6 #fff;
-                border-bottom-color: transparent;
+                border-bottom-color: #fff;
             }            
         }
 
     }
-
 
     ul {
         display: block;

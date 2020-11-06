@@ -79,6 +79,13 @@ module.exports = {
             ''
           ]
         },
+        { 
+          title: 'Utils',
+          collapsable: false,
+          children: [
+            'utils/typography'
+          ]
+        },
         {
           title: 'Components',
           collapsable: false,

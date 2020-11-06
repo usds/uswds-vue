@@ -121,7 +121,7 @@ $svg-info-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="126" height="126
     &.bg-light {
         &.usa-alert--info {
             &::before {
-                background-color: map-get($theme-border-colors, 'light');
+                background-color: usx-variant-bg('light');
             }
         }
     }
@@ -130,7 +130,7 @@ $svg-info-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="126" height="126
         &.usa-alert--info {
             background-image: url('data:image/svg+xml,#{$svg-info-icon}'), linear-gradient(transparent, transparent) !important;
             &::before {
-                background-color: map-get($theme-border-colors, 'primary');
+                background-color: usx-variant-bg('primary');
             }
         }
     }
@@ -138,7 +138,7 @@ $svg-info-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="126" height="126
     &.bg-secondary {
         &.usa-alert--info {
             &::before {
-                background-color: map-get($theme-border-colors, 'secondary');
+                background-color: usx-variant-bg('secondary');
             }
         }
     }

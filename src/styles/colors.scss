@@ -94,3 +94,32 @@ $theme-border-colors: (
   };
 }
 
+@function usx-variant-color($variant) {
+  @return map-get($theme-colors, $variant);
+}
+
+@function usx-variant-border($variant) {
+  //@return map-get($theme-border-colors, $variant);
+  $col: map-get($theme-colors, $variant);
+  @return darken($col, 20%);
+}
+
+@function usx-variant-bg($variant) {
+  //@return map-get($theme-background-colors, $variant);
+  $col: map-get($theme-colors, $variant);
+  @return lighten($col, 20%);
+}
+
+@function usx-variant-text($variant) {
+  @return map-get($theme-colors, $variant);
+  //$col: map-get($theme-colors, $variant);
+  //@return darken($col, 10%);
+}
+
+@function usx-variant-outline($variant) {
+  //@return map-get($theme-colors, $variant);
+  $col: map-get($theme-colors, $variant);
+  @return darken($col, 10%);
+
+}
+

@@ -22,6 +22,59 @@
 </us-form-group>
 ```
 
+## Dropdown
+
+Set the prop `type` to 'dropdown' (or 'combobox') to render as a dropdown.
+
+<div class="mt-3 mb-3">
+    <us-form-group label="A Boolean field">
+        <us-form-boolean
+            type='dropdown'
+            name="yes or no?"
+            v-model="currentValue"
+        />
+    </us-form-group>
+    <div class="mt-2">You selected: {{currentValue}}</div>
+</div>
+
+```vue
+<us-form-group label="Select any historical figure">
+    <us-form-checkbox
+        type='dropdown'
+        name="select historical figure"
+        :options="['Sojourner Truth', 'Frederick Douglass', 'Booker T. Washington', 'George Washington Carver']"
+        v-model="checkedValues"
+    />
+</us-form-group>
+```
+
+## Toggle
+
+Set the prop `type` to 'toggle' for a toggler.
+
+
+<div class="mt-3 mb-3">
+    <us-form-group label="A Boolean field">
+        <us-form-boolean
+            type='toggle'
+            name="yes or no?"
+            v-model="currentValue"
+        />
+    </us-form-group>
+    <div class="mt-2">You selected: {{currentValue}}</div>
+</div>
+
+```vue
+<us-form-group label="Select any historical figure">
+    <us-form-checkbox
+        type='toggle'
+        name="select historical figure"
+        :options="['Sojourner Truth', 'Frederick Douglass', 'Booker T. Washington', 'George Washington Carver']"
+        v-model="checkedValues"
+    />
+</us-form-group>
+```
+
 ## Validation
 
 You can make use of built-in validation, for example;
@@ -65,7 +118,7 @@ You can make use of built-in validation, for example;
 export default {
     data() {
         return {
-            currentValue: null,
+            currentValue: true,
             currentValue2: null,
         }
     },

@@ -24,13 +24,28 @@ The component has built-in support href, simply add a href property to use;
 </us-button>
 ```
 
+## Focus Indication
+
+USWDS, by default, applies a blue rectangle around a button to show focus. This can break some UI, so you have the option to toggle this on or off. But be mindful of accessability implications.
+
+<div class="mt-3 mb-3">
+<us-button variant="primary" :no-focus="false">Click me to see focus indicator</us-button>
+<us-button variant="primary" :no-focus="true">Click me, but you won't see that focus indicator</us-button>
+</div>
+
+``` vue
+<us-button variant="primary" :no-focus="false">click me to see focus</us-button>
+<us-button variant="primary" :no-focus="true">click me, but you won't see focus</us-button>
+```
 
 ## Progmatic navigation
 
 The component has built-in support for [vue-router](https://router.vuejs.org/), simply add a `to` property to any button such as;
 
+<div class="mt-3 mb-3">
 <us-button variant="danger" :to="{name: 'nowhere'}" class="mb-1">Go somewhere</us-button>
 <us-button variant="link" :to="{name: 'nowhere'}" class="mb-1">Go somewhere with a link variant</us-button>
+</div>
 
 ``` vue
 <us-button variant="link" :to="{name: 'nowhere'}">
@@ -43,8 +58,10 @@ The component has built-in support for [vue-router](https://router.vuejs.org/), 
 
 Set the `isLoading` property to display a loading spinner, this will also put the button into a disabled state so it can not be clicked again.
 
+<div class="mt-3 mb-3">
 <us-button variant="primary" :is-loading="isLoading">Submit</us-button>
 <us-button variant="outline-primary" @click="isLoading = !isLoading">Toggle Loading Flag</us-button>
+</div>
 
 ``` vue
 <us-button variant="primary" :is-loading="isLoading">
@@ -63,13 +80,19 @@ For proper styling of `<us-button>`, use one of the contextual variants by setti
 secondary,info, success, danger, warning, outline-primary, outline-secondary, outline-info, outline-success, outline-danger,
 outline-warning, inverse, link. The default is info.
 
-<span v-for="(variant,index) in btnVariants" :key="index">
-    <us-button :variant="variant" class="mb-1">{{variant}}</us-button>
-</span>
+<div class="mt-3 mb-3">
+    <span v-for="(variant,index) in btnVariants" :key="index">
+        <us-button :variant="variant" class="mb-1">{{variant}}</us-button>
+    </span>
+    <span v-for="(variant,index) in btnVariants" :key="index">
+        <us-button :variant="`outline-${variant}`" class="mb-1">{{variant}}</us-button>
+    </span>    
+    <us-button variant="link" class="mb-1">A link</us-button>
+</div>
 
 ## Component Reference
 
-### `<us-alert>`
+### `<us-button>`
 
 ### Properties 
 
@@ -83,6 +106,7 @@ outline-warning, inverse, link. The default is info.
 | aria-expanded | string | null | Support for arial-expanded |
 | aria-controls | string | null | Support for arial-controls |
 | aria-Label | | string  | null | Support for arial-label |
+| no-focus | boolean | true | Turn focus indication on or off |
 | href | string | null | If set, creates a link |
 | target | string  | null | If href is set, this can be one of the href targets so as '_self' |
 | to | string/object | null | Support for vue-router programtic navigation |
@@ -101,14 +125,8 @@ export default {
                 'success',
                 'danger',
                 'warning',
-                'outline-primary',
-                'outline-secondary',
-                'outline-info',
-                'outline-success',
-                'outline-danger',
-                'outline-warning',
-                'inverse',
-                'link'
+                'light',
+                'dark'
             ]
         };
     }

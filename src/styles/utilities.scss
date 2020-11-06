@@ -28,21 +28,21 @@ $pads:
 // Padding...
 
 @each $i, $pixs in $pads {
-    .p-#{$i} {padding: #{$pixs*$step}px;};
-    .pl-#{$i} {padding-left: #{$pixs*$step}px;};
-    .pr-#{$i} {padding-right: #{$pixs*$step}px;};
-    .pt-#{$i} {padding-top: #{$pixs*$step}px;};
-    .pb-#{$i} {padding-bottom: #{$pixs*$step}px;};
+    .p-#{$i} {padding: #{$pixs*$step}px !important;};
+    .pl-#{$i} {padding-left: #{$pixs*$step}px !important;};
+    .pr-#{$i} {padding-right: #{$pixs*$step}px !important;};
+    .pt-#{$i} {padding-top: #{$pixs*$step}px !important;};
+    .pb-#{$i} {padding-bottom: #{$pixs*$step}px !important;};
 }
 
 @each $i, $pixs in $pads {
     @each $size in $sizes {
-        .p-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding: #{$pixs*$step}px;}};
-        .px-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-left: #{$pixs*$step}px; padding-right: #{$pixs*$step}px;}};
-        .pl-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-left: #{$pixs*$step}px;}};
-        .pr-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-right: #{$pixs*$step}px;}};
-        .pt-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-top: #{$pixs*$step}px;}};
-        .pb-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-bottom: #{$pixs*$step}px;}};
+        .p-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding: #{$pixs*$step}px !important;}};
+        .px-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-left: #{$pixs*$step}px !important; padding-right: #{$pixs*$step}px !important;}};
+        .pl-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-left: #{$pixs*$step}px !important;}};
+        .pr-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-right: #{$pixs*$step}px !important;}};
+        .pt-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-top: #{$pixs*$step}px !important;}};
+        .pb-#{$size}-#{$i} {@include media-breakpoint-up($size) {padding-bottom: #{$pixs*$step}px !important;}};
     }
 }    
 
@@ -50,40 +50,40 @@ $pads:
 // Margins...
 
 @each $i, $pixs in $pads {
-    .m-#{$i} {margin: #{$pixs*$step}px;};
-    .mx-#{$i} {margin-right: #{$pixs*$step}px; margin-left: #{$pixs*$step}px;};
-    .ml-#{$i} {margin-left: #{$pixs*$step}px;};
-    .mr-#{$i} {margin-right: #{$pixs*$step}px;};
-    .mt-#{$i} {margin-top: #{$pixs*$step}px;};
-    .mb-#{$i} {margin-bottom: #{$pixs*$step}px;};
+    .m-#{$i} {margin: #{$pixs*$step}px !important;};
+    .mx-#{$i} {margin-right: #{$pixs*$step}px !important; margin-left: #{$pixs*$step}px !important;};
+    .ml-#{$i} {margin-left: #{$pixs*$step}px !important;};
+    .mr-#{$i} {margin-right: #{$pixs*$step}px ;};
+    .mt-#{$i} {margin-top: #{$pixs*$step}px !important;};
+    .mb-#{$i} {margin-bottom: #{$pixs*$step}px !important;};
 }
 
 @each $i, $pixs in $pads {
     @each $size in $sizes {
-        .m-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin: #{$pixs*$step}px;}};
-        .mx-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-right: #{$pixs*$step}px; margin-left: #{$pixs*$step}px;}};
-        .ml-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-left: #{$pixs*$step}px;}};
-        .mr-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-right: #{$pixs*$step}px;}};
-        .mt-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-top: #{$pixs*$step}px;}};
-        .mb-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-bottom: #{$pixs*$step}px;}};
+        .m-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin: #{$pixs*$step}px !important;}};
+        .mx-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-right: #{$pixs*$step}px !important; margin-left: #{$pixs*$step}px !important;}};
+        .ml-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-left: #{$pixs*$step}px !important;}};
+        .mr-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-right: #{$pixs*$step}px !important;}};
+        .mt-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-top: #{$pixs*$step}px !important;}};
+        .mb-#{$size}-#{$i} {@include media-breakpoint-up($size) {margin-bottom: #{$pixs*$step}px !important;}};
     }
 }    
 
 // Auto-margins
 
-.m-auto {margin: auto};
-.ml-auto {margin-left: auto};
-.mr-auto {margin-right: auto};
-.mt-auto {margin-top: auto};
-.mb-auto {margin-bottom: auto};
+.m-auto {margin: auto !important;};
+.ml-auto {margin-left: auto !important;};
+.mr-auto {margin-right: auto !important;};
+.mt-auto {margin-top: auto !important;};
+.mb-auto {margin-bottom: auto !important;};
 
 @each $size in $sizes {
-    .m-#{$size}-auto {@include media-breakpoint-up($size) {margin: auto}};
-    .mx-#{$size}-auto {@include media-breakpoint-up($size) {margin-left: auto; margin-right: auto}};
-    .ml-#{$size}-auto {@include media-breakpoint-up($size) {margin-left: auto}};
-    .mr-#{$size}-auto {@include media-breakpoint-up($size) {margin-right: auto}};
-    .mt-#{$size}-auto {@include media-breakpoint-up($size) {margin-top: auto}};
-    .mb-#{$size}-auto {@include media-breakpoint-up($size) {margin-bottom: auto}};
+    .m-#{$size}-auto {@include media-breakpoint-up($size) {margin: auto !important;}};
+    .mx-#{$size}-auto {@include media-breakpoint-up($size) {margin-left: auto; margin-right: auto !important;}};
+    .ml-#{$size}-auto {@include media-breakpoint-up($size) {margin-left: auto !important;}};
+    .mr-#{$size}-auto {@include media-breakpoint-up($size) {margin-right: auto !important;}};
+    .mt-#{$size}-auto {@include media-breakpoint-up($size) {margin-top: auto !important;}};
+    .mb-#{$size}-auto {@include media-breakpoint-up($size) {margin-bottom: auto !important;}};
 }
 
 // Display

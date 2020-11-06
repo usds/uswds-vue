@@ -9,8 +9,13 @@
         :title="title"
         :disabled="disabled || isLoading"
         :class="[
+            `bg-${variant}`,
+            `border-${variant}`,
+            `text-${variant}`,
             buttonClass,
             {
+                'link': variant == 'link',                
+                'no-focus': noFocus,
                 'usa-button--big': size == 'lg',
                 'display-block': block
             }
@@ -83,6 +88,10 @@ export default {
             type: Boolean,
             default: false
         },
+        noFocus: {
+            type: Boolean,
+            default: true
+        },        
         isLoading: {
             type: Boolean,
             default: false
@@ -121,6 +130,7 @@ export default {
                     txt += 'usa-button--unstyled';
                     break;
 
+                /*
                 case 'primary':
                     txt += 'usa-button--default ';
                     break;
@@ -166,6 +176,7 @@ export default {
                 case 'outline-info':
                     txt += 'usx-btn-outline usx-btn-outline-info ';
                     break;
+                */
 
                 default:
                     txt += 'usa-button--base ';
@@ -201,21 +212,21 @@ export default {
 .usa-button {
     &.usx-btn-success {
         font-weight: bold;
-        border-color: map-get($theme-border-colors, 'success');
-        background-color: map-get($theme-colors, 'success');
+        border-color: usx-variant-border('success');
+        background-color: usx-variant-bg('warning');
         color: white;
         &:hover {
-            background-color: darken(map-get($theme-colors, 'success'), 10%);
+            background-color: darken(usx-variant-color('success'), 10%);
         }
     }
 
     &.usx-btn-warning {
         font-weight: bold;
-        border-color: map-get($theme-border-colors, 'warning');
-        background-color: map-get($theme-colors, 'warning');
+        border-color: usx-variant-border('warning');
+        background-color: usx-variant-bg('warning');
         color: white;
         &:hover {
-            background-color: darken(map-get($theme-colors, 'warning'), 10%);
+            background-color: darken(usx-variant-color('warning'), 10%);
         }
     }
 
@@ -228,33 +239,37 @@ export default {
     }
 
     &.usx-btn-outline-info {
-        color: map-get($theme-colors, 'info');
-        box-shadow: inset 0 0 0 2px map-get($theme-colors, 'info') !important;
+        color: usx-variant-color('info');
+        box-shadow: inset 0 0 0 2px usx-variant-color('info') !important;
     }
 
     &.usx-btn-outline-secondary {
-        color: map-get($theme-colors, 'secondary');
-        box-shadow: inset 0 0 0 2px map-get($theme-colors, 'secondary') !important;
+        color: usx-variant-color('secondary');
+        box-shadow: inset 0 0 0 2px usx-variant-color('secondary') !important;
     }
 
     &.usx-btn-outline-primary {
-        color: map-get($theme-colors, 'primary');
-        box-shadow: inset 0 0 0 2px map-get($theme-colors, 'primary') !important;
+        color: usx-variant-color('primary');
+        box-shadow: inset 0 0 0 2px usx-variant-color('primary') !important;
     }
 
     &.usx-btn-outline-danger {
-        color: map-get($theme-colors, 'danger');
-        box-shadow: inset 0 0 0 2px map-get($theme-colors, 'indangerfo') !important;
+        color: usx-variant-color('danger');
+        box-shadow: inset 0 0 0 2px usx-variant-color('indangerfo') !important;
     }
 
     &.usx-btn-outline-warning {
-        color: map-get($theme-colors, 'warning');
-        box-shadow: inset 0 0 0 2px map-get($theme-colors, 'warning') !important;
+        color: usx-variant-color('warning');
+        box-shadow: inset 0 0 0 2px usx-variant-color('warning') !important;
     }
 
     &.usx-btn-outline-success {
-        color: map-get($theme-colors, 'success');
-        box-shadow: inset 0 0 0 2px map-get($theme-colors, 'success') !important;
+        color: usx-variant-color('success');
+        box-shadow: inset 0 0 0 2px usx-variant-color('success') !important;
+    }
+
+    &.no-focus {
+        outline: none !important;
     }
 }
 </style>
