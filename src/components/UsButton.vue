@@ -1,6 +1,6 @@
 <template>
     <button
-        class="usa-button"
+        class="usa-button "
         @click="onClick()"
         :type="type"
         :aria-label="ariaLabel"
@@ -9,9 +9,6 @@
         :title="title"
         :disabled="disabled || isLoading"
         :class="[
-            `bg-${variant}`,
-            `border-${variant}`,
-            `text-${variant}`,
             buttonClass,
             {
                 'link': variant == 'link',                
@@ -103,15 +100,15 @@ export default {
 
             // Deal with block sizing (setting as full width)
             if (this.block == 'sm') {
-                txt += `width-full tablet:width-auto desktop:width-auto desktop-lg:width-auto`;
+                txt += `width-full tablet:width-auto desktop:width-auto desktop-lg:width-auto `;
             } else if (this.block == 'md') {
-                txt += `width-auto tablet:width-full`;
+                txt += `width-auto tablet:width-full `;
             } else if (this.block == 'lg') {
-                txt += `width-auto desktop:width-full`;
+                txt += `width-auto desktop:width-full `;
             } else if (this.block == 'xl') {
-                txt += `width-auto desktop-lg:width-full`;
+                txt += `width-auto desktop-lg:width-full `;
             } else if (this.block) {
-                txt += 'width-full';
+                txt += 'width-full ';
             }
 
             /*
@@ -125,12 +122,23 @@ export default {
 
             */
 
+           if (this.variant.search('outline') !== -1){
+               //txt += `usx-outline-bg border-${this.variant} text-${this.variant} `;
+               txt += `usa-button--outline usx-btn-${this.variant}`;
+           }
+           else if (this.variant != 'link') {
+               txt += `bg-${this.variant} usx-btn-${this.variant}`;
+           }
+           else if (this.variant == 'link'){
+                txt += 'usa-button--unstyled ';
+           }
+           
+                /*
             switch (this.variant) {
+
                 case 'link':
-                    txt += 'usa-button--unstyled';
                     break;
 
-                /*
                 case 'primary':
                     txt += 'usa-button--default ';
                     break;
@@ -176,11 +184,11 @@ export default {
                 case 'outline-info':
                     txt += 'usx-btn-outline usx-btn-outline-info ';
                     break;
-                */
 
                 default:
                     txt += 'usa-button--base ';
             }
+                */
 
             return txt;
         }
@@ -210,6 +218,8 @@ export default {
 @import "../styles/uswds-vue.scss";
 
 .usa-button {
+
+    /*
     &.usx-btn-success {
         font-weight: bold;
         border-color: usx-variant-border('success');
@@ -237,35 +247,25 @@ export default {
         //box-shadow: inset 0 0 0 2px #005ea2;
         //color: #005ea2;
     }
+*/
 
-    &.usx-btn-outline-info {
-        color: usx-variant-color('info');
-        box-shadow: inset 0 0 0 2px usx-variant-color('info') !important;
-    }
-
-    &.usx-btn-outline-secondary {
-        color: usx-variant-color('secondary');
-        box-shadow: inset 0 0 0 2px usx-variant-color('secondary') !important;
-    }
-
-    &.usx-btn-outline-primary {
-        color: usx-variant-color('primary');
-        box-shadow: inset 0 0 0 2px usx-variant-color('primary') !important;
-    }
-
-    &.usx-btn-outline-danger {
-        color: usx-variant-color('danger');
-        box-shadow: inset 0 0 0 2px usx-variant-color('indangerfo') !important;
-    }
-
-    &.usx-btn-outline-warning {
-        color: usx-variant-color('warning');
-        box-shadow: inset 0 0 0 2px usx-variant-color('warning') !important;
-    }
-
-    &.usx-btn-outline-success {
-        color: usx-variant-color('success');
-        box-shadow: inset 0 0 0 2px usx-variant-color('success') !important;
+    @each $variant, $token in $theme-colors {
+        $color: usx-get-color-from-variant($variant);
+        $colorDark:  darken($color, 15%);
+        &.usx-btn-#{$variant} {
+            &:hover {
+                background-color: $color !important;
+                color: choose-contrast-color($color) !important;                
+            }
+        }
+        &.usx-btn-outline-#{$variant} {
+            color: $color;
+            box-shadow: inset 0 0 0 2px $color!important;
+            &:hover {
+                color: $colorDark;
+                box-shadow: inset 0 0 0 2px $colorDark !important;
+            }
+        }
     }
 
     &.no-focus {

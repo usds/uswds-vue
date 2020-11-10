@@ -67,18 +67,6 @@ export default {
                 case 'info':
                     variant = 'usa-alert--info';
                     break;
-                case 'primary':
-                    variant = 'usa-alert--info bg-primary';
-                    break;
-                case 'secondary':
-                    variant = 'usa-alert--info bg-secondary';
-                    break;                    
-                case 'light':
-                    variant = 'usa-alert--info bg-light';
-                    break;
-                case 'dark':
-                    variant = 'usa-alert--info bg-dark';
-                    break;                                        
                 default:
                     variant = 'usa-alert--info';
                     break;

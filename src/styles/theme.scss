@@ -1,0 +1,58 @@
+// USWDS has an excellent color system, check it out here for a deeper dive
+// @see https://designsystem.digital.gov/utilities/color/
+
+$theme-colors: (
+  primary: get-color('blue', 60, true), // blue-60v
+  secondary: get-color('gray', 50, false), // red-50
+  success: get-color('green-cool', 40, true), // green-cool-40v
+  warning: get-color('gold', 20, true), // gold-20v
+  info: '#d1ecf1', // get-color('cyan', 30, true), // cyan-30v
+  danger: get-color('red-warm', 50, true), // red-warm-50v
+  dark: get-color('gray', 90, false), // gray-90
+  light: get-color('gray', 5, false), // gray-5
+  muted: get-color('gray', 40, false), // gray-5
+  white: get-color('gray', 0, false),
+  black: get-color('gray', 100, false),
+) !default;
+
+$theme-background-colors: (
+  primary: get-color('blue', 60, false),
+  secondary: get-color('gray', 30, false),
+  success: get-color('green-cool', 5, false),
+  warning: get-color('yellow', 5, false),
+  info: '#d1ecf1', // get-color('cyan', 5, false),
+  danger: get-color('red', 50, false),
+  dark: get-color('gray', 90, false),
+  light: get-color('gray', 5, false),
+  muted: get-color('gray', 5, false),
+  white: get-color('gray', 0, false),
+  black: get-color('gray', 100, false)
+) !default;
+
+$theme-border-colors: (
+    primary: get-color('blue', 70, true),
+    secondary: get-color('gray', 60, false),
+    success: get-color('green-cool', 50, true),
+    warning: get-color('gold', 10, true),
+    info: '#bee5eb', // get-color('cyan', 10, false),
+    danger: get-color('red', 60, false),
+    dark: get-color('gray-cool', 70, false),
+    light: get-color('gray', 10, false),
+    muted: get-color('gray', 10, false),
+    white: get-color('gray', 10, false),
+    black: get-color('gray', 90, false)
+) !default;
+
+$theme-background-font-colors: (
+    primary: get-color('gray', 5, false),
+    secondary: get-color('gray', 5, false),
+    success: get-color('gray', 90, false),
+    warning: get-color('gray', 90, false),
+    info: get-color('gray', 90, false),
+    danger: get-color('gray', 5, false),
+    dark: get-color('gray', 5, false),
+    light: get-color('gray', 90, false),
+    muted: get-color('gray', 90, false),
+    white: get-color('gray', 80, false),
+    black: get-color('gray', 20, false)
+) !default;

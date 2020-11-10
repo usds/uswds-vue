@@ -83,6 +83,7 @@ module.exports = {
           title: 'Utils',
           collapsable: false,
           children: [
+            'utils/colors',
             'utils/typography'
           ]
         },

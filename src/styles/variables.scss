@@ -26,3 +26,4 @@ $grid-breakpoints: (
   lg: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'lg')),
   xl: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'xl'))
 );
+

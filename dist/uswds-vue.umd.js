@@ -46776,8 +46776,8 @@ var UsStepIndicator_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsStepIndicator = (UsStepIndicator_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsButton.vue?vue&type=template&id=cfbf39ce&
-var UsButtonvue_type_template_id_cfbf39ce_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"usa-button",class:[
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsButton.vue?vue&type=template&id=f0f183d2&
+var UsButtonvue_type_template_id_f0f183d2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"usa-button",class:[
         ("bg-" + _vm.variant),
         ("border-" + _vm.variant),
         ("text-" + _vm.variant),
@@ -46789,10 +46789,10 @@ var UsButtonvue_type_template_id_cfbf39ce_render = function () {var _vm=this;var
             'display-block': _vm.block
         }
     ],attrs:{"type":_vm.type,"aria-label":_vm.ariaLabel,"aria-expanded":_vm.ariaExpanded,"aria-controls":_vm.ariaControls,"title":_vm.title,"disabled":_vm.disabled || _vm.isLoading},on:{"click":function($event){return _vm.onClick()}}},[_vm._t("default",[_vm._v(" Button ")]),(_vm.isLoading)?_c('i',{staticClass:"fas fa-spinner fa-spin ml-1"}):_vm._e()],2)}
-var UsButtonvue_type_template_id_cfbf39ce_staticRenderFns = []
+var UsButtonvue_type_template_id_f0f183d2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/UsButton.vue?vue&type=template&id=cfbf39ce&
+// CONCATENATED MODULE: ./src/components/UsButton.vue?vue&type=template&id=f0f183d2&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__("5319");
@@ -47018,8 +47018,8 @@ var UsButtonvue_type_style_index_0_lang_scss_ = __webpack_require__("5b41");
 
 var UsButton_component = normalizeComponent(
   components_UsButtonvue_type_script_lang_js_,
-  UsButtonvue_type_template_id_cfbf39ce_render,
-  UsButtonvue_type_template_id_cfbf39ce_staticRenderFns,
+  UsButtonvue_type_template_id_f0f183d2_render,
+  UsButtonvue_type_template_id_f0f183d2_staticRenderFns,
   false,
   null,
   null,
