@@ -43850,12 +43850,12 @@ var es_object_keys = __webpack_require__("b64b");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
 var web_dom_collections_for_each = __webpack_require__("159b");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsAlert.vue?vue&type=template&id=6086f950&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsAlert.vue?vue&type=template&id=a63c8a28&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"usa-alert m-0",class:[_vm.alertClass, { 'usa-alert--slim': _vm.size == 'sm', 'usa-alert--no-icon': _vm.noIcon, 'no-border': _vm.noBorder }]},[_c('div',{staticClass:"usa-alert__body"},[_vm._t("header",[(_vm.title)?_c('h3',{staticClass:"usa-alert__heading"},[_vm._v(_vm._s(_vm.title))]):_vm._e()]),_c('p',{staticClass:"usa-alert__text"},[_vm._t("default",[_vm._m(0)])],2)],2)])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',{staticClass:"usa-alert__text"},[_vm._v("Lorem ipsum dolor sit amet, "),_c('a',{attrs:{"href":"javascript:void(0);"}},[_vm._v("consectetur adipiscing")]),_vm._v(" elit, sed do eiusmod.")])}]
 
 
-// CONCATENATED MODULE: ./src/components/UsAlert.vue?vue&type=template&id=6086f950&
+// CONCATENATED MODULE: ./src/components/UsAlert.vue?vue&type=template&id=a63c8a28&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsAlert.vue?vue&type=script&lang=js&
 //
@@ -43929,22 +43929,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 
         case 'info':
           variant = 'usa-alert--info';
-          break;
-
-        case 'primary':
-          variant = 'usa-alert--info bg-primary';
-          break;
-
-        case 'secondary':
-          variant = 'usa-alert--info bg-secondary';
-          break;
-
-        case 'light':
-          variant = 'usa-alert--info bg-light';
-          break;
-
-        case 'dark':
-          variant = 'usa-alert--info bg-dark';
           break;
 
         default:
@@ -46776,11 +46760,8 @@ var UsStepIndicator_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsStepIndicator = (UsStepIndicator_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsButton.vue?vue&type=template&id=f0f183d2&
-var UsButtonvue_type_template_id_f0f183d2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"usa-button",class:[
-        ("bg-" + _vm.variant),
-        ("border-" + _vm.variant),
-        ("text-" + _vm.variant),
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56612ec2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsButton.vue?vue&type=template&id=688242df&
+var UsButtonvue_type_template_id_688242df_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"usa-button ",class:[
         _vm.buttonClass,
         {
             'link': _vm.variant == 'link',                
@@ -46789,10 +46770,10 @@ var UsButtonvue_type_template_id_f0f183d2_render = function () {var _vm=this;var
             'display-block': _vm.block
         }
     ],attrs:{"type":_vm.type,"aria-label":_vm.ariaLabel,"aria-expanded":_vm.ariaExpanded,"aria-controls":_vm.ariaControls,"title":_vm.title,"disabled":_vm.disabled || _vm.isLoading},on:{"click":function($event){return _vm.onClick()}}},[_vm._t("default",[_vm._v(" Button ")]),(_vm.isLoading)?_c('i',{staticClass:"fas fa-spinner fa-spin ml-1"}):_vm._e()],2)}
-var UsButtonvue_type_template_id_f0f183d2_staticRenderFns = []
+var UsButtonvue_type_template_id_688242df_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/UsButton.vue?vue&type=template&id=f0f183d2&
+// CONCATENATED MODULE: ./src/components/UsButton.vue?vue&type=template&id=688242df&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__("5319");
@@ -46800,9 +46781,8 @@ var es_string_replace = __webpack_require__("5319");
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/UsButton.vue?vue&type=script&lang=js&
 
 
-//
-//
-//
+
+
 //
 //
 //
@@ -46904,15 +46884,15 @@ var es_string_replace = __webpack_require__("5319");
       var txt = ''; // Deal with block sizing (setting as full width)
 
       if (this.block == 'sm') {
-        txt += "width-full tablet:width-auto desktop:width-auto desktop-lg:width-auto";
+        txt += "width-full tablet:width-auto desktop:width-auto desktop-lg:width-auto ";
       } else if (this.block == 'md') {
-        txt += "width-auto tablet:width-full";
+        txt += "width-auto tablet:width-full ";
       } else if (this.block == 'lg') {
-        txt += "width-auto desktop:width-full";
+        txt += "width-auto desktop:width-full ";
       } else if (this.block == 'xl') {
-        txt += "width-auto desktop-lg:width-full";
+        txt += "width-auto desktop-lg:width-full ";
       } else if (this.block) {
-        txt += 'width-full';
+        txt += 'width-full ';
       }
       /*
       'usa-button--default': variant == 'primary',
@@ -46925,60 +46905,66 @@ var es_string_replace = __webpack_require__("5319");
        */
 
 
+      if (this.variant.search('outline') !== -1) {
+        //txt += `usx-outline-bg border-${this.variant} text-${this.variant} `;
+        txt += "usa-button--outline usx-btn-".concat(this.variant);
+      } else if (this.variant != 'link') {
+        txt += "bg-".concat(this.variant, " usx-btn-").concat(this.variant);
+      } else if (this.variant == 'link') {
+        txt += 'usa-button--unstyled ';
+      }
+      /*
       switch (this.variant) {
-        case 'link':
-          txt += 'usa-button--unstyled';
+       case 'link':
           break;
-
-        /*
-        case 'primary':
-            txt += 'usa-button--default ';
-            break;
-        case 'secondary':
-            txt += 'usa-button--base ';
-            break;
-        case 'error':
-        case 'danger':
-            txt += 'usa-button--secondary ';
-            break;
-        case 'success':
-            txt += 'usx-btn-success ';
-            break;
-        case 'warn':
-        case 'warning':
-            txt += 'usx-btn-warning ';
-            break;
-        case 'info':
-            txt += 'usa-button--accent-cool ';
-            break;
-         case 'inverse':
-            txt += 'usa-button--outline usa-button--inverse';
-            break;
-         case 'outline-primary':
-            txt += 'usa-button--outline usx-btn-outline-primary ';
-            break;
-        case 'outline-secondary':
-            txt += 'usx-btn-outline usx-btn-outline-secondary ';
-            break;
-        case 'outline-error':
-        case 'outline-danger':
-            txt += 'usx-btn-outline usx-btn-outline-danger ';
-            break;
-        case 'outline-success':
-            txt += 'usx-btn-outline usx-btn-outline-success ';
-            break;
-        case 'outline-warn':
-        case 'outline-warning':
-            txt += 'usx-btn-outline usx-btn-outline-warning ';
-            break;
-        case 'outline-info':
-            txt += 'usx-btn-outline usx-btn-outline-info ';
-            break;
-        */
-
-        default:
+       case 'primary':
+          txt += 'usa-button--default ';
+          break;
+      case 'secondary':
+          txt += 'usa-button--base ';
+          break;
+      case 'error':
+      case 'danger':
+          txt += 'usa-button--secondary ';
+          break;
+      case 'success':
+          txt += 'usx-btn-success ';
+          break;
+      case 'warn':
+      case 'warning':
+          txt += 'usx-btn-warning ';
+          break;
+      case 'info':
+          txt += 'usa-button--accent-cool ';
+          break;
+       case 'inverse':
+          txt += 'usa-button--outline usa-button--inverse';
+          break;
+       case 'outline-primary':
+          txt += 'usa-button--outline usx-btn-outline-primary ';
+          break;
+      case 'outline-secondary':
+          txt += 'usx-btn-outline usx-btn-outline-secondary ';
+          break;
+      case 'outline-error':
+      case 'outline-danger':
+          txt += 'usx-btn-outline usx-btn-outline-danger ';
+          break;
+      case 'outline-success':
+          txt += 'usx-btn-outline usx-btn-outline-success ';
+          break;
+      case 'outline-warn':
+      case 'outline-warning':
+          txt += 'usx-btn-outline usx-btn-outline-warning ';
+          break;
+      case 'outline-info':
+          txt += 'usx-btn-outline usx-btn-outline-info ';
+          break;
+       default:
           txt += 'usa-button--base ';
       }
+      */
+
 
       return txt;
     }
@@ -47018,8 +47004,8 @@ var UsButtonvue_type_style_index_0_lang_scss_ = __webpack_require__("5b41");
 
 var UsButton_component = normalizeComponent(
   components_UsButtonvue_type_script_lang_js_,
-  UsButtonvue_type_template_id_f0f183d2_render,
-  UsButtonvue_type_template_id_f0f183d2_staticRenderFns,
+  UsButtonvue_type_template_id_688242df_render,
+  UsButtonvue_type_template_id_688242df_staticRenderFns,
   false,
   null,
   null,
