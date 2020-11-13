@@ -9,7 +9,7 @@ $theme-utility-breakpoints: (
   'desktop': 1040px,
   'desktop-lg': 1200px, // 1200px,
   'widescreen': 1400px, // 1400px
-);
+) !default;
 
 // Map breakpoints to a simpler scheme, sm/md/lg/xl that we'll use in the components
 $usx-breakpoint-mapping: (
@@ -17,10 +17,11 @@ $usx-breakpoint-mapping: (
   md: 'tablet',
   lg: 'desktop',
   xl: 'desktop-lg'
-);
+) !default;
 
 // Set breakpoints in a bootstrap friend way so we can use their utilities
 $grid-breakpoints: (
+  xs: 0,
   sm: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'sm')),
   md: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'md')),
   lg: map-get($theme-utility-breakpoints, map-get($usx-breakpoint-mapping, 'lg')),

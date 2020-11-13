@@ -29,8 +29,14 @@ The component has built-in support href, simply add a href property to use;
 USWDS, by default, applies a blue rectangle around a button to show focus. This can break some UI, so you have the option to toggle this on or off. But be mindful of accessability implications.
 
 <div class="mt-3 mb-3">
-<us-button variant="primary" :no-focus="false">Click me to see focus indicator</us-button>
-<us-button variant="primary" :no-focus="true">Click me, but you won't see that focus indicator</us-button>
+<us-row>
+    <us-col md="6">
+        <us-button variant="primary" :no-focus="false">Click me to see focus indicator</us-button>
+    </us-col>
+    <us-col md="6">
+        <us-button variant="primary" :no-focus="true">Click me, but you won't see that focus indicator</us-button>
+    </us-col>
+</us-row>
 </div>
 
 ``` vue

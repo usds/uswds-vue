@@ -83,6 +83,9 @@ module.exports = {
           title: 'Utils',
           collapsable: false,
           children: [
+            'utils/breakpoints',
+            'utils/spacing',
+            'utils/layout',
             'utils/colors',
             'utils/typography'
           ]
@@ -95,7 +98,6 @@ module.exports = {
             'components/button',
             'components/tag',
             'components/card',
-            'components/layout',
             'components/header',
             'components/footer',
             'components/step-indicator',
