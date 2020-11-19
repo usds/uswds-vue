@@ -29,7 +29,7 @@
                     <span class="usa-step-indicator__current-step">{{step+1}}</span>
                     <span class="usa-step-indicator__total-steps">of {{steps.length}}</span>
                 </span>
-                <span class="usa-step-indicator__heading-text">{{currentTitle}}</span>
+                <span class="usa-step-indicator__heading-text" @click="onClickTitle()">{{currentTitle}}</span>
             </h2>
         </div>
     </div>
@@ -85,6 +85,11 @@ export default {
                 }
             }
             return '';
+        }
+    },
+    methods: {
+        onClickTitle(){
+            this.$emit('selectTitle', this.currentTitle);
         }
     }
 };
