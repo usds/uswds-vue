@@ -20,6 +20,8 @@
 
 <script>
 
+import {upperFirst, map} from 'lodash';
+
 export default {
     name: 'us-table',
     props: {
@@ -55,9 +57,9 @@ export default {
         toTitleCase(str) {
             str = str.replace(/-|_/g, ' ');
             let words = str.split(' ');
-            words = _.map(words, _.upperFirst);
+            words = map(words, upperFirst);
             str = words.join(' ');
-            return _.upperFirst(str);
+            return upperFirst(str);
         }
 
     }

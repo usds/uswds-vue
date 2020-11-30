@@ -46,7 +46,7 @@ module.exports = {
     editLinks: false,
     docsDir: '',
     editLinkText: '',
-    lastUpdated: true,    
+    lastUpdated: 'Last Updated', // string | boolean,    
     sidebarDepth: 1,
     nav: [
       {
@@ -117,6 +117,7 @@ module.exports = {
                 'components/form-inputs/form-boolean'
               ]
             },
+            'components/validation',
             'components/footer',
             'components/header',
             'components/left-nav',
@@ -126,8 +127,7 @@ module.exports = {
             //'components/image',
             'components/table',
             'components/tabs',
-            'components/tag',
-            'components/validation',
+            'components/tag'
           ]
         }
 
