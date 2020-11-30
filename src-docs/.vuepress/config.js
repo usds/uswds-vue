@@ -97,11 +97,7 @@ module.exports = {
           children: [
             'components/alert',
             'components/button',
-            'components/tag',
             'components/card',
-            'components/header',
-            'components/footer',
-            'components/step-indicator',
             'components/form',
             'components/form-group',
             {
@@ -121,10 +117,17 @@ module.exports = {
                 'components/form-inputs/form-boolean'
               ]
             },
-            'components/validation',
-            //'components/image',
+            'components/footer',
+            'components/header',
+            'components/left-nav',
             'components/lists',
+            'components/modal',
+            'components/step-indicator',
+            //'components/image',
+            'components/table',
             'components/tabs',
+            'components/tag',
+            'components/validation',
           ]
         }
 

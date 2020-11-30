@@ -33,6 +33,7 @@ import UsTab from './components/tabs/UsTab';
 import UsTabs from './components/tabs/UsTabs';
 import UsListGroup from './components/lists/UsListGroup';
 import UsListGroupItem from './components/lists/UsListGroupItem';
+import UsTable from './components/UsTable';
 
 // Debug components
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
@@ -72,7 +73,8 @@ const Components = {
 	UsResponsiveInfo,
 	UsListGroup,
     UsListGroupItem,
-    UsStepIndicator    
+    UsStepIndicator,
+    UsTable  
 };
 
 /**
