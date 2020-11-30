@@ -84,6 +84,7 @@ module.exports = {
           collapsable: false,
           children: [
             'utils/breakpoints',
+            'utils/display',
             'utils/spacing',
             'utils/layout',
             'utils/colors',
