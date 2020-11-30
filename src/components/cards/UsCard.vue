@@ -75,6 +75,9 @@ export default {
     .usa-card--flag .usa-card__media {
         width: unset !important;
     }
+    //.usa-card__header > :first-child, .usa-card__body > :first-child {
+    //    padding: unset !important;
+    //}
 }
 
 </style>

@@ -279,7 +279,7 @@ $theme-colors-source: (
 */
 
 $theme-colors: (
-  primary:'blue-60v', 
+  primary:'blue-60', 
   secondary: 'gray-50',
   accent: 'orange-20v',
   success: 'green-40v', 
@@ -339,8 +339,7 @@ $bg-lighten: 15% !default;
    */
   @function contrast($back, $front) {
     $backLum: luminance($back) + .05;
-    $foreLum: luminance($front) + .05;
-  
+    $foreLum: luminance($front) + .08;
     @return max($backLum, $foreLum) / min($backLum, $foreLum);
   }
   
@@ -349,10 +348,11 @@ $bg-lighten: 15% !default;
    * Returns black for dark text and white for light text.
    */
   @function choose-contrast-color($color) {
+
     $lightContrast: contrast($color, white);
     $darkContrast: contrast($color, black);
   
-    @if ($lightContrast > $darkContrast) {
+    @if ($lightContrast >= $darkContrast) {
       @return white;
     }
     @else {

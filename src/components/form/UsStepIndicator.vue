@@ -29,7 +29,9 @@
                     <span class="usa-step-indicator__current-step">{{step+1}}</span>
                     <span class="usa-step-indicator__total-steps">of {{steps.length}}</span>
                 </span>
-                <span class="usa-step-indicator__heading-text" @click="onClickTitle()">{{currentTitle}}</span>
+                <slot name="title" v-bind="{ currentTitle }">
+                    <span class="usa-step-indicator__heading-text" @click="onClickTitle()">{{currentTitle}}</span>
+                </slot>
             </h2>
         </div>
     </div>
