@@ -36,23 +36,46 @@ export default {
         borderless: {
             type: Boolean,
             default: false
-        }        
+        },
+        items: {
+            type: [Array, Object],
+            default: null
+        },
+        fields: {
+            type: [Array, Object],
+            default: null
+        }           
     },
     data() {
         return {
-            columns: null,
-            items: [
-                { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-                { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-                { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-                { age: 38, first_name: 'Jami', last_name: 'Carney' }
-            ]
+            columns: null
         }
     },
     mounted(){
-        this.columns = Object.keys(this.items[0]);
+        this.init();
     },
     methods: {
+
+        init(){
+            if (this.fields){
+                let keys = Object.keys(this.fields);
+                this.columns = [];
+                for (let i=0; i<keys; i+=1){
+                    let key = keys[i];
+                    // Support for key mapping of more complex data, e.g. 
+                    // column key = { key: 'name', label: 'Full Name' }
+                    if (typeof key != 'string'){
+                        this.columns.push(key.key)
+                    }
+                    else {
+                        this.columns.push(key);
+                    }
+                }
+            }
+            else {
+                this.columns = Object.keys(this.items[0]);
+            }            
+        },
 
         toTitleCase(str) {
             str = str.replace(/-|_/g, ' ');
