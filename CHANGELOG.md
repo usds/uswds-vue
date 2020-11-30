@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.23 (2020-11-30)
+
+
+### Features
+
+* added checkbox component, updates to docs ([a0ff2f5](https://github.com///commit/a0ff2f504505876c01756fd30081e394f702b6cc))
+* added form-group, form and tabs. Plus doc updates ([d97c167](https://github.com///commit/d97c1673ca5a21cd52d5a22b360ac0f79303bf2b))
+* adding card media types and update to docs ([401ee10](https://github.com///commit/401ee102d32fc90f48369abc14acc83a2fe8b0f5))
+* Adding in custom validated form components ([ae7fba3](https://github.com///commit/ae7fba3cfdd811bbd9a90d87b9a303d3063c751f))
+* adding in internal validation ([b567313](https://github.com///commit/b56731334fb1190eab40e7c6ac0c49ec2e8c74e5))
+* adding step indicator component ([5e0151e](https://github.com///commit/5e0151eb0c37c21217ff07694c1db60683dd749e))
+* completed date input validation, and handling of v-model correctly ([5aa98d8](https://github.com///commit/5aa98d8dc0eae6997bb54d8865c5c5d4f1a7cecf))
+* exposing validator for external use ([346277e](https://github.com///commit/346277eb1e7505da8bc161256b66cb205521c188))
+* new validation, prototype of date component ([3bb73d9](https://github.com///commit/3bb73d96b53270807226c5630c97181d2faae100))
+
+
+### Bug Fixes
+
+* broken gutter styles for grid ([ce43a75](https://github.com///commit/ce43a75d77429ffa3a5ff3e0a9995d586dc5302a))
+* date validation ([6c153e0](https://github.com///commit/6c153e07df9e15ac78744ea7e552c4e4de08436a))
+* error message showing if valid ([29d248b](https://github.com///commit/29d248b2eca896b40b9e7fa6b070bcb3c8224f03))
+* fix to date validation ([f789610](https://github.com///commit/f7896103bc87c6499832002cbac42b27b91c4e4a))
+* fix to export ([1904e3a](https://github.com///commit/1904e3a648736ad5f7a29fb9860bf66d7660ca1f))
+* fixed info color ([745bc85](https://github.com///commit/745bc85cf67c75ecd6b91c6e39877130005a5b43))
+* fixes to alert variants and docs to match ([a2a0a64](https://github.com///commit/a2a0a641aa28780c52dca8354d62ffde11fd7ad5))
+* fixes to login and register ([f1c106f](https://github.com///commit/f1c106fae303818abec0721208ca2c4642e4a8b9))
+
 ### [0.1.22](https://github.com///compare/v0.1.21...v0.1.22) (2020-11-11)
 
 ### [0.1.21](https://github.com///compare/v0.1.20...v0.1.21) (2020-10-29)
