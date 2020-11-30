@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com///compare/v0.1.22...v0.1.24) (2020-11-30)
+
+
+### Features
+
+* adding us-table component ([6fb3103](https://github.com///commit/6fb3103beb045a93572962759946898670921066))
+
+
+### Bug Fixes
+
+* fixed info color ([745bc85](https://github.com///commit/745bc85cf67c75ecd6b91c6e39877130005a5b43))
+
 ### 0.1.23 (2020-11-30)
 
 
