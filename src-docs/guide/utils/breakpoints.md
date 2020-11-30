@@ -7,7 +7,9 @@ The reasoning is two-fold, first is that it's generally considered best-practice
 You can see the breakpointsin action below, try resizing the browser and see the effect using the debug `us-responsive-info` component.
 
 <div>
-    <us-responsive-info />
+    <ClientOnly>
+      <us-responsive-info />
+    </ClientOnly>
 </div>
 
 ## Default Values

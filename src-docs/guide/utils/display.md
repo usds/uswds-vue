@@ -93,7 +93,9 @@ Change the screen size to see the following examples in action.
 You can use the `us-responsive-info` component to help you debug, as this will show which breakpoints are currently active. Change the screen width to see it in action below.
 
 <div>
-    <us-responsive-info />
+    <ClientOnly>
+        <us-responsive-info />
+    </ClientOnly>
 </div>
 
 ```html
