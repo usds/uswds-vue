@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/usds/uswds-vue/compare/v0.1.24...v0.1.25) (2020-12-01)
+
+
+### Features
+
+* adding table slots and fields prop ([aa46541](https://github.com/usds/uswds-vue/commit/aa46541207685e67cc441e68e2063c20f21cf3e8))
+
+
+### Bug Fixes
+
+* remove tag border ([06d081e](https://github.com/usds/uswds-vue/commit/06d081e7f789cbf54606d40cb6c3afefbe74977d))
+
 ### [0.1.24](https://github.com///compare/v0.1.22...v0.1.24) (2020-11-30)
 
 
