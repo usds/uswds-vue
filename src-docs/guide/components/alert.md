@@ -131,7 +131,7 @@ export default {
 
 **Don’t overdo it**. Too many notifications will either overwhelm or annoy the user and are likely to be ignored.
 
-**Allow a user to dismiss a notification wherever appropriate.**
+**Allow a user to dismiss a notification wherever approp+iate.**
 
 **<strong>**Understand the user’s context.** </strong>** Don’t include notifications that aren’t related to the user’s current goal.
 
@@ -147,6 +147,7 @@ export default {
 | variant  | string | info | Applies one of the contextual color variants |
 | no-icon | boolean | false | When set, do not display a icon |
 | no-border | boolean | false | When set, no border is rendered | 
+| dismissible | boolean | false | When set, the modal will display a `x` button for dismissig the modal | 
 | size | string | lg | Specify the size, can be 'lg' or 'sm' |
 | title | string | none | Set a title for the alert |
 | show | boolean | true | Use to dynamically hide or show the alert |

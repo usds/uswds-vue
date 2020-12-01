@@ -132,10 +132,7 @@ export default {
         }
     },
     mounted(){
-
-        console.log('mounted')
         this.init();
-
     },
     methods:{
         init(){
