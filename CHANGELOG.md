@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://github.com/usds/uswds-vue/compare/v0.1.25...v0.1.26) (2020-12-01)
+
+
+### Features
+
+* Added dismissable modals, updated docs ([e058963](https://github.com/usds/uswds-vue/commit/e0589632885fc4c40d1178970a5ee1ba07f98764))
+* progress bar! ([4c553e1](https://github.com/usds/uswds-vue/commit/4c553e1470ca6aa37ebd4e8c79ad817de5a3a1f6))
+
 ### [0.1.25](https://github.com/usds/uswds-vue/compare/v0.1.24...v0.1.25) (2020-12-01)
 
 
