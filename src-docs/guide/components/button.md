@@ -87,12 +87,9 @@ secondary,info, success, danger, warning, outline-primary, outline-secondary, ou
 outline-warning, inverse, link. The default is info.
 
 <div class="mt-3 mb-3">
-    <span v-for="(variant,index) in btnVariants" :key="index">
+    <span v-for="variant in btnVariants" :key="variant">
         <us-button :variant="variant" class="mb-1">{{variant}}</us-button>
     </span>
-    <span v-for="(variant,index) in btnVariants" :key="index">
-        <us-button :variant="`outline-${variant}`" class="mb-1">{{variant}}</us-button>
-    </span>    
     <us-button variant="link" class="mb-1">A link</us-button>
 </div>
 
@@ -132,7 +129,15 @@ export default {
                 'danger',
                 'warning',
                 'light',
-                'dark'
+                'dark',
+                'outline-primary',
+                'outline-secondary',
+                'outline-info',
+                'outline-success',
+                'outline-danger',
+                'outline-warning',
+                'outline-light',
+                'outline-dark'             
             ]
         };
     }
