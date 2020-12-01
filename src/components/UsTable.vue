@@ -5,13 +5,25 @@
         </caption>
         <thead>
             <tr>
-                <th scope="col" v-for="col in columns" :key="col">{{toTitleCase(col)}}</th>
+                <th scope="col" v-for="(col, index) in columns" :key="index">
+                    {{col.label}}
+                </th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(item, index) in items" :key="index">
-                <td scope="row" v-for="col in columns" :key="col">
-                    {{item[col]}}
+                <td scope="row" v-for="(col, index2) in columns" :key="index2">
+
+                    <slot :name="`cell(${col.key})`" v-bind="{ key: col.key, row: item, cell: item[col.key]}">
+                        SLOT {{col.key}}
+                    </slot>
+
+                    <!--
+                    <slot name="cell" v-bind="{ key: col.key, row: item, cell: item[col.key]}">
+                        {{item[col.key]}}
+                    </slot>
+                    -->
+                    
                 </td>
             </tr>
         </tbody>
@@ -57,24 +69,32 @@ export default {
     methods: {
 
         init(){
+            
+            let cols = [];
+
             if (this.fields){
-                let keys = Object.keys(this.fields);
-                this.columns = [];
-                for (let i=0; i<keys; i+=1){
-                    let key = keys[i];
-                    // Support for key mapping of more complex data, e.g. 
-                    // column key = { key: 'name', label: 'Full Name' }
-                    if (typeof key != 'string'){
-                        this.columns.push(key.key)
+                map(this.fields, (item) => {
+                    if (typeof item == 'string'){
+                        cols.push({key: item, label: item});
                     }
                     else {
-                        this.columns.push(key);
+                        cols.push(item);
                     }
-                }
+                });
             }
             else {
-                this.columns = Object.keys(this.items[0]);
-            }            
+                map(Object.keys(this.items[0]), (key) => {
+                    console.log('2', key);
+                    cols.push({key: key, label: this.toTitleCase(key)});
+                });
+            }      
+                        
+            // Support: sortable, variant, key, label
+
+            console.log(cols);
+            
+            this.columns = cols;
+
         },
 
         toTitleCase(str) {
