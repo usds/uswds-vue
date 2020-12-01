@@ -50,14 +50,29 @@ For proper styling of `<us-alert>`, use one of the contextual variants by settin
 Using the `dismissible` prop it's possible to dismiss any `<us-alert>` inline. This will add a close X button. Use the dismiss-label prop to change the hidden label text associated with the dismiss button.
 
 <div class="mt-3 mb-3">
-    <us-alert v-if="showAlert2" variant="danger" dismissible>You can dismiss this alert</us-alert>
-    <us-button class="mt-1" variant="primary" @click="showAlert2 = true">Test</us-button>
+    <us-alert :show="showAlert1" variant="danger" dismissible @onDismissed="onDismissed(1)">You can dismiss this alert</us-alert>
+    <us-button class="mt-1" variant="primary" @click="showAlert1 = true" v-if="!showAlert1">Show</us-button>
 </div>
 
-``` vue
-<us-alert variant="info" dismissible>
-    You can dismiss this alert
-</us-alert>
+```vue
+<template>
+    <us-alert :show="showAlert" variant="danger" dismissible @onDismissed="onDismissed(1)">You can dismiss this alert</us-alert>
+    <us-button class="mt-1" variant="primary" @click="variant = true" v-if="!variant">Show</us-button>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            showAlert: true
+        };
+    },
+    methods: {
+        onDismissed(){
+            this.showAlert = false;
+        }        
+    } 
+};
+</script>
 ```
 
 ## Auto dismissing alerts
@@ -65,14 +80,33 @@ Using the `dismissible` prop it's possible to dismiss any `<us-alert>` inline. T
 To create a `<us-alert>` that dismisses automatically after a period of time, set the `show` prop to the number of seconds you would like the `<us-alert>` to remain visible for. Only integer number of seconds are supported.
 
 <div class="mt-3 mb-3">
-    <us-alert v-if="showAlert2" variant="info" :show="2">This alert will auto-dismiss in 10 seconds</us-alert>
-    <us-button class="mt-1" variant="primary" @click="showAlert2 = true">Test</us-button>
+    <us-alert :show="showAlert2" variant="info" :time="10" show-countdown @onDismissed="onDismissed(2)" class="mb-1">This alert will self destruct in 10 seconds</us-alert>
+    <us-alert :show="showAlert2" variant="info" :time="10" @onDismissed="onDismissed(2)">This alert will self destruct in 10 seconds</us-alert>
+    <us-button class="mt-1" variasnt="primary" @click="showAlert2 = true" v-if="!showAlert2">Show</us-button>
+    <us-button class="mt-1" variant="primary" @click="showAlert2 = false" v-else>Hide</us-button>
 </div>
 
-``` vue
-<us-alert variant="info" show>
-    You can dismiss this alert
-</us-alert>
+```vue
+<template>
+    <us-alert :show="showAlert" variant="info" :time="10" show-countdown @onDismissed="onDismissed()" class="mb-1">This alert will self destruct in 10 seconds</us-alert>
+    <us-alert :show="showAlert" variant="info" :time="10" @onDismissed="onDismissed()">This alert will self destruct in 10 seconds</us-alert>
+    <us-button class="mt-1" variasnt="primary" @click="showAlert = true" v-if="!showAlert">Show</us-button>
+    <us-button class="mt-1" variant="primary" @click="showAlert = false" v-else>Hide</us-button>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            showAlert: true
+        };
+    },
+    methods: {
+        onDismissed(){
+            this.showAlert = false;
+        }        
+    } 
+};
+</script>
 ```
 
 ## When to use the alert component <Badge text="uswds"/>
@@ -115,6 +149,15 @@ To create a `<us-alert>` that dismisses automatically after a period of time, se
 | no-border | boolean | false | When set, no border is rendered | 
 | size | string | lg | Specify the size, can be 'lg' or 'sm' |
 | title | string | none | Set a title for the alert |
+| show | boolean | true | Use to dynamically hide or show the alert |
+| time | number | null | If set, the alert will auto-dismiss after this many seconds |
+| show-countdown | boolean | false | If `time` is set, this will turn on a progress bar to show the countdown |
+
+### Events 
+
+| Name | Arguments | Description |
+| -------- | ----- | ------- | ----------- | 
+| is-dismissed  | none | Called when the alert is dismissed. |
 
 ### Slots
 
@@ -133,6 +176,16 @@ export default {
             showAlert1: true,
             showAlert2: true
         };
-    }
+    },
+    methods: {
+        onDismissed(val){
+            if (val == 2){
+                this.showAlert2 = false;
+            }
+            else {
+                this.showAlert1 = false;
+            }
+        }        
+    }    
 };
 </script>

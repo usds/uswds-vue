@@ -1,15 +1,26 @@
 <template>
-    <div v-if="showAlert" class="usa-alert m-0 usx-alert" :class="[alertClass, { 'usa-alert--slim': size == 'sm', 'usa-alert--no-icon': noIcon, 'no-border': noBorder }]">
+    <div v-if="!isDismissed" class="usa-alert m-0 usx-alert" :class="[alertClass, { 'usa-alert--slim': size == 'sm', 'usa-alert--no-icon': noIcon, 'no-border': noBorder }]">
         <div class="usa-alert__body">
-            <button v-if="dismissible" type="button" aria-label="Close" class="close" @click="showAlert = false">×</button>
+            
+            <button v-if="dismissible" type="button" aria-label="Close" class="close" @click="dismiss()">×</button>
+            
             <slot name="header">
                 <h3 class="usa-alert__heading" v-if="title">{{ title }}</h3>
             </slot>
+
             <p class="usa-alert__text">
                 <slot name="default">
                     <p class="usa-alert__text">Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</p>
                 </slot>
             </p>
+
+            <div>
+                <us-progress v-if="showCountdown && time" :value="timer" :max="progressMax" height="3px"/>
+            </div>
+
+            <!-- If no title, add a little bit of padding at the bottom -->
+            <div v-if="!title && size != 'sm'" style="height:5px"></div>
+
         </div>
     </div>
 </template>
@@ -46,7 +57,15 @@ export default {
             type: Boolean,
             default: false
         },   
+        showCountdown: {
+            type: Boolean,
+            default: false
+        },         
         show: {
+            type: Boolean,
+            default: true
+        },          
+        time: {
             type: Number,
             default: null
         },               
@@ -60,9 +79,21 @@ export default {
             default: null
         }
     },
+    watch: {
+        show(newVal){
+            this.isDismissed = (newVal) ? false : true;
+            if (!this.isDismissed){
+                this.init();
+            }
+        }
+    },
     data(){
         return {
-            showAlert: true
+            timer: 0,
+            intHandle: null,
+            toHandle: null,
+            isDismissed: false,
+            progressMax: 100
         }
     },
     computed: {
@@ -101,16 +132,59 @@ export default {
         }
     },
     mounted(){
+
         console.log('mounted')
-        if (this.show && isNumber(this.show)){
-            setTimeout(()=>{
-                this.showAlert = false;
-            }, this.show*1000)
+        this.init();
+
+    },
+    methods:{
+        init(){
+
+            const increment = 200; // ms per bar update
+            this.isDismissed = false;
+            
+            this._clearTimeounts();     
+
+            if (this.showCountdown && this.time && isNumber(this.time)){
+                
+                let maxIncs = Math.floor((this.time * 1000) / increment);
+                this.timer = maxIncs;
+                this.progressMax = maxIncs;
+
+                this.handle = setInterval(()=>{
+                    this.timer -= 1;
+                    if (this.timer <= 0){
+                        this.timer = 0;
+                        this._clearTimeounts();
+                        this.dismiss();
+                    }
+                }, increment);
+
+            }
+            else if (this.time && isNumber(this.time)){
+                setTimeout(()=>{
+                    this.dismiss();
+                }, this.time*1000)
+            }
+        },    
+        _clearTimeounts(){
+            if (this.intHandle){
+                clearInterval(this.intHandle);
+            }  
+            if (this.toHandle){
+                clearTimeout(this.hantoHandledle);
+            }              
+        },
+        dismiss(){
+            this.isDismissed = true;
+            // Tidy up and clear interval (if running)
+            this._clearTimeounts();
+            this.$emit('onDismissed');
         }
     },
-    updated(){
-        console.log('updated')
-        //this.showAlert = true;
+    unmounted(){
+        // Tidy up and clear interval (if running)
+        this._clearTimeounts();
     }
 };
 </script>
@@ -125,6 +199,7 @@ $svg-info-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="126" height="126
     .usa-alert__body {
         width: 100%;
         display: block;
+
     }
 
     &.no-border::before {
