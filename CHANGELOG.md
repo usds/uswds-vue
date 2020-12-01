@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/usds/uswds-vue/compare/v0.1.26...v0.1.27) (2020-12-01)
+
+
+### Bug Fixes
+
+* doc and style fixes ([c4e41fe](https://github.com/usds/uswds-vue/commit/c4e41fe2cc20e10d9245504737d51044220c075d))
+* fix to button docs ([09adac8](https://github.com/usds/uswds-vue/commit/09adac89d6eda85d577fc30d7cec6b9ee51c7e98))
+
 ### [0.1.26](https://github.com/usds/uswds-vue/compare/v0.1.25...v0.1.26) (2020-12-01)
 
 
