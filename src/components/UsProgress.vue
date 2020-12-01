@@ -7,7 +7,7 @@
             :aria-valuenow="value" 
             class="progress-bar"             
             :class="[`bg-${variant}`,{'progress-bar-striped': striped, 'progress-bar-animated': animated}]"
-            :style="widthStyle"
+            :style="widthStyle()"
         >
             <slot v-bind="{value, max, min, percent}">
                 <span v-if="showProgress">{{percent}}%</span>
@@ -64,7 +64,7 @@ export default {
             percent: null
         }
     },
-    computed: {
+    methods: {
         widthStyle(){
 
             this.percent = Math.ceil(100 * (this.value - this.min) / (this.max - this.min));
@@ -113,21 +113,21 @@ export default {
     }    
         
     @-webkit-keyframes progress-bar-stripes {
-    from {
-        background-position: 1rem 0;
-    }
-    to {
-        background-position: 0 0;
-    }
+        from {
+            background-position: 1rem 0;
+        }
+        to {
+            background-position: 0 0;
+        }
     }
 
     @keyframes progress-bar-stripes {
-    from {
-        background-position: 1rem 0;
-    }
-    to {
-        background-position: 0 0;
-    }
+        from {
+            background-position: 1rem 0;
+        }
+        to {
+            background-position: 0 0;
+        }
     }
 
 }
