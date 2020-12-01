@@ -1,4 +1,6 @@
 <template>
+    <div class="usx-modal">
+    </div>
 </template>
 
 <script>

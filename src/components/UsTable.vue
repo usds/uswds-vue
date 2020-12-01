@@ -1,5 +1,5 @@
 <template>
-    <table class="usa-table usx-table" :class="{'usa-table--borderless':borderless}">
+    <table class="usa-table usx-table w-100" :class="{'usa-table--borderless':borderless}">
         <caption v-if="caption">
             {{caption}}
         </caption>
@@ -104,7 +104,6 @@ export default {
             }
             else {
                 map(Object.keys(this.items[0]), (key) => {
-                    console.log('2', key);
                     cols.push({key: key, label: this.toTitleCase(key)});
                 });
             }      
@@ -135,6 +134,10 @@ export default {
 <style lang="scss">
     .usx-table {
         
+        table {
+            display: table !important;
+        }
+
         .odd td {
             background-color: rgba(240,240,240,0.3);
         }
