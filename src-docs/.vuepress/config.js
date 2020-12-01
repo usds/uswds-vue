@@ -123,6 +123,7 @@ module.exports = {
             'components/left-nav',
             'components/lists',
             'components/modal',
+            'components/progress',
             'components/step-indicator',
             //'components/image',
             'components/table',

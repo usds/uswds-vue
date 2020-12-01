@@ -45,6 +45,36 @@ For proper styling of `<us-alert>`, use one of the contextual variants by settin
     <us-alert :variant="variant">This is a <strong>{{variant}}</strong> message</us-alert><br/>
 </span>
 
+## Dismissible alerts
+
+Using the `dismissible` prop it's possible to dismiss any `<us-alert>` inline. This will add a close X button. Use the dismiss-label prop to change the hidden label text associated with the dismiss button.
+
+<div class="mt-3 mb-3">
+    <us-alert v-if="showAlert2" variant="danger" dismissible>You can dismiss this alert</us-alert>
+    <us-button class="mt-1" variant="primary" @click="showAlert2 = true">Test</us-button>
+</div>
+
+``` vue
+<us-alert variant="info" dismissible>
+    You can dismiss this alert
+</us-alert>
+```
+
+## Auto dismissing alerts
+
+To create a `<us-alert>` that dismisses automatically after a period of time, set the `show` prop to the number of seconds you would like the `<us-alert>` to remain visible for. Only integer number of seconds are supported.
+
+<div class="mt-3 mb-3">
+    <us-alert v-if="showAlert2" variant="info" :show="2">This alert will auto-dismiss in 10 seconds</us-alert>
+    <us-button class="mt-1" variant="primary" @click="showAlert2 = true">Test</us-button>
+</div>
+
+``` vue
+<us-alert variant="info" show>
+    You can dismiss this alert
+</us-alert>
+```
+
 ## When to use the alert component <Badge text="uswds"/>
 
 **System status messages.** As a notification that keeps people informed of the status of the system and which may or may not require the user to respond. This includes errors, warnings, and general updates.
@@ -95,3 +125,14 @@ For proper styling of `<us-alert>`, use one of the contextual variants by settin
 ### Further Reading
 
 See [Alert documentation at USWDS](https://designsystem.digital.gov/components/alert/)
+
+<script>
+export default {
+    data() {
+        return {
+            showAlert1: true,
+            showAlert2: true
+        };
+    }
+};
+</script>

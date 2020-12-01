@@ -111,3 +111,19 @@ $pads:
     .text-#{$size}-left {@include media-breakpoint-up($size) {text-align: left}};
     .text-#{$size}-right {@include media-breakpoint-up($size) {text-align: right}};
 }
+
+// Widths
+$percents: 25, 50, 75, 100;
+@each $pc in $percents {
+    .w-#{$pc} {width: #{$pc}% !important;}
+    .h-#{$pc} {height: #{$pc}% !important;}
+    .mh-#{$pc} {max-height: #{$pc}% !important;}
+    .mw-#{$pc} {max-width: #{$pc}% !important;}
+}
+
+.h-auto { height: auto !important;}
+.min-vw-100 { min-width: 100vw !important;}
+.min-vh-100 { min-height: 100vh !important;}
+.vw-100 { width: 100vw !important;}
+.vh-100 { height: 100vh !important;}
+  
