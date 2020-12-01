@@ -1,6 +1,6 @@
 <template>
     <div class="d-inline-block" @click="onClick()">
-        <span class="usa-tag" :class="[`bg-${variant}`, `border-${variant}`, {'radius-pill': pill}]" >
+        <span class="usa-tag" :class="[`bg-${variant}`, {'radius-pill': pill}]" >
             <slot></slot>
         </span>
     </div>
