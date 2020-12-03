@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.29](https://github.com/usds/uswds-vue/compare/v0.1.27...v0.1.29) (2020-12-03)
+
+
+### Bug Fixes
+
+* fixes to combobox, other minor fixes ([e7f2ed8](https://github.com/usds/uswds-vue/commit/e7f2ed8cc4820d8fb57fd68bfb129925e89ac213))
+
 ### [0.1.27](https://github.com/usds/uswds-vue/compare/v0.1.26...v0.1.27) (2020-12-01)
 
 
