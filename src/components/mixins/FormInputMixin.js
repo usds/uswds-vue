@@ -161,7 +161,7 @@ const FormInputMixin = {
         },
         
         __debouncedOnChange: debounce(function(val){
-            this.__onChange();
+            this.__onChange(val);
         }, 500),
 
         async validate(){
