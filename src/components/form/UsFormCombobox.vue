@@ -51,6 +51,9 @@ export default {
 
             let item = this.options[index];
 
+            if (this.keyField){
+                return item[this.keyField];
+            }
             if (item.value){
                 return item.value;
             }
@@ -71,18 +74,23 @@ export default {
                 return item;
             }
             */
+            
         },
 
         getLabel(index){
             
             let item = this.options[index];
 
-            if (item.label){
+            if (this.labelField){
+                return item[this.labelField];
+            }
+            else if (item.label){
                 return item.label;
             }
             else {
                 return item;
             }
+
             /*
             let hasKey = Object.prototype.hasOwnProperty.call(item, this.keyField);
 
@@ -97,6 +105,7 @@ export default {
                 return item;
             }
             */
+            
         }
     }
 };

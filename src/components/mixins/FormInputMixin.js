@@ -1,5 +1,5 @@
-//import _ from 'lodash';
 import Validator from '../../utils/Validator';
+import {debounce} from 'lodash';
 
 /**
  * This mixin provides all the basic machinary to support the props that an input field
@@ -30,6 +30,10 @@ const FormInputMixin = {
             type: String,
             default: null
         },
+        debounce: {
+            type: Boolean,
+            default: false
+        },     
         description: {
             type: String,
             default: null
@@ -67,17 +71,12 @@ const FormInputMixin = {
         },
         currentValue(val) {
             if (!this.isUpdating) {
-
-                // Set the field as dirty
-                this.dirty = true;
-
-                if (this.validationMode == 'aggressive'){
-                    this.validate();
+                if (this.debounce){
+                    this.__debouncedOnChange(val);
                 }
-
-                // allows us to use v-model on our input.
-                this.$emit('input', val);
-                this.$emit('changed', val);
+                else {
+                    this.__onChange(val);
+                }
             }
         }
     },
@@ -146,6 +145,24 @@ const FormInputMixin = {
             });
 
         },
+
+        __onChange(val){
+
+            // Set the field as dirty
+            this.dirty = true;
+
+            if (this.validationMode == 'aggressive'){
+                this.validate();
+            }
+
+            // allows us to use v-model on our input.
+            this.$emit('input', val);
+            this.$emit('changed', val);
+        },
+        
+        __debouncedOnChange: debounce(function(val){
+            this.__onChange();
+        }, 500),
 
         async validate(){
 

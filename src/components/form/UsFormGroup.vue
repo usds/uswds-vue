@@ -5,6 +5,13 @@
             <label v-if="label" class="usa-label" :for="divId">{{ label }}</label>
         </slot>
 
+        <!-- Help text -->
+        <slot name="help-text" v-if="helpTop">
+            <span v-if="helpText" class="usa-hint">
+                {{ helpText }}
+            </span>
+        </slot>
+
         <slot v-bind="{ localValid, divId }"></slot>
 
         <!-- Error Message -->
@@ -13,7 +20,7 @@
         </slot>
 
         <!-- Help text -->
-        <slot name="help-text">
+        <slot name="help-text" v-if="!helpTop">
             <span v-if="helpText" class="usa-hint">
                 {{ helpText }}
             </span>
@@ -49,6 +56,10 @@ export default {
             type: String,
             default: null
         },
+        helpTop: {
+            type: Boolean,
+            default: false
+        },        
         error: {
             type: String,
             default: null

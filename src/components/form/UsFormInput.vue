@@ -23,22 +23,6 @@ export default {
             type: String,
             default: 'text'
         }        
-    },
-    data() {
-        return {
-        };
-    },
-    computed: {
-        parentValid(){
-            return this.$parent.valid;
-        }
-    },
-    watch: {
-
-    },
-    mounted(){
-    },
-    methods: {
     }
 };
 </script>
