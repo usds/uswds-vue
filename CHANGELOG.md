@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://github.com/usds/uswds-vue/compare/v0.1.29...v0.1.30) (2020-12-09)
+
+
+### Features
+
+* modal component and side-nav (alpha) ([4bcd746](https://github.com/usds/uswds-vue/commit/4bcd746b242cbbf414c7e8c160dfa534d5c46d42))
+
 ### [0.1.29](https://github.com/usds/uswds-vue/compare/v0.1.27...v0.1.29) (2020-12-03)
 
 
