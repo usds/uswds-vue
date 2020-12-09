@@ -16,8 +16,6 @@
     "prepublishOnly": "$npm_execpath build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "docs2:dev": "yarn --cwd docs dev",
-    "docs2:build": "yarn --cwd docs build",
     "docs:dev": "vuepress dev src-docs",
     "docs:build": "vuepress build src-docs",
     "release": "standard-version",
@@ -35,6 +33,7 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "uswds": "^2.9.0",
+    "vue-jest": "^3.0.7",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
@@ -42,7 +41,7 @@
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^1.1.1",
     "babel-eslint": "^10.1.0",
     "chance": "^1.1.7",
     "eslint": "^6.7.2",
@@ -68,7 +67,17 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": "off",
+      "vue/no-unused-vars": "off",
+      "vue/no-parsing-error": [
+        2,
+        {
+          "x-invalid-end-tag": false
+        }
+      ]
+    },
     "overrides": [
       {
         "files": [
@@ -87,6 +96,19 @@
     "not dead"
   ],
   "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "json",
+      "vue"
+    ],
+    "testURL": "http://localhost/"
+  },
+  "jestold": {
     "preset": "@vue/cli-plugin-unit-jest",
     "collectCoverage": false,
     "verbose": true

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!isDismissed" class="usa-alert m-0 usx-alert" :class="[alertClass, { 'usa-alert--slim': size == 'sm', 'usa-alert--no-icon': noIcon, 'no-border': noBorder }]">
+    <div v-if="!isDismissed" class="usx-component usa-alert m-0 usx-alert" :class="[alertClass, { 'usa-alert--slim': size == 'sm', 'usa-alert--no-icon': noIcon, 'no-border': noBorder }]">
         <div class="usa-alert__body">
             
             <button v-if="dismissible" type="button" aria-label="Close" class="close" @click="dismiss()">×</button>

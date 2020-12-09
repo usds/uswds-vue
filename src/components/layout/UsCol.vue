@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-col" :class="colClass">
+    <div class="usx-component grid-col" :class="colClass">
         <slot></slot>
     </div>
 </template>

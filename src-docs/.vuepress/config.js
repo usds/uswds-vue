@@ -3,6 +3,8 @@ const path = require("path");
 
 module.exports = {
   
+  //theme: 'thindark',
+  
   base: '/uswds-vue/',
 
   dest: './docs',
@@ -11,6 +13,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
   title: 'USWDS-Vue',
+  
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */

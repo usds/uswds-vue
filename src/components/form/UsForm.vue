@@ -1,5 +1,5 @@
 <template>
-    <form class="usa-form" 
+    <form class="usx-component usa-form" 
         @submit.stop.prevent="doSubmit" 
         novalidate 
         :class="{ 'usa-form--large': size == 'lg' }"

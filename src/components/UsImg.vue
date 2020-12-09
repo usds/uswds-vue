@@ -1,5 +1,5 @@
 <template>
-    <img class="usx-img" :src="src" :class="[{'fluid':fluid}]"/>
+    <img class="usx-component usx-img" :src="src" :class="[{'fluid':fluid}]"/>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-button-group segmented" role="group">
+    <div class="usx-component usx-button-group segmented" role="group">
         <slot>
         </slot>
     </div>

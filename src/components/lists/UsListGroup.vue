@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-list-group">
+    <div class="usx-component usx-list-group">
         <slot>
         </slot>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <li class="usa-nav__primary-item">
+    <li class="usx-component usa-nav__primary-item">
         <a class="usa-nav__link" href="javascript:void(0)">
 
             <us-button v-if="to || href" variant="link" class="m-0 p-0" :href="href" :to="to" :title="title" :aria-label="title">

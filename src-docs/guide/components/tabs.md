@@ -1,4 +1,4 @@
-# Tabs
+# Tabs <Badge type="green" text="extension"/>
 
 ## Overview
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="usa-accordion" :class="[`bg-${variant}`, { 'usa-accordion--bordered': bordered }]" :aria-multiselectable="multiSelect">
+    <div class="usx-componentusa-accordion" :class="[`bg-${variant}`, { 'usa-accordion--bordered': bordered }]" :aria-multiselectable="multiSelect">
         <slot></slot>
     </div>
 </template>

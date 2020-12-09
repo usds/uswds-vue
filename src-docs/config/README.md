@@ -1,5 +1,6 @@
 ---
 sidebar: auto
+home: true
 ---
 
 # Config

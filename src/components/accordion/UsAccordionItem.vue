@@ -1,5 +1,5 @@
 <template>
-    <span>
+    <span class="usx-component">
         <slot name="heading">
             <h2 class="usa-accordion__heading" :class="`bg-${variant}`">
                 <button class="usa-accordion__button" :aria-expanded="expanded" :aria-controls="divId">{{ title }}</button>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import UtilsMixin from '../mixins/UtilsMixin';
+import CoreMixin from '../mixins/CoreMixin';
 /**
  * USWDS accordion item component
  * Supports a default slot for the body content, and a 'header' slot for title.
@@ -30,7 +30,7 @@ import UtilsMixin from '../mixins/UtilsMixin';
  */
 export default {
     name: 'us-accordion-item',
-    mixins: [UtilsMixin],
+    mixins: [CoreMixin],
     props: {
         variant: {
             type: String,

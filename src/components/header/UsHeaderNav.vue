@@ -1,5 +1,5 @@
 <template>
-    <nav aria-label="Primary navigation" class="usa-nav">
+    <nav aria-label="Primary navigation" class="usx-component usa-nav">
         <button class="usa-nav__close">
             <i class="fas fa-times"></i>
         </button>

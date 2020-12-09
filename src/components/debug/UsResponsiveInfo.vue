@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-responsive-info">
+    <div class="usx-component usx-responsive-info">
 
         <div class="resp-info resp-current d-none d-xs-inline-block d-sm-none">xs</div>
         <div class="resp-info resp-current d-none d-sm-inline-block d-md-none">sm</div>

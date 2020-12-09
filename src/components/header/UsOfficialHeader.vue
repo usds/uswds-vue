@@ -1,5 +1,5 @@
 <template>
-    <section class="usa-banner" aria-label="Official government website" :class="`bg-${variant}`">
+    <section class="usx-component usa-banner" aria-label="Official government website" :class="`bg-${variant}`">
         <div class="usa-accordion">
             <header class="usa-banner__header">
                 <div class="usa-banner__inner" :class="`bg-${variant} fluid-${this.fluid}`">

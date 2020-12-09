@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="usx-component">
         <a class="usa-skipnav" href="#main-content">Skip to main content</a>
         <div class="usa-overlay"></div>
         

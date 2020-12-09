@@ -1,5 +1,5 @@
 <template>
-    <div v-if="localActive" class="usx-tab tab-content mt-3">
+    <div v-if="localActive" class="usx-component usx-tab tab-content mt-3">
         <slot></slot>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="usx-progress">
+    <div class="usx-component usx-progress">
         <div role="progressbar" 
             :aria-valuemin="min" 
             :aria-valuemax="max" 

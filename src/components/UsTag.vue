@@ -1,5 +1,5 @@
 <template>
-    <div class="d-inline-block" @click="onClick()">
+    <div class="usx-component d-inline-block" @click="onClick()">
         <span class="usa-tag" :class="[`bg-${variant}`, {'radius-pill': pill}]" >
             <slot></slot>
         </span>

@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-container" :class="`fluid-${this.fluid}`">
+    <div class="usx-component grid-container" :class="`fluid-${this.fluid}`">
         <slot></slot>
     </div>
 </template>

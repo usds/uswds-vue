@@ -1,4 +1,4 @@
-# Lists
+# Lists <Badge type="green" text="extension"/>
 
 ## Basic Usage
 

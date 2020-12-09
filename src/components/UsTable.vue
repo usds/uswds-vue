@@ -1,5 +1,5 @@
 <template>
-    <table class="usa-table usx-table w-100" :class="{'usa-table--borderless':borderless}">
+    <table class="usx-component usa-table usx-table w-100" :class="{'usa-table--borderless':borderless}">
         <caption v-if="caption">
             {{caption}}
         </caption>

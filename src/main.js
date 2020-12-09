@@ -1,5 +1,8 @@
 import UsAlert from './components/UsAlert';
 import UsCard from './components/cards/UsCard';
+import UsCardHeader from './components/cards/UsCardHeader';
+import UsCardFooter from './components/cards/UsCardFooter';
+import UsCardBody from './components/cards/UsCardBody';
 import UsCardGroup from './components/cards/UsCardGroup';
 import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
@@ -24,6 +27,8 @@ import UsHeader from './components/header/UsHeader';
 import UsFooter from './components/UsFooter';
 import UsNavItem from './components/header/UsNavItem';
 import UsHeaderNav from './components/header/UsHeaderNav';
+import UsSideNavItem from './components/side-nav/UsSideNavItem';
+import UsSideNav from './components/side-nav/UsSideNav';
 import UsHeaderBrand from './components/header/UsHeaderBrand';
 import UsOfficialHeader from './components/header/UsOfficialHeader';
 import UsContainer from './components/layout/UsContainer';
@@ -41,6 +46,8 @@ import UsProgress from './components/UsProgress';
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 
 const Components = {
+    UsSideNav,
+    UsSideNavItem,
     UsPill,
     UsTag,
     UsRow,
@@ -49,7 +56,10 @@ const Components = {
     UsTabs,
     UsAlert,
     UsCard,
+    UsCardHeader,
+    UsCardFooter,
     UsCardGroup,
+    UsCardBody,
     UsButton,
     UsButtonGroup,
     UsForm,

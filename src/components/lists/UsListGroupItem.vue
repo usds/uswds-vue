@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-list-group-item" @click="onClick()">
+    <div class="usx-component usx-list-group-item" @click="onClick()">
         <slot>
             <span>Simple link</span>
         </slot>

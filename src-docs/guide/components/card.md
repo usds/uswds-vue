@@ -1,34 +1,65 @@
 # Card
 
-<us-card title="This is the title" class="mb-2">This is a card with some content.</us-card>
+<div class="mt-3 mb-3">
+    <us-card title="This is the title" class="mb-2">This is a card with some content.</us-card>
+</div>
 
 ```vue
-    <us-card title="This is the title" variant="info">
-        This is a card with some content.
-    </us-card>
+<us-card title="This is the title" variant="info">
+    This is a card with some content.
+</us-card>
 ```
 
-## Header & Footer slots
+## Header & Footer using child components
 
-Add custom html content to the header or footer using slots;
+Add custom html content using the child components `us-card-footer`, `us-card-header` and  `us-card-body`
 
-<us-card class="m-2"><template v-slot:title><h2>A <i>custom</i> html header</h2></template>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<template v-slot:footer><h2>A <i>custom</i> html footer</h2></template></us-card>
+<div class="mt-3 mb-3">
+    <us-card class="m-2" title="This is a card with a custom footer">
+        <us-card-body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary">Footer Button</us-button>
+        </us-card-footer>
+    </us-card>
+</div>
+
+<div class="mt-3 mb-3">
+    <us-card class="m-2">
+        <us-card-header>
+            <h2>A <i>custom</i> card with a custom header and footer</h2>
+        </us-card-header>
+        <us-card-body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary">Footer Button</us-button>
+        </us-card-footer>
+    </us-card>
+</div>
 
 ```vue
 <us-card variant="info">
-    <template v-slot:title>
+    <us-card-header>
         <h2>A <i>custom</i> html header</h2>
-    </template>
+    </us-card-header>
     Lorem ipsum dolor sit amet, consectetur...
-    <template v-slot:footer>
+    <us-card-footer>
         <h2>A <i>custom</i> html footer</h2>
-    </template>
+    </us-card-footer>
 </us-card>
 ```
 
 ## Contextual variants
 
-<div>
+<div class="mt-3 mb-3">
     <us-card title="A basic card" class="my-2">Default Card with <strong>no</strong> variant</us-card>
     <us-card title="A info card" variant="info" class="my-2">Card with <strong>info</strong> variant</us-card>
     <us-card title="A primary card" variant="primary" class="my-2">Card with <strong>primary</strong> variant</us-card>
@@ -44,33 +75,61 @@ Add custom html content to the header or footer using slots;
 
 You can use a `<us-card-group>` to support multiple cards in a row with consistent height.
 
-<div>
+<div class="mt-3 mb-3">
     <us-card-group>
         <us-card 
             title="Card with media" 
-            style="width:400px"
             img-src="http://www.fillmurray.com/g/200/200"
             img-pos="top"
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.                
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>   
         <us-card 
             title="Simple card" 
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>             
     </us-card-group>
 </div>
 
+```vue
+<us-card-group>
+    <us-card 
+        title="Card with media" 
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="top"
+    >
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum...
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>   
+    <us-card title="Simple card">
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum...
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>             
+</us-card-group>
+```
+
 ## Images
 
-<div class="mt-3">
+<div class="mt-3 mb-3">
     <us-card-group>
         <us-card 
             title="Card with media" 
@@ -78,20 +137,24 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
             img-src="http://www.fillmurray.com/g/200/200"
             img-pos="top"
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>   
         <us-card 
             title="Media and header first" 
             img-src="http://www.fillmurray.com/g/200/200"
             img-pos="top-body"
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>             
     </us-card-group>
     <us-card-group>
@@ -102,9 +165,9 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
             img-inset
         >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>     
         <us-card 
             title="Extant Card" 
@@ -112,10 +175,12 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
             img-pos="top"
             card-extant
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>          
     </us-card-group>
     <us-card-group>
@@ -124,106 +189,109 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
             img-src="http://www.fillmurray.com/g/200/200"
             img-pos="left"
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>        
         <us-card 
             title="Media Right (flag)" 
             img-src="http://www.fillmurray.com/g/200/200"
             img-pos="right"
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
-            <template v-slot:footer>
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+            </us-card-body>
+            <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
+            </us-card-footer>
         </us-card>        
     </us-card-group>      
 </div>
 
 
 ```vue
-    <us-card-group>
-
-        <us-card 
-            title="Card with media" 
-            style="width:400px"
-            img-src="http://www.fillmurray.com/g/200/200"
-            img-pos="top"
-        >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.... 
-            <template v-slot:footer>
-                <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
-        </us-card>   
-
-        <us-card 
-            title="Media and header first" 
-            img-src="http://www.fillmurray.com/g/200/200"
-            img-pos="top-body"
-        >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.... 
-            <template v-slot:footer>
-                <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
-        </us-card>             
-
-    </us-card-group>
-
-    <us-card-group>
-
-        <us-card 
-            title="Inset Media" 
-            img-src="http://www.fillmurray.com/g/200/200"
-            img-pos="top"
-            img-inset
-        >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.... 
-            <template v-slot:footer>
-                <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
-        </us-card>     
-
-        <us-card 
-            title="Extant Card" 
-            img-src="http://www.fillmurray.com/g/200/200"
-            img-pos="top"
-            card-extant
-        >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.... 
-            <template v-slot:footer>
-                <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
-        </us-card>          
-
-    </us-card-group>
-
-    <us-card-group>
-
-        <us-card 
-            title="Media Left (flag)" 
-            img-src="http://www.fillmurray.com/g/200/200"
-            img-pos="left"
-        >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.... 
-            <template v-slot:footer>
-                <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
-        </us-card>     
-
-        <us-card 
-            title="Media Right (flag)" 
-            img-src="http://www.fillmurray.com/g/200/200"
-            img-pos="right"
-        >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.... 
-            <template v-slot:footer>
-                <us-button variant="primary" block>Visit Florida Keys</us-button>
-            </template>
-        </us-card>        
-
-    </us-card-group>      
+<us-card-group>
+    <us-card 
+        title="Card with media" 
+        style="width:400px"
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="top"
+    >
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>   
+    <us-card 
+        title="Media and header first" 
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="top-body"
+    >
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>             
+</us-card-group>
+<us-card-group>
+    <us-card 
+        title="Inset Media" 
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="top"
+        img-inset
+    >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>     
+    <us-card 
+        title="Extant Card" 
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="top"
+        card-extant
+    >
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>          
+</us-card-group>
+<us-card-group>
+    <us-card 
+        title="Media Left (flag)" 
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="left"
+    >
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>        
+    <us-card 
+        title="Media Right (flag)" 
+        img-src="http://www.fillmurray.com/g/200/200"
+        img-pos="right"
+    >
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+        </us-card-body>
+        <us-card-footer>
+            <us-button variant="primary" block>Visit Florida Keys</us-button>
+        </us-card-footer>
+    </us-card>        
+</us-card-group>    
 ```
 
 ## Component Reference
@@ -242,12 +310,6 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
 | img-inset | boolean | false | Indents the media element so it doesn't extend to the edge of the card. |
 | card-exdent | boolean | false | Extends the card elements out over the card border. Useful for light-bordered cards. |
 
-### Slots
-
-| Slot Name | Arguments | Description |
-| -------- | ----- | ------- | ----------- | 
-| title  | none | Content for the header slot |
-| header  | none | Content for the footer slot |
 
 ### Further Reading
 

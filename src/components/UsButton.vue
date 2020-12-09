@@ -1,6 +1,6 @@
 <template>
     <button
-        class="usa-button "
+        class="usx-component usa-button "
         @click="onClick()"
         :type="type"
         :aria-label="ariaLabel"

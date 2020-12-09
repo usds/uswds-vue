@@ -1,5 +1,5 @@
 <template>
-    <div class="us-footer">
+    <div class="usx-component us-footer">
         <h6 class="usa-heading-alt" id="big-footer">Big footer</h6>
 
         <footer class="usa-footer usa-footer--big">

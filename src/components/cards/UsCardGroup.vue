@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-card-group">
+    <div class="usx-component usx-card-group">
         <slot :class="colClass"></slot>
     </div>
 </template>

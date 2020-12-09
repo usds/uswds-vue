@@ -1,4 +1,4 @@
-# Progress
+# Progress <Badge type="green" text="extension"/>
 
 `USWDS` does not provide a progess bar, so here we extend and provide a simple progress bar. For accesability, the relevant aria values are automatically set for screen reader support. These are `aria-valuemin`, `aria-valuemax` and `aria-valuenow`. The role is also set as `role="progressbar"`.
 

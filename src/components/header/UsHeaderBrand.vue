@@ -1,5 +1,5 @@
 <template>
-    <div class="usa-navbar">
+    <div class="usx-component usa-navbar">
         <div class="usa-logo" id="basic-logo">
             <em class="usa-logo__text">
                 <us-button v-if="to || href" variant="link" :href="href" :to="to" :title="title" :aria-label="title">

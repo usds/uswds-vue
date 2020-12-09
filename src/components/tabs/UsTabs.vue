@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-tabs" :class="{'usx-tabs-card': card}">
+    <div class="usx-component usx-tabs" :class="{'usx-tabs-card': card}">
 
         <ul role="tablist" class="nav-tabs" v-if="children && !pills">
             <li 
@@ -47,10 +47,11 @@ export default {
     methods: {
 
         registerTab(tab){
+            
             if (!this.children){
                 this.children = {};
             }
-            console.log('Tab Registered;', tab);
+
             if (!this.children[tab.id]){            
                 //this.children[tab.id] = tab;
                 this.$set(this.children, tab.id, tab);
@@ -58,14 +59,10 @@ export default {
                     this.selectedTab = tab;
                 }
             }
-            else {
-                console.log(`Child ${tab.id} already exists`)
-            }
         },
 
         onSelectTab(tab){
 
-            console.log('Selected Tab ' + tab.id);
             this.selectedTab = tab;
 
             this.$children.map((child)=>{
@@ -86,12 +83,12 @@ export default {
 <style lang="scss">
 .usx-tabs {
 
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: rgba(0,0,0,.03);
-    border-bottom: 1px solid rgba(0,0,0,.125);
-}
+    .card-header {
+        padding: .75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: rgba(0,0,0,.03);
+        border-bottom: 1px solid rgba(0,0,0,.125);
+    }
 
     &.usx-tabs-card {
         //margin-left: -15px;
@@ -115,6 +112,7 @@ export default {
         list-style: none;
 
         .nav-item {
+            cursor: pointer;
             display: block;
             padding-top: .7rem;
             padding-bottom: .5rem;

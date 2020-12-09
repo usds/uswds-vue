@@ -1,30 +1,38 @@
 <template>
-    <div class="usa-card usx-card" :class="{
+    <div class="usx-component usa-card usx-card" :class="{
             'usa-card--flag':imgSrc && imgPos=='left', 
             'usa-card--flag usa-card--media-right': imgSrc && imgPos=='right',
             'usa-card--header-first': imgSrc && imgPos == 'top-body'
         }">
         <div :class="['usa-card__container', `bg-${variant}`, `border-${variant}`]">
 
-            <header class="usa-card__header" v-if="title">
-                <slot name="title">
-                    <h2 v-if="title" class="usa-card__heading">{{ title }}</h2>
-                </slot>
+            <header class="usx-component usa-card__header" v-if="title && !hasHeader">
+                <h2 class="usa-card__heading">
+                    {{ title }}
+                </h2>
             </header>
-
+            
             <div v-if="imgSrc" class="usa-card__media" :class="{'usa-card__media--inset': imgInset, 'usa-card__media--exdent': cardExdent}">
                 <div class="usa-card__img">
                     <img :src="imgSrc" :alt="imgAlt"/>
                 </div>
             </div>
-                    
-            <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent}">
-                <slot name="default"></slot>
+   
+            <slot name="default" v-if="hasFooter || hasBody || hasHeader"/>
+            <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent}" v-else>
+                <slot name="default"/>
             </div>
+            
+            <!--
+            <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent}" v-if="!hasChild('body')">
+            </div>
+            -->
 
+            <!--
             <div class="usa-card__footer" :class="{'usa-card__footer--exdent': cardExdent}">
                 <slot name="footer"></slot>
             </div>
+            -->
         </div>
     </div>
 </template>
@@ -35,8 +43,12 @@
  * Supports a default slot for the body content, and a 'header' and 'footer' slot
  * @props
  */
+
+import CoreMixin from '../mixins/CoreMixin';
+
 export default {
     name: 'us-card',
+    mixins: [CoreMixin],
     props: {
         title: {
             type: String,
@@ -66,6 +78,32 @@ export default {
             type: Boolean,
             default: false
         }
+    },
+    data() {
+        return {
+            hasHeader: null,
+            hasFooter: null,
+            hasBody: null,
+        }
+    },
+    mounted(){
+        this.hasHeader = this.hasChild('us-card-header');
+        this.hasFooter = this.hasChild('us-card-footer');
+        this.hasBody = this.hasChild('us-card-body');
+        //this.init();
+       //this.kids.defaultSlot = this.hasSlot('body');
+    },
+    methods: {
+        init(){
+            /*            
+            if (this.$slots.default){
+                this.$slots.default.map((child)=>{
+                    console.log(Object.keys(child))
+                    console.log(child)
+                });
+            }
+            */
+        }
     }
 };
 </script>
@@ -75,9 +113,6 @@ export default {
     .usa-card--flag .usa-card__media {
         width: unset !important;
     }
-    //.usa-card__header > :first-child, .usa-card__body > :first-child {
-    //    padding: unset !important;
-    //}
 }
 
 </style>
