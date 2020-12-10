@@ -45,7 +45,7 @@ import UsProgress from './components/UsProgress';
 // Debug components
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 
-const Components = {
+export const Components = {
     UsSideNav,
     UsSideNavItem,
     UsPill,
@@ -117,13 +117,7 @@ if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(UswdsVue);
 }
 
-/**
- * Export components individually as an alternative
- */
-//Object.keys(Components).forEach(name => {
-//	export Components[name];
-//});
-
 // Export utils
 import Validator from './utils/Validator';
 export {Validator}
+

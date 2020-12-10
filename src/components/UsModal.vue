@@ -1,17 +1,19 @@
 <template>
-    <div class="usx-modal" :class="{'open':isOpen}" id="dialog1" aria-labelledby="dialog1_label" aria-modal="true">
-        <us-card class="usx-modal-container" :class="{'fade-in':isOpen}">
+    <div class="usx-modal" :class="{'open fade-in-background':isOpen}" id="dialog1" aria-labelledby="dialog1_label" aria-modal="true">
+        <us-card class="usx-modal-container" :class="[`modal-${size}`]">
             <us-card-header>
-                <slot name="title">{{title}}</slot>
                 <i class="close-btn far fa-times-circle float-right" @click="onCancel"></i>
+                <slot name="title">{{title}}</slot>
             </us-card-header>
             <us-card-body>
                 <slot name="default"/>
             </us-card-body>
-            <us-card-footer align="right">
+            <us-card-footer>
                 <slot name="buttons" v-bind="{onAffirmative, onCancel}">
-                    <us-button variant="outline-primary" @click="onCancel">Cancel</us-button>
-                    <us-button variant="primary" @click="onAffirmative">Ok</us-button>
+                    <div align="right">
+                        <us-button variant="outline-primary" @click="onCancel">{{btnCancel}}</us-button>
+                        <us-button variant="primary" @click="onAffirmative">{{btnOk}}</us-button>
+                    </div>
                 </slot>
             </us-card-footer>
         </us-card>
@@ -32,6 +34,18 @@ export default {
             type: String,
             default: 'Confirm'
         },
+        btnOk: {
+            type: String,
+            default: 'Ok'
+        },
+        btnCancel: {
+            type: String,
+            default: 'Cancel'
+        },      
+        size: {
+            type: String,
+            default: 'md'
+        }          
     },
     data(){
         return {
@@ -49,11 +63,14 @@ export default {
     methods: {
         onAffirmative(){
             this.$emit('ok');
-            this.onCancel();
+            this.close();
         },
         onCancel(){
-            this.isOpen = false;
             this.$emit('cancel');
+            this.close();
+        },
+        close(){
+            this.isOpen = false;
             this.$emit('input', this.isOpen);
         }
     }
@@ -74,9 +91,18 @@ export default {
         }
     }
 
+    &.fade-in-background {
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.1s;
+    }
+
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 1;
     z-index: 1050;
     display: none;
     width: 0;
@@ -90,128 +116,76 @@ export default {
         display: block;
     }
 
-    .usx-modal-container {
-        width: 620px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 620px;
-
-        &.fade-in {
-            opacity: 1;
-            animation-name: fadeInOpacity;
-            animation-iteration-count: 1;
-            animation-timing-function: ease-in;
-            animation-duration: 0.5s;
-        }
-
-        @keyframes fadeInOpacity {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        } 
-
-    }
-
     .usa-card__container {
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
         overflow-x: hidden;
         overflow-y: auto;        
     }
 
-}
+    .usx-modal-container {    
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 620px;
 
-@media (min-width: 576px) {
-    .usx-modal-container {
-        max-width: 500px;
-        margin: 1.75rem auto;
+        .modal-xl {
+            max-width: 1140px;
+        }    
+
     }
-}
 
 
-/*
-@media screen and (min-width: 640px) {
-    .usx-modal {
-        position: absolute;
-        top: 2rem;
-        left: 50vw;  
-        transform: translateX(-50%);  
-        min-width: calc(640px - (15px * 2));
-        min-height: auto;
-        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
+    @media (min-width: 992px) {
+        .usx-modal-container {
+            &.modal-lg, &.modal-xl {
+                max-width: 800px;
+            }
+        }
     }
-}
 
-.hidden {
-  display: none;
-}
+    @media (min-width: 576px) {
 
-[role="alertdialog"],
-[role="dialog"] {
-  box-sizing: border-box;
-  padding: 15px;
-  border: 1px solid #000;
-  background-color: #fff;
-  min-height: 100vh;
-}
-*/
+        .usx-modal-container {
 
+            &.modal-sm {
+                max-width: 300px;
+            }
 
+            max-width: 500px;
+            margin-top: 1.75rem;
 
-/*
-.modal-open .modal {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    outline: 0;
-}
-.fade {
-    transition: opacity .15s linear;
-}
-.modal.show .modal-dialog {
-    transform: none;
-}
-.modal.fade .modal-dialog {
-    transition: transform .3s ease-out;
-    transform: translate(0,-50px);
-}
+            &.slide-in {
+                animation-name: reveal;
+                animation-iteration-count: 1;
+                animation-timing-function: ease-in;
+                animation-duration: 0.3s;
+            }
+
+            &.fade-in {
+                opacity: 1;
+                animation-name: fadeInOpacity;
+                animation-iteration-count: 1;
+                animation-timing-function: ease-in;
+                animation-duration: 0.5s;
+            }
 
 
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 500px;
-        margin: 1.75rem auto;
+            @keyframes reveal {
+                from { margin-top: -100px; }
+                to { margin-top: 1.75rem; }
+            }        
+
+        }
     }
-}
 
-.modal-dialog {
-    position: relative;
-    width: auto;
-    margin: .5rem;
-    pointer-events: none;
+    @keyframes fadeInOpacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    } 
+
 }
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3rem;
-    outline: 0;
-}
-*/
 </style>
