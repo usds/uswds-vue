@@ -19,7 +19,7 @@
             </div>
    
             <slot name="default" v-if="hasFooter || hasBody || hasHeader"/>
-            <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent}" v-else>
+            <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent, 'usx-card-overflow':overflow}" v-else>
                 <slot name="default"/>
             </div>
             
@@ -73,7 +73,11 @@ export default {
         imgInset: {
             type: Boolean,
             default: false
-        },             
+        },     
+        overflow: {
+            type: Boolean,
+            default: false
+        },
         cardExdent: {
             type: Boolean,
             default: false
@@ -112,6 +116,10 @@ export default {
 @media (min-width: 40em) {
     .usa-card--flag .usa-card__media {
         width: unset !important;
+    }
+    .usx-card-overflow {
+        overflow: auto;
+        max-height: 400px;
     }
 }
 

@@ -1,6 +1,8 @@
-# Boolean
+# Boolean <Badge text="extension"/>
 
-## Basic Usage 
+Sometimes you just need a quick yes/no boolean component, we've got you covered. 
+
+## As a radio (the default)
 
 <div class="mt-3 mb-3">
     <us-form-group label="A Boolean field">
@@ -22,7 +24,7 @@
 </us-form-group>
 ```
 
-## Dropdown
+## As a dropdown
 
 Set the prop `type` to 'dropdown' (or 'combobox') to render as a dropdown.
 
@@ -48,7 +50,7 @@ Set the prop `type` to 'dropdown' (or 'combobox') to render as a dropdown.
 </us-form-group>
 ```
 
-## Toggle
+## As a toggle switch
 
 Set the prop `type` to 'toggle' for a toggler.
 

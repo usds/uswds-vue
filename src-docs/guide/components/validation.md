@@ -1,7 +1,86 @@
 # Form Validation <Badge text="extension"/>
 
+## Overview
+
+You can make use of our in-built validation, which is lightweight and has no 3rd party depencies. We'll also show an example of rolling your own validation using the popular [vee-validate](https://www.npmjs.com/package/vee-validate). Further, specific validation examples are shown in the documentation for each form input component.
+
 ## Basic Usage 
 
+<div class="mt-3 mb-3">
+    <us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
+        <us-form-group label="A basic text field">
+            <us-form-input
+                name="text-input2"
+                v-model="currentValue2"
+                :rules="{required:true}"
+            />
+        </us-form-group>
+        <us-button type="submit" variant="primary">Submit</us-button>
+        <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
+        <us-tag variant="success" v-else-if="isValid === true">Valid</us-tag>
+        <us-tag variant="dark" v-if="isDirty === true">Dirty</us-tag>
+        <us-tag variant="light" v-else-if="isDirty === false">Prestine</us-tag>
+    </us-form>
+    <div class="mt-2">You entered: {{currentValue2}}</div>
+</div>
+
+```vue
+<us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
+    <us-form-group label="A basic text field">
+        <us-form-input
+            name="text-input2"
+            v-model="currentValue"
+            :rules="{required:true}"
+        />
+    </us-form-group>
+    <us-button type="submit" variant="primary">Submit</us-button>
+    <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
+    <us-tag variant="success" v-else-if="isValid === true">Valid</us-tag>
+    <us-tag variant="dark" v-if="isDirty === true">Dirty</us-tag>
+    <us-tag variant="light" v-else-if="isDirty === false">Prestine</us-tag>
+</us-form>
+```
+
+
+
+
+
+
+
+<div class="mt-3 mb-3">
+    <us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
+        <us-form-group label="A basic text field">
+            <us-form-boolean
+                name="text-input2"
+                v-model="currentValue2"
+                :rules="{required:true}"
+            />
+        </us-form-group>
+        <us-button type="submit" variant="primary">Submit</us-button>
+        <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
+        <us-tag variant="success" v-else-if="isValid === true">Valid</us-tag>
+        <us-tag variant="dark" v-if="isDirty === true">Dirty</us-tag>
+        <us-tag variant="light" v-else-if="isDirty === false">Prestine</us-tag>
+    </us-form>
+    <div class="mt-2">You entered: {{currentValue2}}</div>
+</div>
+
+```vue
+<us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
+    <us-form-group label="A basic text field">
+        <us-form-boolean
+            name="text-input2"
+            v-model="currentValue2"
+            :rules="{required:true}"
+        />
+    </us-form-group>
+    <us-button type="submit" variant="primary">Submit</us-button>
+    <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
+    <us-tag variant="success" v-else-if="isValid === true">Valid</us-tag>
+    <us-tag variant="dark" v-if="isDirty === true">Dirty</us-tag>
+    <us-tag variant="light" v-else-if="isDirty === false">Prestine</us-tag>
+</us-form>
+```
 Docs coming soon.....
 
 
@@ -9,57 +88,14 @@ Docs coming soon.....
 export default {
     data() {
         return {
-            formData1: {},
-            formData2: {},
-            formData3: {},
-            config0: [
-                {label: 'Enter some text', type:'text', name: 'textField', description: 'This is a validated text input', key:'text-1', required: true},
-            ],
-            config1: [
-                {label: 'Enter some text', type:'text', name: 'textField', description: 'This is a validated text input', key:'text-1', required: true},
-                {label: 'What is your Phone number', type:'phone-us', name: 'phoneField', description: 'This is a US phone number, and uses a mask to enforce it', key:'phone-1', required: true},
-                {label: 'What is your SSN?', type:'ssn', name: 'ssnField', description: 'This is a US social security number, and uses a mask to enforce it', key:'ssn-1', required: true},
-                {label: 'What is your zip code?', type:'zip', name: 'zipField', description: 'This is a validated zip code input', key:'zip-1', required: true},
-                {label: 'Pick one', type:'combobox', options: ['option 1', 'option 2', 'option 3'], name: 'comboboxField', description: 'This is a validated combobox, you must pick one', key:'combo-1', required: true},
-                {label: 'Pick one', type:'radio', options: ['option 1', 'option 2', 'option 3'], name: 'radioField', description: 'This is a validated radio, you must pick one', key:'radio-1', required: true},
-                {label: 'Yes or no?', type:'boolean', name: 'booleanField', description: 'This is a validated boolean field', key:'bool-1', required: true}
-            ],
-            config2: [
-                [
-                    {
-                        label: 'Enter some text', 
-                        type: 'text', 
-                        name: 'textField', 
-                        description: 'This is a validated text input', 
-                        key:'text-1', 
-                        required: true, 
-                        col: {md: 6}
-                    },
-                    {
-                        label: 'What is your Phone number', 
-                        type: 'phone-us', 
-                        name: 'phoneField', 
-                        description: 'This is a US phone number, and uses a mask to enforce it', 
-                        key:'phone-1', 
-                        required: true, 
-                        col: {md: 6}
-                    }
-                ]
-            ]
-        };
-    },
-    computed: {
-        pages() {
-            return [
-                {title: 'Page 1', fields: this.config1},
-                {title: 'Page 2', fields: this.config2}
-            ];
+            currentValue: true,
+            currentValue2: null,
         }
     },
     methods: {
         onSubmit(){
 
         }
-    }
+    }    
 }
 </script>

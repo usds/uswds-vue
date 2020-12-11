@@ -3,6 +3,13 @@
 ## Basic Usage 
 
 <div class="mt-3 mb-3">
+    <us-form-checkbox v-model="checkedVal" label="I have read, understood, and accept the legal terms"/>
+    <div class="mt-2">Value: {{checkedVal}}</div>
+</div>
+
+## Usage with options
+
+<div class="mt-3 mb-3">
     <us-form-group label="Select any historical figure">
         <us-form-checkbox
             name="select historical figure"
@@ -200,6 +207,7 @@ export default {
         return {
             checkedValues: null,
             checkedValues2: null,
+            checkedVal: null,
             options: [
                 {value: 'sojourner-truth', label: 'Sojourner Truth', default:true},
                 {value: 'frederick-douglass', label: 'Frederick Douglass'},
