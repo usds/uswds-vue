@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.31](https://github.com/usds/uswds-vue/compare/v0.1.30...v0.1.31) (2020-12-11)
+
+
+### Bug Fixes
+
+* fixes to modal ([6cc087d](https://github.com/usds/uswds-vue/commit/6cc087ded963aca67c94d1fd7efa679277bb46ec))
+
 ### [0.1.30](https://github.com/usds/uswds-vue/compare/v0.1.29...v0.1.30) (2020-12-09)
 
 
