@@ -19,7 +19,7 @@ export default ({
     Vue.use(UswdsVue);
     Vue.use(VueGtag, {
         config: {
-            id: "G-H4QQTSTF0N"
+            id: "G-NMPBPYDZDV"
         }
     });
 
