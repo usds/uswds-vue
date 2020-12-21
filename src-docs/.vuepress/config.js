@@ -91,7 +91,8 @@ module.exports = {
             'utils/spacing',
             'utils/layout',
             'utils/colors',
-            'utils/typography'
+            'utils/typography',
+            'utils/validation'           
           ]
         },
         {
@@ -120,7 +121,6 @@ module.exports = {
                 'components/form-inputs/form-boolean'
               ]
             },
-            'components/validation',
             'components/footer',
             'components/header',
             'components/left-nav',
