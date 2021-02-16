@@ -4,7 +4,7 @@
         <div class="usa-overlay"></div>
         
         <header class="usa-header usa-header--basic" :class="`bg-${variant}`">
-            <div class="usa-nav-container" :class="`fluid-${this.fluid}`">
+            <div class="usa-nav-container" :class="`fluid-${this.fluid} bg-${variant}`">
                 
 
                 <!--
@@ -115,7 +115,7 @@ export default {
     props: {
         variant: {
             type: String,
-            default: 'info'
+            default: 'light'
         },
         fluid: {
             type: String,

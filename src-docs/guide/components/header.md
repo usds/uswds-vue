@@ -2,7 +2,7 @@
 
 <div>
     <us-header fluid="full">        
-        <us-header-brand>Form Builder</us-header-brand>
+        <us-header-brand>Site Name</us-header-brand>
         <us-header-nav>
             <us-nav-item :to="{name:'home'}">Home</us-nav-item>
             <us-nav-item :to="{name:'builder'}">Builder</us-nav-item>

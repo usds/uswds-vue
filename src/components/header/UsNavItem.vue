@@ -1,14 +1,10 @@
 <template>
     <li class="usx-component usa-nav__primary-item">
-        <a class="usa-nav__link" href="javascript:void(0)">
-
-            <us-button v-if="to || href" variant="link" class="m-0 p-0" :href="href" :to="to" :title="title" :aria-label="title">
-                <slot>
-                    <span>Simple link</span>
-                </slot>
-            </us-button>
-            
-        </a>
+        <us-button v-if="to || href" variant="link" class="usa-nav__link" :href="href" :to="to" :title="title" :aria-label="title">
+            <slot>
+                <span>Simple link</span>
+            </slot>
+        </us-button>            
     </li>
 </template>
 
@@ -35,3 +31,10 @@ export default {
     }
 };
 </script>
+<style lang="scss">
+.bg-dark {
+    .usa-nav__link {
+        color: lightblue;
+    }
+}
+</style>

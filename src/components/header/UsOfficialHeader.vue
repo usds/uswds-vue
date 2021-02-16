@@ -1,7 +1,9 @@
 <template>
     <section class="usx-component usa-banner" aria-label="Official government website" :class="`bg-${variant}`">
+        
         <div class="usa-accordion">
-            <header class="usa-banner__header">
+
+            <header class="usa-banner__header" :class="{'usa-banner__header--expanded':isOpen}">
                 <div class="usa-banner__inner" :class="`bg-${variant} fluid-${this.fluid}`">
                     <slot>
                         <div class="grid-col-auto">
@@ -9,25 +11,23 @@
                         </div>
                         <div class="grid-col-fill tablet:grid-col-auto">
                             <p class="usa-banner__header-text">An official website of the United States government</p>
-                            <p class="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
+                            <p class="usa-banner__header-action" :aria-hidden="!isOpen" @click="isOpen = !isOpen">Here’s how you know</p>
                         </div>
                     </slot>
-                    <button class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
+                    <us-button variant="link" class="usa-banner__button" :aria-expanded="isOpen" aria-controls="gov-banner" @click="isOpen = !isOpen">
                         <span class="usa-banner__button-text">Here’s how you know</span>
-                    </button>
+                    </us-button>
                 </div>
             </header>
 
-            <div class="usa-banner__content usa-accordion__content" id="gov-banner" :class="`bg-${variant}`">
+            <div class="usa-banner__content usa-accordion__content" id="gov-banner" :class="`bg-${variant}`" v-if="isOpen">
                 <div class="grid-row grid-gap-lg">
                     <div class="usa-banner__guidance tablet:grid-col-6">
                         <icon-dot-gov class="mr-1" />
                         <div class="usa-media-block__body">
                             <p>
-                                <strong>Official websites use .gov</strong>
-                                <br />A
-                                <strong>.gov</strong>
-                                website belongs to an official government organization in the United States.
+                                <strong>Official websites use .gov</strong><br />
+                                A <strong>.gov</strong>website belongs to an official government organization in the United States.
                             </p>
                         </div>
                     </div>
@@ -35,10 +35,9 @@
                         <icon-https class="mr-1" />
                         <div class="usa-media-block__body">
                             <p>
-                                <strong>Secure .gov websites use HTTPS</strong>
-                                <br />
-                                A<strong>lock</strong> (<icon-lock />) or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information
-                                only on official, secure websites.
+                                <strong>Secure .gov websites use HTTPS</strong><br />
+                                A <strong>lock</strong> (<icon-lock />) or <strong>https://</strong> means you’ve safely connected to the .gov website. 
+                                Share sensitive information only on official, secure websites.
                             </p>
                         </div>
                     </div>
@@ -74,7 +73,12 @@ export default {
             type: String,
             default: 'none'
         }          
-    }
+    },
+    data(){
+        return {
+            isOpen: false
+        }
+    },
 };
 </script>
 <style lang="scss">

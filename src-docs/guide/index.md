@@ -25,10 +25,8 @@ npm i uswds-vue uswds
 You can import globally;
 
 ``` js
-// Import USWDS itself
-import 'uswds/dist/js/uswds.min.js';
 
-// And then import the vue component library
+// Import the vue component library
 import { UswdsVue } from 'uswds-vue';
 Vue.use(UswdsVue);
 
@@ -52,7 +50,7 @@ Or in your sass files;
 
 ## Customize with SASS
 
-Support for SASS is backed in. To use, import the scss style sheets from `USWDS` and `uswds-vue`;
+Support for SASS is baked in. To use, import the scss style sheets from `USWDS` and `uswds-vue`;
 
 ```scss
 @import "~uswds/dist/scss/uswds.css";

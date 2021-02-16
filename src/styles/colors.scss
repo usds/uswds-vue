@@ -463,7 +463,7 @@ $bg-lighten: 15% !default;
     $colorDark: lighten( $color, $border-darken );
                 
     .text-#{$variant} {
-        color: $color!important;
+        color: $color !important;
     }
 
     .bg-#{$variant} {

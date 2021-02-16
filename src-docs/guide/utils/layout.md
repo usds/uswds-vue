@@ -3,16 +3,16 @@
 ## Container
 
 ```vue
-<b-container fluid="lg">
+<us-container fluid="lg">
     // content
-</b-container>
+</us-container>
 ```
 
 ## Responsive Grid 
 ```vue
-<b-row>
-    <b-col md="4" lg="6">
-    <b-col>
-</b-row>
+<us-row>
+    <us-col md="4" lg="6">
+    <us-col>
+</us-row>
 ```
 ## Docs coming soon....
