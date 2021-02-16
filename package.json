@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name uswds-vue src/main.js",
+    "build": "vue-cli-service build --report --modern --target lib --name uswds-vue src/main.js",
     "prepublishOnly": "$npm_execpath build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
