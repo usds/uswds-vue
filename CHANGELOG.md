@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.32](https://github.com/usds/uswds-vue/compare/v0.1.23...v0.1.32) (2021-02-16)
+
+
+### Features
+
+* Added dismissable modals, updated docs ([e058963](https://github.com/usds/uswds-vue/commit/e0589632885fc4c40d1178970a5ee1ba07f98764))
+* adding table slots and fields prop ([aa46541](https://github.com/usds/uswds-vue/commit/aa46541207685e67cc441e68e2063c20f21cf3e8))
+* adding us-table component ([6fb3103](https://github.com/usds/uswds-vue/commit/6fb3103beb045a93572962759946898670921066))
+* modal component and side-nav (alpha) ([4bcd746](https://github.com/usds/uswds-vue/commit/4bcd746b242cbbf414c7e8c160dfa534d5c46d42))
+* progress bar! ([4c553e1](https://github.com/usds/uswds-vue/commit/4c553e1470ca6aa37ebd4e8c79ad817de5a3a1f6))
+* typeahead and bug fixes for combo box ([962dacd](https://github.com/usds/uswds-vue/commit/962dacddcfdfad1421f478c2894f4ae61c393930))
+
+
+### Bug Fixes
+
+* doc and style fixes ([c4e41fe](https://github.com/usds/uswds-vue/commit/c4e41fe2cc20e10d9245504737d51044220c075d))
+* fix to button docs ([09adac8](https://github.com/usds/uswds-vue/commit/09adac89d6eda85d577fc30d7cec6b9ee51c7e98))
+* fixes to combobox, other minor fixes ([e7f2ed8](https://github.com/usds/uswds-vue/commit/e7f2ed8cc4820d8fb57fd68bfb129925e89ac213))
+* fixes to modal ([6cc087d](https://github.com/usds/uswds-vue/commit/6cc087ded963aca67c94d1fd7efa679277bb46ec))
+* remove tag border ([06d081e](https://github.com/usds/uswds-vue/commit/06d081e7f789cbf54606d40cb6c3afefbe74977d))
+
 ### [0.1.31](https://github.com/usds/uswds-vue/compare/v0.1.30...v0.1.31) (2020-12-11)
 
 
