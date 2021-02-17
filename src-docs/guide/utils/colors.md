@@ -12,6 +12,20 @@ The basis for the theming setup in uswds-vue is `variants`. There are {{btnVaria
     </div>
 </div>
 
+## Theme Playground
+
+<div class="mt-3 mb-3 usx-color-docs">  
+    <div v-for="color in colors" :key="color">
+        <div v-for="grade in grades" :key="grade">
+            <div :class="`bg-${color}-${grade}`">
+                {{color}} {{grade}}
+            </div>                    
+            <div :class="`bg-${color}-${grade}v`">
+                {{color}} {{grade}} vivid
+            </div>               
+        </div>
+    </div>
+</div>
 
 
 <script>
@@ -32,12 +46,43 @@ export default {
                 'dark',
                 'white',
                 'black'
+            ],
+            grades: [5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+            colors: [
+                'blue',
+                'blue-cool',
+                'blue-warm',
+                'cyan',
+                'gold',
+                'gray',
+                'gray-cool',
+                'gray-warm',
+                'green',
+                'green-cool',
+                'green-warm',
+                'indigo',
+                'indigo-cool',
+                'indigo-warm',
+                'magenta',
+                'mint',
+                'mint-cool',
+                'orange',
+                'orange-warm',
+                'red',
+                'red-cool',
+                'red-warm',
+                'violet',
+                'violet-warm',
+                'yellow' 
             ]
         };
     }
 }
 </script>
 <style lang="scss">
+    
+    @import "../../../src/styles/all-colors.scss";
+
     .usx-color-docs {
         .usx-block {
             width: 120px;
@@ -51,4 +96,5 @@ export default {
             margin-bottom: 5px;
         }
     }
+
 </style>

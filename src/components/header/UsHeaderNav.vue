@@ -3,7 +3,6 @@
         <button class="usa-nav__close">
             <i class="fas fa-times"></i>
         </button>
-
         <ul class="usa-nav__primary usa-accordion">
             <slot></slot>
         </ul>
@@ -16,10 +15,15 @@
  */
 export default {
     name: 'us-header-nav',
-    props: {
-        variant: {
-            type: String,
-            default: 'info'
+    data() {
+        return {
+            variant: null,
+        };
+    },    
+    mounted(){
+        // If no variant is set, inherit from us-header
+        if (!this.variant && this.$parent.$options && this.$parent.$options.name == 'us-header'){
+            this.variant = this.$parent.variant;
         }
     }
 };

@@ -390,9 +390,9 @@ $bg-lighten: 15% !default;
     @if $color == null {
         @error 'Could not match token: ' + $token + ' ---> ' + $ind + ' | Grade: "' + $grade + '" | Family: "' + $family + '" | V: ' + $isVibrant;
     }
-    @else {
-        @debug 'Token ' + $token + ' ---> ' + $ind + ' | Grade: "' + $grade + '" | Family: "' + $family + '" | V: ' + $isVibrant;
-    }
+    //@else {
+    //    @debug 'Token ' + $token + ' ---> ' + $ind + ' | Grade: "' + $grade + '" | Family: "' + $family + '" | V: ' + $isVibrant;
+    //}
 
     @return $color;
 }

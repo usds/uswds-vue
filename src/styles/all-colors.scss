@@ -1,0 +1,106 @@
+/*
+Utility SCSS that converts all the USWDS tokens to actual color classes. 
+This is not pulled into the build by default, but is here for debugging 
+and documentation.
+*/
+
+@import './core.scss';
+//@import './variables.scss';
+@import './functions.scss';
+
+$families: 
+'blue',
+'blue-cool',
+'blue-warm',
+'cyan',
+'gold',
+'gray',
+'gray-cool',
+'gray-warm',
+'green',
+'green-cool',
+'green-warm',
+'indigo',
+'indigo-cool',
+'indigo-warm',
+'magenta',
+'mint',
+'mint-cool',
+'orange',
+'orange-warm',
+'red',
+'red-cool',
+'red-warm',
+'violet',
+'violet-warm',
+'yellow';
+
+$grades: 5, 10, 20, 30, 40, 50, 60, 70, 80, 90;
+
+@function usx-get-color-family($family) {
+    @if not map-has-key($colors, $family) {
+        //@error '#{$family} is not a valid color family';
+        @return false;
+    }
+    @return map-get(map-get($colors, $family), $family);
+}
+
+@function usx-get-color($family, $grade, $isVivid) {
+    
+    $meta: usx-get-color-family($family);
+
+    @if $meta && $isVivid {
+
+        @if map-has-key($meta, 'vivid') {
+            @if map-has-key(map-get($meta, 'vivid'), $grade){
+                @return map-get(map-get($meta, 'vivid'), $grade);
+            }
+        }
+    
+    }
+    @else if $meta {
+        @return map-get($meta, $grade);
+    }
+
+    @return false;
+}
+
+@each $family, $meta in $families {
+    
+    @each $grade in $grades {
+    
+        $color: usx-get-color($family, $grade, false);
+        $token: '#{$family}-#{$grade}';
+
+        @if $color {
+            .#{$token} {
+                color: $color !important;
+            }
+        
+            .bg-#{$token} {
+                background-color: $color !important;
+            }
+        }
+
+        @if $family != 'gray' && $family != 'gray-cool' && $family != 'gray-warm' {
+
+            $color_v: usx-get-color($family, $grade, true);
+            $token_v: '#{$family}-#{$grade}v';
+        
+            @if $color_v {
+        
+                .#{$token_v} {
+                    color: $color_v !important;
+                }
+            
+                .bg-#{$token_v} {
+                    background-color: $color_v !important;
+                }
+    
+            }
+                                    
+        }    
+                   
+    }
+
+}

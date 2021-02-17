@@ -91,6 +91,7 @@ module.exports = {
             'utils/spacing',
             'utils/layout',
             'utils/colors',
+            'utils/theme-generator',
             'utils/typography',
             'utils/validation'           
           ]
