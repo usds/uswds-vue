@@ -14,9 +14,6 @@ $families:
 'blue-warm',
 'cyan',
 'gold',
-'gray',
-'gray-cool',
-'gray-warm',
 'green',
 'green-cool',
 'green-warm',
@@ -35,41 +32,17 @@ $families:
 'violet-warm',
 'yellow';
 
-$grades: 5, 10, 20, 30, 40, 50, 60, 70, 80, 90;
+$grayFamilies: 'gray', 'gray-cool', 'gray-warm';
 
-@function usx-get-color-family($family) {
-    @if not map-has-key($colors, $family) {
-        //@error '#{$family} is not a valid color family';
-        @return false;
-    }
-    @return map-get(map-get($colors, $family), $family);
-}
-
-@function usx-get-color($family, $grade, $isVivid) {
-    
-    $meta: usx-get-color-family($family);
-
-    @if $meta && $isVivid {
-
-        @if map-has-key($meta, 'vivid') {
-            @if map-has-key(map-get($meta, 'vivid'), $grade){
-                @return map-get(map-get($meta, 'vivid'), $grade);
-            }
-        }
-    
-    }
-    @else if $meta {
-        @return map-get($meta, $grade);
-    }
-
-    @return false;
-}
+$vividGrades: 5, 10, 20, 30, 40, 50, 60, 70, 80;
+$colorGrades: 5, 10, 20, 30, 40, 50, 60, 70, 80, 90;
+$grayGrades: 1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90;
 
 @each $family, $meta in $families {
+        
+    @each $grade in $colorGrades {
     
-    @each $grade in $grades {
-    
-        $color: usx-get-color($family, $grade, false);
+        $color: get-color($family, $grade, false);
         $token: '#{$family}-#{$grade}';
 
         @if $color {
@@ -81,26 +54,56 @@ $grades: 5, 10, 20, 30, 40, 50, 60, 70, 80, 90;
                 background-color: $color !important;
             }
         }
-
-        @if $family != 'gray' && $family != 'gray-cool' && $family != 'gray-warm' {
-
-            $color_v: usx-get-color($family, $grade, true);
-            $token_v: '#{$family}-#{$grade}v';
-        
-            @if $color_v {
-        
-                .#{$token_v} {
-                    color: $color_v !important;
-                }
-            
-                .bg-#{$token_v} {
-                    background-color: $color_v !important;
-                }
-    
-            }
-                                    
-        }    
-                   
+        @else {
+            @debug No color found for $token;
+        }
+                    
     }
 
+    @each $grade in $vividGrades {
+    
+        $color: get-color($family, $grade, false);
+        $token: '#{$family}-#{$grade}';
+
+        $color_v: get-color($family, $grade, true);
+        $token_v: '#{$family}-#{$grade}v';
+    
+        @if $color_v {
+    
+            .#{$token_v} {
+                color: $color_v !important;
+            }
+        
+            .bg-#{$token_v} {
+                background-color: $color_v !important;
+            }
+
+        } 
+                   
+    }
+  
+}
+
+
+@each $family, $meta in $grayFamilies {    
+
+    @each $grade in $grayGrades {
+    
+        $color: get-color($family, $grade, false);
+        $token: '#{$family}-#{$grade}';
+    
+        @if $color {
+    
+            .#{$token} {
+                color: $color !important;
+            }
+        
+            .bg-#{$token} {
+                background-color: $color !important;
+            }
+
+        } 
+                   
+    }
+  
 }
