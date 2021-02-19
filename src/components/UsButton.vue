@@ -1,5 +1,31 @@
 <template>
+
+    <router-link 
+        v-if="to" 
+        tag='button'
+        class="usx-component usa-button "
+        active-class="usa-current active"
+        :aria-label="ariaLabel"
+        :aria-expanded="ariaExpanded"
+        :aria-controls="ariaControls"
+        :title="title"
+        :disabled="disabled || isLoading"
+        :class="[
+            buttonClass,
+            {
+                'link': variant == 'link',                
+                'no-focus': noFocus,
+                'usa-button--big': size == 'lg',
+                'display-block': block
+            }
+        ]"        
+        :to="to">
+        <slot name="default"> Button </slot>
+        <i class="fas fa-spinner fa-spin ml-1" v-if="isLoading"></i>
+    </router-link>
+
     <button
+        v-else 
         class="usx-component usa-button "
         @click="onClick()"
         :type="type"

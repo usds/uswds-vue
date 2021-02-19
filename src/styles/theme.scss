@@ -56,3 +56,38 @@ $theme-background-font-colors: (
     white: get-color('gray', 80, false),
     black: get-color('gray', 20, false)
 ) !default;
+
+
+// Setup utiliy classes that uses these
+@each $variant, $token in $theme-colors {
+
+  $color: map-get($theme-colors, $variant);
+  $colorLight: lighten( $color, $bg-lighten );
+  $colorDark: lighten( $color, $border-darken );
+              
+  .text-#{$variant} {
+      color: $color !important;
+  }
+
+  .bg-#{$variant} {
+      background-color: $colorLight !important;
+      color: choose-contrast-color($colorLight) !important;
+  }
+
+  .border-#{$variant} {
+      border-style: solid;
+      border-color: $color !important;
+  }    
+
+}
+
+@each $variant, $token in $theme-colors {
+  $color: usx-get-color-from-variant($variant);
+  .text-outline-#{$variant} {
+      color: $color !important;
+  }
+  .border-outline-#{$variant} {
+      border-style: solid;
+      border-color: $color !important;
+  }   
+}
