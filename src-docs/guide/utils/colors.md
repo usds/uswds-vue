@@ -15,19 +15,20 @@ The basis for the theming setup in uswds-vue is `variants`. There are {{btnVaria
 ## Theme Playground
 
 <div class="mt-3 mb-3 usx-color-docs">  
+    <span v-for="(color, index) in colorMap" :key="index">
+        <span v-for="(meta, index) in color" :key="`meta-${index}`">
+            <div class="usxd-color-square" :class="meta.css" :title="meta.token" @click="setSelectedColor(meta)"></div>
+        </span>
+        <br/>
+    </span>    
     <us-row>
         <us-col>
-            <span v-for="(color, index) in colorMap" :key="index">
-                <span v-for="(meta, index) in color" :key="`meta-${index}`">
-                    <div class="usxd-color-square" :class="meta.css" :title="meta.token" @click="setSelectedColor(meta)"></div>
-                </span>
-                <br/>
-            </span>    
         </us-col>
         <us-col>
             <div v-if="selectedColor">
                 <us-tag variant="light">{{selectedColor.hexColor}}</us-tag>
                 <us-tag variant="info">{{selectedColor.grade}}</us-tag>
+                <us-tag variant="info">{{selectedColor.family}}</us-tag>
                 <us-tag variant="info">{{selectedColor.token}}</us-tag>
                 <us-tag variant="light" v-if="selectedColor.isLight">Light</us-tag>
                 <us-tag variant="dark" v-if="!selectedColor.isLight">Dark</us-tag>
@@ -52,6 +53,11 @@ The basis for the theming setup in uswds-vue is `variants`. There are {{btnVaria
     
 </div>
 
+<div class="mt-3 mb-3 usx-color-docs">
+    <span v-for="(meta, index) in colorList" :key="`meta2-${index}`">
+        <div class="usxd-color-square" :class="meta.css" :title="meta.token" @click="setSelectedColor(meta)"></div>
+    </span>
+</div>
 
 <script>
 import Color from "color";
@@ -77,6 +83,7 @@ export default {
             ],
             selectedColor: null,
             colorMap: null,
+            colorList: null,
             families: {    
                 'gold': [
                     {variant: '',       vibrant: false}, 
@@ -178,35 +185,45 @@ export default {
                 'gray-warm'
             ],
             vividGrades: [5, 10, 20, 30, 40, 50, 60, 70, 80],
-            colorGrades: [5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+            colorGrades: [5, 10, 20, 30, 40, 50, 60, 70, 80],
             grayGrades: [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90]
         };
     },
     mounted(){
         
         this.colorMap = {};
+        this.colorList = [];
 
-        const addColor = (name, grade, isVibrant) => {
+        const addColor = (baseColor, name, grade, isVibrant) => {
+            
             let token = `${name}-${grade}`;
+            let key = (isVibrant) ? name + '-vibrant' : name;
+
             if (isVibrant){
                 token += 'v';
             }
-            if (!this.colorMap[name]){
-                this.colorMap[name] = [];
-            }
-            this.colorMap[name].push({
+
+            let data = {
                 css: `bg-${token}`,
-                family: name,
+                family: baseColor,
+                variant: name,
                 token: token,
                 grade: grade,
                 vibrant: isVibrant
-            });
+            };
+
+            this.colorList.push(data);
+
+            if (!this.colorMap[key]){
+                this.colorMap[key] = [];
+            }
+
+            this.colorMap[key].push(data);
 
         }
 
         for (let baseColor in this.families){
             
-            console.log('baseColor = ', baseColor)
             for (let k=0; k<this.families[baseColor].length; k+=1){
                 
                 let meta = this.families[baseColor][k];
@@ -214,18 +231,58 @@ export default {
 
                 if (meta.vibrant){
                     for (let j=0; j<this.vividGrades.length; j+=1){
-                        addColor(fullName, this.vividGrades[j], true);
+                        addColor(baseColor, fullName, this.vividGrades[j], true);
                     }
                 }
                 else {
                     for (let j=0; j<this.colorGrades.length; j+=1){
-                        addColor(fullName, this.colorGrades[j], false);
+                        addColor(baseColor, fullName, this.colorGrades[j], false);
                     }
                 }
 
             }
 
         }
+
+
+        for (let i=0; i<this.grayFamilies.length; i+=1){
+            let fullName = this.grayFamilies[i];
+            for (let j=0; j<this.grayGrades.length; j+=1){
+                addColor('gray', fullName, this.grayGrades[j], true);
+            }            
+        }
+
+        // Finally, sort color list
+        this.$nextTick(()=>{
+
+            
+            // We need to pull the colors from the styles, which means they need to be rendered first. Which aint great, but works
+            for (let colorFamily in this.colorMap){
+                for (let i=0; i<this.colorMap[colorFamily].length; i+=1){
+                    let meta = this.colorMap[colorFamily][i];
+                    let el = document.querySelector('.'+meta.css);
+                    let style = window.getComputedStyle(el);
+                    const color = Color(style.backgroundColor);
+                    const hslInfo = color.hsl().object();                
+                    meta.hsl = hslInfo;
+                    meta.hexColor = color.hex();
+                    meta.rgbCol = color.object();
+                    meta.isLight = color.isLight();
+                    meta.hexColor = color.hex();
+                }
+            }
+
+            /*
+            setTimeout(()=>{
+                console.log('RENDERING SORTED COLORS');
+                for (let colorFamily in this.colorMap){
+                    let newCols = _.sortBy(this.colorMap[colorFamily], [function(o) { return o.hsl.h; }]);
+                    this.$set(this.colorMap, colorFamily, newCols);
+                }
+            }, 1000);
+            */
+
+        });
 
     },
     methods: {
@@ -256,6 +313,8 @@ export default {
             Use USWDS magic numbers to choose accessible color combinations from any palette and color family.
             */
 
+            this.selectedColor = colorMeta;
+            /*
             this.selectedColor = {
                 hexColor: hexCol,
                 rgbCol: color.object(),
@@ -268,7 +327,7 @@ export default {
                 grade: colorMeta.grade,
                 vibrant: colorMeta.vibrant
             };
-
+            */
         },
 
 
@@ -281,8 +340,8 @@ export default {
 
     .usxd-color-square {
         display: inline-block;
-        width: 25px;
-        height: 25px;
+        width: 15px;
+        height: 15px;
     }
 
     .usx-color-docs {
