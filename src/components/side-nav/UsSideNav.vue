@@ -1,62 +1,16 @@
 <template>
+     
 
-    <ul v-if="isSubNav" class="usx-component usx-sidenav usa-sidenav__sublist mt-1">
+    <ul v-if="!title" ref="sidenavParentRef" class="usx-component usx-sidenav usa-sidenav">
         <!-- Slots for side nav item -->
         <slot></slot>
     </ul>        
-    <nav v-else>
-        <ul class="usx-component usx-sidenav usa-sidenav">
-            <!-- Slots for side nav item -->
-            <slot></slot>
-        </ul>        
-    </nav>
 
-
-        <!--
-        <ul class="usa-sidenav">
-            
-            <li class="usa-sidenav__item">
-                <a href="">Parent link</a>
-            </li>
-
-            <li class="usa-sidenav__item">
-                <a href="" class="usa-current">Current page</a><ul class="usa-sidenav__sublist">
-                <li class="usa-sidenav__item">
-                    <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                    <a href="">Child link</a>
-                    <ul class="usa-sidenav__sublist">
-                        <li class="usa-sidenav__item">
-                            <a href="">Grandchild link</a>
-                        </li>
-                        <li class="usa-sidenav__item">
-                            <a href="">Grandchild link</a>
-                        </li>
-                    <li class="usa-sidenav__item">
-                        <a href="" class="usa-current">Grandchild link</a>
-                    </li>
-            </ul>
-            </li>
-                <li class="usa-sidenav__item">
-                    <a href="">Child link</a>
-                </li>
-                    <li class="usa-sidenav__item">
-                        <a href="">Child link</a>
-                    </li>
-                <li class="usa-sidenav__item">
-                    <a href="">Child link</a>
-                </li>
-            </ul>
-            </li>
-                <li class="usa-sidenav__item">
-                    <a href="">Parent link</a>
-                </li>
-        </ul>
-        -->
-
-
-
+    <!-- Slots for side nav item -->
+    <us-side-nav-item v-else :title="title" @click="onClick()">
+        <slot></slot>
+    </us-side-nav-item>      
+        
 </template>
 
 <script>
@@ -64,24 +18,26 @@
 import {upperFirst, map} from 'lodash';
 
 export default {
-    name: 'us-sidenav',
+    name: 'us-side-nav',
     props: {
-          
+        title: {
+            type: String,
+            default: null
+        }          
     },
     computed:{
         isSubNav(){
-            if (this.$parent && this.$parent.$options.name == 'us-sidenav-item'){
+            if (this.$parent && this.$parent.$options.name == 'us-side-nav'){
                 return true;
             }
             return false;
         }        
-    },    
+    },
+    methods: {
+        onClick(){
+            // Bubble up click event
+            this.$emit('click');
+        }
+    }
 };
 </script>
-<style lang="scss">
-    .usx-left-nav {
-        
-
-
-    }
-</style>

@@ -48855,7 +48855,7 @@ var UsSideNavItemvue_type_script_lang_js_this = undefined;
 
 
 /* harmony default export */ var UsSideNavItemvue_type_script_lang_js_ = ({
-  name: 'us-sidenav-item',
+  name: 'us-side-nav-item',
   mixins: [CoreMixin],
   props: {
     variant: {
@@ -48910,7 +48910,7 @@ var UsSideNavItemvue_type_script_lang_js_this = undefined;
       this.$children.map(function (child) {
         console.log(child.$options.name);
 
-        if (child.$options && child.$options.name == 'us-sidenav') {
+        if (child.$options && child.$options.name == 'us-side-nav') {
           hasSub = true;
         }
       });
@@ -48944,7 +48944,7 @@ var UsSideNavItemvue_type_script_lang_js_this = undefined;
 
       // Remove the active state from all other nav items
       this.$parent.$children.map(function (child) {
-        if (child.$options && child.$options.name == 'us-sidenav-item') {
+        if (child.$options && child.$options.name == 'us-side-nav-item') {
           if (child.divId != _this2.divId) {
             child.isActive = false;
           }
@@ -49066,11 +49066,11 @@ var UsSideNavvue_type_template_id_2f63329e_staticRenderFns = []
 //
 
 /* harmony default export */ var UsSideNavvue_type_script_lang_js_ = ({
-  name: 'us-sidenav',
+  name: 'us-side-nav',
   props: {},
   computed: {
     isSubNav: function isSubNav() {
-      if (this.$parent && this.$parent.$options.name == 'us-sidenav-item') {
+      if (this.$parent && this.$parent.$options.name == 'us-side-nav-item') {
         return true;
       }
 

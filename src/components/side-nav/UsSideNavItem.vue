@@ -1,68 +1,26 @@
 <template>
     <li 
         class="usx-component usx-sidenav-item usa-sidenav__item"        
-        ref="sidenavRef"
-        @click="onClick()"
+        ref="sidenavRef"        
         :aria-label="ariaLabel"
-        :aria-expanded="ariaExpanded"
+        :aria-expanded="isParentActive"
         :aria-controls="ariaControls"
         :disabled="disabled"            
     > 
-        <div v-if="!hasSubNav" class="usx-sidenav-item-content" :class="{'no-focus': noFocus, 'usa-current': isActive}">
+        
+        <div v-if="title" class="usa-sidenav__item usx-sidenav-item">     
+            <div class="usx-sidenav-item-content" @click="onClick()" :class="{'no-focus': noFocus, 'usa-current': isActive}">
+                {{title}}
+            </div>
+            <ul class="usx-component usa-sidenav__sublist" v-if="isActive">
+                <slot></slot>
+            </ul>
+        </div>
+        <div v-else class="usx-sidenav-item-content" @click="onClick()" :class="{'no-focus': noFocus, 'usa-current': isActive}">
             <slot></slot>
         </div>
-        <div v-else>
-            <slot></slot>
-        </div>
+
     </li>
-
-        <!--
-        <ul class="usa-sidenav">
-            
-            <li class="usa-sidenav__item">
-                <a href="">Parent link</a>
-            </li>
-
-            <li class="usa-sidenav__item">
-                <a href="" class="usa-current">Current page</a>
-                
-                <ul class="usa-sidenav__sublist">
-                    <li class="usa-sidenav__item">
-                        <a href="">Child link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="">Child link</a>
-                        <ul class="usa-sidenav__sublist">
-                            <li class="usa-sidenav__item">
-                                <a href="">Grandchild link</a>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="">Grandchild link</a>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="" class="usa-current">Grandchild link</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="">Child link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="">Child link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="">Child link</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="usa-sidenav__item">
-                <a href="">Parent link</a>
-            </li>
-        </ul>
-        -->
-
-
 
 </template>
 
@@ -72,17 +30,13 @@ import {upperFirst, map} from 'lodash';
 import CoreMixin from '../mixins/CoreMixin';
 
 export default {
-    name: 'us-sidenav-item',
+    name: 'us-side-nav-item',
     mixins: [CoreMixin],
     props: {
-        variant: {
+        title: {
             type: String,
-            default: 'info'
-        },
-        ariaExpanded: {
-            type: Boolean,
-            default: false
-        },
+            default: null
+        },        
         ariaControls: {
             type: String,
             default: ''
@@ -122,16 +76,58 @@ export default {
         }
     },
     computed:{
+        /**
+         * Determine if this nav-item is part of a sub nav or primary.
+         */
         hasSubNav(){ 
             let hasSub = false;      
             this.$children.map((child)=>{    
-                console.log(child.$options.name)
-                if (child.$options && child.$options.name == 'us-sidenav'){
+                if (child.$options && child.$options.name == 'us-side-nav'){
                     hasSub = true;
                 }
             });
             return hasSub;
-        }        
+        },     
+
+        /**
+         * Determine if this nav-item is part of a sub nav or primary.
+         */
+        isSubNav(){ 
+            if (this.$parent.$options && this.$parent.$options.name == 'us-side-nav'){
+                if (this.$parent.$parent && this.$parent.$parent.$options && this.$parent.$parent.$options.name == 'us-side-nav-item'){
+                    return true;
+                }
+            }
+            return false;
+        },         
+        
+        isParentActive(){ 
+
+            console.log(this.$parent.$options.name )
+            if (this.$parent.$options && this.$parent.$options.name == 'us-side-nav'){
+
+                if (this.$parent.$parent && this.$parent.$parent.$options && this.$parent.$parent.$options.name == 'us-side-nav-item'){
+                    return (this.$parent.$parent.isActive) ? this.$parent.$parent.isActive : false;
+                // Get the classes applied to the parent (if the parent is of type 'us-side-nav')
+                //let classes = this.$parent.$refs.sidenavParentRef.getAttribute('class');
+                //const htmlStr = this.$parent['$el'];
+                //console.log('htmlStr = ', htmlStr, typeof htmlStr);         
+
+                //console.log(this.$parent.$refs.sidenavParentRef.getAttribute('class'));
+
+                //if (htmlStr){
+                //    const classes = htmlStr.match(/class="(.*?)"/g)[1].split(' ');
+                //    console.log(classes, this.activeClass);
+                //}       
+                // Then check if the parent is active, if so we'll need to expand any subnavs
+                //if (classes && classes.includes(this.activeClass)){
+                //    return true;
+                //}                     
+                
+                }
+            }
+            return false;
+        }            
     },     
     watch: {
         '$refs.sidenavRef': () => {
@@ -150,6 +146,10 @@ export default {
          * to be compatible with vue-router)
          */
         onClassChange() {
+            if (!this.$refs.sidenavRef || !this.$refs.sidenavRef.getAttribute){
+                return;
+            }
+            
             let classes = this.$refs.sidenavRef.getAttribute('class');
             if (classes && classes.includes(this.activeClass)){
                 this.isActive = true;
@@ -159,15 +159,26 @@ export default {
         onClick() {
 
             // Remove the active state from all other nav items
-            this.$parent.$children.map((child)=>{                
-                if (child.$options && child.$options.name == 'us-sidenav-item'){
-                    if (child.divId != this.divId){      
-                        child.isActive = false;
+            const removeActiveFromSiblings = ($ele) => {                                
+                $ele.$children.map((child)=>{                
+                    if (child.$options && child.$options.name == 'us-side-nav-item'){
+                        if (child.divId != this.divId){      
+                            child.isActive = false;
+                        }
                     }
-                }
-            });
+                    if (child.$options && child.$options.name == 'us-side-nav'){
+                        removeActiveFromSiblings(child);
+                    }
+                });
+            }
+            
+            removeActiveFromSiblings(this.$parent);
+            if (this.$parent.$options.name == 'us-side-nav'){
+                removeActiveFromSiblings(this.$parent.$parent);
+            }
+            
 
-            this.isActive = true;
+            this.isActive = !this.isActive;
 
             // If this is a link, go to that link
             if (this.href) {
@@ -194,20 +205,27 @@ export default {
 
     cursor: pointer;
 
-    &:hover {
-        :not(ul>li){
-            background-color:#f0f0f0;
-            color:#005ea2;
-            text-decoration:none;
-        }
-    }
-
     &.no-focus {
         outline: none !important;
     }
 
+    &:hover {
+        background-color: transparent !important;
+    }
+
+    .usa-sidenav__sublist {
+        padding-left: 2rem !important;
+    }
+
     .usx-sidenav-item-content {
+
         padding: 0.5rem 1rem !important;        
+
+        &:hover {
+            background-color:#f0f0f0;
+            color:#005ea2;
+            text-decoration:none;            
+        }        
     }
 
 }
