@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.34](https://github.com/usds/uswds-vue/compare/v0.1.33...v0.1.34) (2021-02-20)
+
 ### 0.1.33 (2021-02-20)
 
 
