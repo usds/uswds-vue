@@ -45,7 +45,7 @@ Or in your sass files;
 
 ```scss
 @import "~uswds/dist/css/uswds.min.css";
-@import "~uswds/dist/uswds-vue.css";
+@import "~uswds-vue/dist/uswds-vue.css";
 ```
 
 ## Customize with SASS

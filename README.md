@@ -4,8 +4,6 @@
 
 [Vue USWDS component library](https://usds.github.io/uswds-vue/)
 
-> This is in very "alpha" state, and is actively being developed. It is very much a work in progress - please do not use in production!!
-
 This is a front end component library whose aim is to develop [Vue.js](https://vuejs.org/) implementations of the design patterns defined by the [United States Web Design System (USWDS)](https://designsystem.digital.gov/). 
 
 The primary goal of this library is to document and provide common UI components that can be included in other projects that adhere to or are based off of the USWDS, removing a significant amount of overhead UI development from such projects.
@@ -32,10 +30,7 @@ npm i uswds-vue uswds
 
 You can import globally;
 
-``` js
-// Import USWDS itself
-import 'uswds/dist/js/uswds.min.js';
-
+```js
 // And then import the vue component library
 import { UswdsVue } from 'uswds-vue';
 Vue.use(UswdsVue);
@@ -43,18 +38,26 @@ Vue.use(UswdsVue);
 // Or import individual components, e.g.;
 import { UsCard } from 'uswds-vue';
 Vue.use(UsCard);
-
 ```
 
 You will also need to import the USWDS styles;
 
 ```html
 <link rel="stylesheet" href="~uswds/dist/css/uswds.min.css">
+<link rel="stylesheet" href="~uswds/dist/css/uswds-vue.min.css">
+```
+
+Or in your css files;
+
+```css
+@import "~uswds/dist/css/uswds.min.css";
+@import "~uswds-vue/dist/uswds-vue.css";
 ```
 
 Or in your sass files;
 
 ```scss
-@import "~uswds/dist/css/uswds.css";
+@import "~uswds/dist/scss/uswds.css";
+@import "~uswds-vue/src/styles/uswds-vue.scss";
 ```
 
