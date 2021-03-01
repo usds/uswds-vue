@@ -1,5 +1,5 @@
 <template>
-    <form class="usx-component usa-form" 
+    <form class="usx-component usx-form usa-form" 
         @submit.stop.prevent="doSubmit" 
         novalidate 
         :class="{ 'usa-form--large': size == 'lg' }"
@@ -96,3 +96,16 @@ export default {
     }
 };
 </script>
+<style lang="scss">
+.usx-form {
+
+    @media (min-width: 30em){
+        &.usa-form {
+            max-width: 100%;
+        }
+    }
+    
+}
+</style>
+
+
