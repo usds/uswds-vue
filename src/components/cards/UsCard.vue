@@ -114,9 +114,9 @@ export default {
 <style lang="scss">
 // Fix style bug in uswds for right images
 @media (min-width: 40em) {
-    .usa-card--flag .usa-card__media {
-        width: unset !important;
-    }
+    //.usa-card--flag .usa-card__media {
+        //width: unset !important;
+    //}
     .usx-card-overflow {
         overflow: auto;
         max-height: 400px;

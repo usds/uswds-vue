@@ -1844,15 +1844,15 @@
   dependencies:
     "@vue/cli-shared-utils" "^4.5.6"
 
-"@vue/cli-plugin-unit-jest@~4.4.0":
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-jest/-/cli-plugin-unit-jest-4.4.6.tgz#31a25154424300f1b303f1d76bd19a8c3bb68721"
-  integrity sha512-TwvCZV03JgXLSdc1UaD+Fjt3ooeX0gvRH2bUy58uuEx3qyk7xYx7vRM4uyJ51XZs9l4SEcegwtOlBga6lc6okA==
+"@vue/cli-plugin-unit-jest@~4.5.0":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-jest/-/cli-plugin-unit-jest-4.5.11.tgz#d988e6e8420540954ceaf70fa050c469c45b69ab"
+  integrity sha512-PGpWz1RB9mfSJ5diTshFJUZsAschJBdLtJl7mmou/AVH2Yf8gTy3Zh9YZwkvhGt/wKXFbincmL6tyAQFGMa8Ow==
   dependencies:
-    "@babel/core" "^7.9.6"
+    "@babel/core" "^7.11.0"
     "@babel/plugin-transform-modules-commonjs" "^7.9.6"
     "@types/jest" "^24.0.19"
-    "@vue/cli-shared-utils" "^4.4.6"
+    "@vue/cli-shared-utils" "^4.5.11"
     babel-core "^7.0.0-bridge.0"
     babel-jest "^24.9.0"
     babel-plugin-transform-es2015-modules-commonjs "^6.26.2"
@@ -1932,6 +1932,24 @@
   version "4.5.6"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.5.6.tgz#14644972043c95566788d07d9a9367edd438a4d6"
   integrity sha512-p6ePDlEa7Xc0GEt99KDOCwPZtR7UnoEaZLMfwPYU5LAWkdCmtAw8HPAY/WWcjtoiaAkY4k9tz7ZehQasZ9mJxg==
+  dependencies:
+    "@hapi/joi" "^15.0.1"
+    chalk "^2.4.2"
+    execa "^1.0.0"
+    launch-editor "^2.2.1"
+    lru-cache "^5.1.1"
+    node-ipc "^9.1.1"
+    open "^6.3.0"
+    ora "^3.4.0"
+    read-pkg "^5.1.1"
+    request "^2.88.2"
+    semver "^6.1.0"
+    strip-ansi "^6.0.0"
+
+"@vue/cli-shared-utils@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.5.11.tgz#fff71673ee9128f998c691515b9d327071b4f41e"
+  integrity sha512-+aaQ+ThQG3+WMexfSWNl0y6f43edqVqRNbguE53F3TIH81I7saS5S750ayqXhZs2r6STJJyqorQnKtAWfHo29A==
   dependencies:
     "@hapi/joi" "^15.0.1"
     chalk "^2.4.2"

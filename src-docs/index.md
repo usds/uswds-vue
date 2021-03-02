@@ -11,5 +11,5 @@ features:
   details: Enjoy the dev experience of Vue, using Vue components to make your life easier and build super fast websites.
 - title: US Web Design Standards
   details: USWDS provides principles, guidance, and code to help you design and build accessible, mobile-friendly government websites and digital services.
-footer: Made by USDS with ❤️
+footerHtml: "Made with ❤️ &nbsp; by <a href='https://github.com/mikepif' target='_blank'>Mike Pritchard</a> @ <a href='https://usds.gov' target='_blank'>USDS</a>"
 ---

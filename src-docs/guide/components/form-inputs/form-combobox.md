@@ -15,7 +15,7 @@
 
 ```vue
 <us-form-group label="Select any historical figure">
-    <us-form-checkbox
+    <us-form-combobox
         name="select historical figure"
         :options="['Sojourner Truth', 'Frederick Douglass', 'Booker T. Washington', 'George Washington Carver']"
         v-model="checkedValues"
@@ -93,12 +93,12 @@ You can make use of built-in validation, for example;
 ```vue
 <us-form @submit="onSubmit()" :validate="true" v-slot="{isValid, isDirty}">
     <us-form-group label="Select any historical figure">
-        <us-form-checkbox
+        <us-form-combobox
             name="select historical figure"
             :options="options"
             :rules="{required:true}"
             v-model="checkedValues">
-        </us-form-checkbox>
+        </us-form-combobox>
     </us-form-group>
     <us-button type="submit" variant="primary">Submit</us-button>
     <us-tag variant="danger" v-if="isValid === false">Invalid</us-tag>
@@ -112,7 +112,7 @@ You can make use of built-in validation, for example;
 export default {
     data() {
         return {
-            checkedValues: null,
+            checkedValues: 'Sojourner Truth',
             checkedValues2: null,
             checkedValues3: null,
             options: [
@@ -140,7 +140,8 @@ export default {
                     value: 'george-washington-carver', 
                     label: 'George Washington Carver', 
                     description: 'George Washington Carver (1860s – January 5, 1943) was an American agricultural scientist and inventor who promoted alternative crops to cotton and methods to prevent soil depletion.', 
-                    disabled:true}
+                    disabled:true
+                }
             ]                        
         }
     },

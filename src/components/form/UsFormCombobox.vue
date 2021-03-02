@@ -78,79 +78,20 @@
             When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.
         </span>
 
-        <!--
-        <form class="usa-form">
-            <label class="usa-label" for="fruit">Select a fruit</label>
-            <div class="usa-combo-box" data-enhanced="true">
-                <select class="usa-select usa-sr-only usa-combo-box__select" name="fruit" id="" aria-hidden="true" tabindex="-1">
-                    <option value="">Select a fruit</option>
-                    <option value="apple">Apple</option>
-                    <option value="apricot">Apricot</option>
-
-                </select>
-                <input
-                    aria-owns="`usx-combo-{${divId}}`"
-                    aria-autocomplete="list"
-                    aria-describedby="fruit--assistiveHint"
-                    aria-expanded="false"
-                    autocapitalize="off"
-                    autocomplete="off"
-                    id="fruit"
-                    class="usa-combo-box__input"
-                    type="text"
-                    role="combobox"
-                    aria-activedescendant=""
-                />
-                <span class="usa-combo-box__clear-input__wrapper" tabindex="-1">
-                    <button type="button" class="usa-combo-box__clear-input" aria-label="Clear the select contents">&nbsp;</button> 
-                </span><span class="usa-combo-box__input-button-separator">&nbsp;</span>
-                <span class="usa-combo-box__toggle-list__wrapper" tabindex="-1">
-                    <button type="button" tabindex="-1" class="usa-combo-box__toggle-list" aria-label="Toggle the dropdown list">&nbsp;</button>
-                </span>
-                <ul tabindex="-1" id="`usx-combo-{${divId}}`" class="usa-combo-box__list" role="listbox" hidden="">
-                    <li
-                        aria-selected="false"
-                        aria-setsize="64"
-                        aria-posinset="1"
-                        id="`usx-combo-{${divId}}`--option-0"
-                        class="usa-combo-box__list-option"
-                        tabindex="0"
-                        role="option"
-                        data-value="apple"
-                    >
-                        Apple
-                    </li>
-                    <li
-                        aria-selected="false"
-                        aria-setsize="64"
-                        aria-posinset="2"
-                        id="`usx-combo-{${divId}}`--option-1"
-                        class="usa-combo-box__list-option"
-                        tabindex="-1"
-                        role="option"
-                        data-value="apricot"
-                    >
-                        Apricot
-                    </li>
-                </ul>
-                <div class="usa-combo-box__status usa-sr-only" role="status"></div>
-                <span id="fruit--assistiveHint" class="usa-sr-only">
-                    When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.
-                </span>
-            </div>
-        </form>
-        -->
     </div>
 </template>
 
 <script>
 import FormInputMixins from '../mixins/FormInputMixin';
-import {debounce} from 'lodash';
+import {debounce, findIndex, isArray, isObject} from 'lodash';
 
 export default {
     name: 'us-form-combobox',
     mixins: [FormInputMixins],
     props: {
+        value: {
+            default: null
+        },
         label: {
             type: String,
             default: null
@@ -183,12 +124,68 @@ export default {
             if (!this.isUpdatingLabel){
                 this.__debouncedOnChange();
             }
+        }, 
+        options(){
+            this.__setup();
+        },
+        currentValue(){
+            this.__setup();
         }
     },
     mounted(){
         this.filteredOpts = this.options;
+        this.$nextTick(()=>{
+            this.__setup();    
+        });
     },
     methods: {
+
+        __setup(){
+            
+            if (!this.options || !this.value){
+                this.currentValueLabel = null;
+                return;
+            }
+
+            // Find the selected item in the array
+            let index = -1;
+
+            //console.log('isArray(this.options) = ', isArray(this.options));
+
+            if (isArray(this.options)){
+                for (let i=0; i<this.options.length; i+=1){
+                    if (this.labelField && this.options[i][this.labelField] == this.value[this.labelField]){
+                        index = i;
+                    }
+                    else if (!this.labelField && this.options[i] == this.value){
+                        index = i;
+                    }
+                }
+            }
+            else if (isObject(this.options)){
+                /*
+                for (let key in this.options){
+                    if (this.keyField && this.keyField == key){
+                        index = 
+                    }
+                    
+                    this.options[key][this.labelField] == this.value[this.labelField]){
+                        index = i;
+                    }
+                    else if (!this.labelField && this.options[key] == this.value){
+                        index = i;
+                    }                    
+                }
+                */
+            }
+
+            console.log('CURRENT VAL: ', this.value, index);
+
+            if (index != -1){
+                this.onSelectVal(index);   
+            }
+
+        },
 
         __debouncedOnChange: debounce(function(){
             this.__filterOptions();
@@ -255,7 +252,6 @@ export default {
         },
 
         getValue(index, useFiltered=true) {
-
             let item = null;
             if (useFiltered){
                 item = this.filteredOpts[index];
@@ -278,9 +274,10 @@ export default {
             }
         },
 
-        getLabel(index, useFiltered=true) {
-            
+        getLabel(index, useFiltered=true) {        
+
             let item = null;
+
             if (useFiltered){
                 item = this.filteredOpts[index];
             }
@@ -294,9 +291,11 @@ export default {
 
             if (this.labelField) {
                 return item[this.labelField];
-            } else if (item.label) {
+            } 
+            else if (item.label) {
                 return item.label;
-            } else {
+            } 
+            else {
                 return item;
             }
         }

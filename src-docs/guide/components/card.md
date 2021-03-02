@@ -79,7 +79,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
     <us-card-group>
         <us-card 
             title="Card with media" 
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="top"
         >
             <us-card-body>
@@ -106,7 +106,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
 <us-card-group>
     <us-card 
         title="Card with media" 
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="top"
     >
         <us-card-body>
@@ -134,7 +134,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
         <us-card 
             title="Card with media" 
             style="width:400px"
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="top"
         >
             <us-card-body>
@@ -146,7 +146,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
         </us-card>   
         <us-card 
             title="Media and header first" 
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="top-body"
         >
             <us-card-body>
@@ -160,18 +160,20 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
     <us-card-group>
         <us-card 
             title="Inset Media" 
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="top"
             img-inset
         >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
+            <us-card-body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
+            </us-card-body>
             <us-card-footer>
                 <us-button variant="primary" block>Visit Florida Keys</us-button>
             </us-card-footer>
         </us-card>     
         <us-card 
             title="Extant Card" 
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="top"
             card-extant
         >
@@ -186,7 +188,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
     <us-card-group>
         <us-card 
             title="Media Left (flag)" 
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="left"
         >
             <us-card-body>
@@ -198,7 +200,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
         </us-card>        
         <us-card 
             title="Media Right (flag)" 
-            img-src="http://www.fillmurray.com/g/200/200"
+            img-src="https://www.fillmurray.com/g/200/200"
             img-pos="right"
         >
             <us-card-body>
@@ -217,7 +219,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
     <us-card 
         title="Card with media" 
         style="width:400px"
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="top"
     >
         <us-card-body>
@@ -229,7 +231,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
     </us-card>   
     <us-card 
         title="Media and header first" 
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="top-body"
     >
         <us-card-body>
@@ -243,18 +245,20 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
 <us-card-group>
     <us-card 
         title="Inset Media" 
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="top"
         img-inset
     >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.        
+        <us-card-body>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.       
+        </us-card-body> 
         <us-card-footer>
             <us-button variant="primary" block>Visit Florida Keys</us-button>
         </us-card-footer>
     </us-card>     
     <us-card 
         title="Extant Card" 
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="top"
         card-extant
     >
@@ -269,7 +273,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
 <us-card-group>
     <us-card 
         title="Media Left (flag)" 
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="left"
     >
         <us-card-body>
@@ -281,7 +285,7 @@ You can use a `<us-card-group>` to support multiple cards in a row with consiste
     </us-card>        
     <us-card 
         title="Media Right (flag)" 
-        img-src="http://www.fillmurray.com/g/200/200"
+        img-src="https://www.fillmurray.com/g/200/200"
         img-pos="right"
     >
         <us-card-body>
