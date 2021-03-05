@@ -1,6 +1,6 @@
 <template>
     <div
-        class="usx-component usa-combo-box no-focus mt-1"
+        class="usx-component usa-combo-box no-focus"
         data-enhanced="true"
         :class="{
             'usx-error': valid === false || parentValid === false,

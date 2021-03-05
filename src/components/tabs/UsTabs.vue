@@ -133,7 +133,7 @@ export default {
 
     }
 
-    ul {
+    .nav-tabs.ul {
         display: block;
         list-style-type: disc;
         margin-block-start: 1em;
@@ -142,7 +142,7 @@ export default {
         margin-inline-end: 0px;
         padding-inline-start: 40px;
 
-        li {
+        .nav-item.li {
             display: list-item;
             text-align: -webkit-match-parent;        
         }
