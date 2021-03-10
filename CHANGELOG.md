@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.36](https://github.com/usds/uswds-vue/compare/v0.1.35...v0.1.36) (2021-03-10)
+
+
+### Bug Fixes
+
+* fixes to combo box ([e4c3258](https://github.com/usds/uswds-vue/commit/e4c32581a37e5755f1e10d70e25d228c9c748954))
+
 ### [0.1.35](https://github.com/usds/uswds-vue/compare/v0.1.34...v0.1.35) (2021-03-10)
 
 
