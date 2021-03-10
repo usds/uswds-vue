@@ -46462,15 +46462,15 @@ var UsFormGroup_component = normalizeComponent(
 )
 
 /* harmony default export */ var UsFormGroup = (UsFormGroup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"3d8b95c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormCombobox.vue?vue&type=template&id=0850b67e&
-var UsFormComboboxvue_type_template_id_0850b67e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"usx-component usa-combo-box no-focus",class:{
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"3d8b95c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form/UsFormCombobox.vue?vue&type=template&id=f67058c2&
+var UsFormComboboxvue_type_template_id_f67058c2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"usx-component usa-combo-box no-focus",class:{
         'usx-error': _vm.valid === false || _vm.parentValid === false,
         'usx-success': _vm.valid === true || _vm.parentValid === true
     },attrs:{"data-enhanced":"true"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.currentValue),expression:"currentValue"}],staticClass:"usa-select usa-sr-only",attrs:{"name":_vm.name,"id":_vm.divId,"disabled":_vm.disabled,"aria-hidden":"true"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.currentValue=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},[_c('option',{attrs:{"value":""}},[_vm._t("empty",[_vm._v("Select an option")])],2),_vm._l((_vm.options),function(opt,index){return _c('option',{key:index,domProps:{"value":_vm.getValue(index, false)}},[_c('span',[_vm._v(_vm._s(_vm.getLabel(index, false)))])])})],2),(_vm.filteredOpts)?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.currentValueLabel),expression:"currentValueLabel"}],staticClass:"usa-combo-box__input",attrs:{"aria-owns":("usx-combo-{" + _vm.divId + "}"),"aria-autocomplete":"list","aria-describedby":("usx-combo-" + _vm.divId + "-assistiveHint"),"aria-expanded":_vm.isOpen,"autocapitalize":"off","autocomplete":"off","id":_vm.divId,"type":"text","role":"combobox","aria-activedescendant":""},domProps:{"value":(_vm.currentValueLabel)},on:{"click":function($event){_vm.isOpen = true},"input":function($event){if($event.target.composing){ return; }_vm.currentValueLabel=$event.target.value}}}):_vm._e(),_c('span',{staticClass:"usa-combo-box__clear-input__wrapper",attrs:{"tabindex":"-1"}},[_c('button',{staticClass:"usa-combo-box__clear-input no-focus",class:{'d-block':_vm.currentValueLabel},attrs:{"type":"button","aria-label":"Clear the select contents"},on:{"click":function($event){return _vm.onClearInput()}}})]),_c('span',{staticClass:"usa-combo-box__input-button-separator"}),_c('span',{staticClass:"usa-combo-box__toggle-list__wrapper",attrs:{"tabindex":"-1"}},[_c('button',{staticClass:"usx-toggle-btn no-focus",attrs:{"type":"button","tabindex":"-1","aria-label":"Toggle the dropdown list"},on:{"click":function($event){_vm.isOpen = !_vm.isOpen}}},[(!_vm.isOpen)?_c('i',{staticClass:"fas fa-chevron-down"}):_c('i',{staticClass:"fas fa-chevron-up"})])]),(_vm.filteredOpts && _vm.filteredOpts.length > 0)?_c('ul',{staticClass:"usa-combo-box__list",attrs:{"tabindex":"-1","id":("usx-combo-{" + _vm.divId + "}"),"role":"listbox","hidden":!_vm.isOpen}},_vm._l((_vm.filteredOpts),function(opt,index){return _c('li',{key:index,staticClass:"usa-combo-box__list-option no-focus",attrs:{"value":_vm.getValue(index),"aria-selected":"false","aria-setsize":_vm.filteredOpts.length,"aria-posinset":"1","id":("usx-combo-" + _vm.divId + "-option-" + index),"tabindex":(index == 0) ? 0 : -1,"role":"option","data-value":_vm.getValue(index)},on:{"click":function($event){return _vm.onSelectVal(index)}}},[_vm._v(" "+_vm._s(_vm.getLabel(index))+" ")])}),0):_c('ul',{staticClass:"usa-combo-box__list",attrs:{"id":"`usx-combo-{${divId}}`","role":"listbox","hidden":!_vm.isOpen}},[_c('li',{staticClass:"usa-combo-box__list-option--no-results"},[_vm._v(" No results found ")])]),_c('div',{staticClass:"usa-combo-box__status usa-sr-only",attrs:{"role":"status"}}),_c('span',{staticClass:"usa-sr-only",attrs:{"id":"{divId}--assistiveHint"}},[_vm._v(" When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures. ")])])}
-var UsFormComboboxvue_type_template_id_0850b67e_staticRenderFns = []
+var UsFormComboboxvue_type_template_id_f67058c2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form/UsFormCombobox.vue?vue&type=template&id=0850b67e&
+// CONCATENATED MODULE: ./src/components/form/UsFormCombobox.vue?vue&type=template&id=f67058c2&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.constructor.js
 var es_regexp_constructor = __webpack_require__("4d63");
@@ -46634,31 +46634,41 @@ var es_string_match = __webpack_require__("466d");
       var index = -1; //console.log('isArray(this.options) = ', isArray(this.options));
 
       if (Object(lodash["isArray"])(this.options)) {
+        // Try to match on the whole object
         for (var i = 0; i < this.options.length; i += 1) {
-          if (this.labelField && this.options[i][this.labelField] == this.value[this.labelField]) {
-            index = i;
-          } else if (!this.labelField && this.options[i] == this.value) {
+          if (this.value == this.options[i]) {
             index = i;
           }
         }
-      } else if (Object(lodash["isObject"])(this.options)) {
         /*
-        for (let key in this.options){
-            if (this.keyField && this.keyField == key){
-                index = 
+        console.log(`labelField = ${this.labelField}, keyField = ${this.keyField}`)
+        for (let i=0; i<this.options.length; i+=1){
+            if (this.keyField){
+                // The value will be the valued of the key field
+                console.log(`keyField = ${this.keyField}, i = ${i}, val = ${this.value}, this = ${this.options[i][this.keyField]}`)
+                if (this.value == this.options[i][this.keyField]){
+                    index = i;
+                }
             }
-            
-            this.options[key][this.labelField] == this.value[this.labelField]){
+            else if (this.labelField){
+                // With no key field, the value will be the entire object. 
+                // So use the label field to match on
+                console.log(`labelField = ${this.labelField}, i = ${i}, val = ${this.value}, this = ${this.options[i][this.keyField]}`)
+                if (this.value[this.labelField] == this.options[i][this.labelField]){
+                    index = i;
+                }
                 index = i;
             }
-            else if (!this.labelField && this.options[key] == this.value){
-                index = i;
-            }                    
+            else {
+                // Try to match on the whole object
+                if (this.value == this.options[i]){
+                    index = i;
+                }
+            }
         }
         */
-      }
 
-      console.log('CURRENT VAL: ', this.value, index);
+      }
 
       if (index != -1) {
         this.onSelectVal(index);
@@ -46672,7 +46682,6 @@ var es_string_match = __webpack_require__("466d");
       var label = this.getLabel(index, true);
 
       if (label && label.match(re)) {
-        //console.log(`${label} matches ${this.currentValueLabel}`)
         return false;
       }
 
@@ -46688,7 +46697,6 @@ var es_string_match = __webpack_require__("466d");
 
       for (var i = 0; i < this.options.length; i += 1) {
         if (!this.isFiltered(i)) {
-          //console.log(`match for`, this.options[i])
           newOpts.push(this.options[i]);
         }
       }
@@ -46788,8 +46796,8 @@ var UsFormComboboxvue_type_style_index_0_lang_scss_ = __webpack_require__("202e"
 
 var UsFormCombobox_component = normalizeComponent(
   form_UsFormComboboxvue_type_script_lang_js_,
-  UsFormComboboxvue_type_template_id_0850b67e_render,
-  UsFormComboboxvue_type_template_id_0850b67e_staticRenderFns,
+  UsFormComboboxvue_type_template_id_f67058c2_render,
+  UsFormComboboxvue_type_template_id_f67058c2_staticRenderFns,
   false,
   null,
   null,
