@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.35](https://github.com/usds/uswds-vue/compare/v0.1.34...v0.1.35) (2021-03-10)
+
+
+### Bug Fixes
+
+* fixes to loose styles for dropdown ([1ce6e71](https://github.com/usds/uswds-vue/commit/1ce6e71678c595e2d7a153107b69a0e3c3456749))
+
 ### [0.1.34](https://github.com/usds/uswds-vue/compare/v0.1.33...v0.1.34) (2021-02-20)
 
 ### 0.1.33 (2021-02-20)
