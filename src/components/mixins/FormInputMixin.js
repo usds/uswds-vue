@@ -120,7 +120,7 @@ const FormInputMixin = {
         },
 
         __updateVal(newVal){
-
+            
             // Note that we're updating, so the watcher for currentValue won't respond
             this.isUpdating = true;
 

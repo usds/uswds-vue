@@ -153,33 +153,41 @@ export default {
             //console.log('isArray(this.options) = ', isArray(this.options));
 
             if (isArray(this.options)){
+
+                // Try to match on the whole object
                 for (let i=0; i<this.options.length; i+=1){
-                    if (this.labelField && this.options[i][this.labelField] == this.value[this.labelField]){
-                        index = i;
-                    }
-                    else if (!this.labelField && this.options[i] == this.value){
+                    if (this.value == this.options[i]){
                         index = i;
                     }
                 }
-            }
-            else if (isObject(this.options)){
                 /*
-                for (let key in this.options){
-                    if (this.keyField && this.keyField == key){
-                        index = 
+                console.log(`labelField = ${this.labelField}, keyField = ${this.keyField}`)
+                for (let i=0; i<this.options.length; i+=1){
+                    if (this.keyField){
+                        // The value will be the valued of the key field
+                        console.log(`keyField = ${this.keyField}, i = ${i}, val = ${this.value}, this = ${this.options[i][this.keyField]}`)
+                        if (this.value == this.options[i][this.keyField]){
+                            index = i;
+                        }
                     }
-                    
-                    this.options[key][this.labelField] == this.value[this.labelField]){
+                    else if (this.labelField){
+                        // With no key field, the value will be the entire object. 
+                        // So use the label field to match on
+                        console.log(`labelField = ${this.labelField}, i = ${i}, val = ${this.value}, this = ${this.options[i][this.keyField]}`)
+                        if (this.value[this.labelField] == this.options[i][this.labelField]){
+                            index = i;
+                        }
                         index = i;
                     }
-                    else if (!this.labelField && this.options[key] == this.value){
-                        index = i;
-                    }                    
+                    else {
+                        // Try to match on the whole object
+                        if (this.value == this.options[i]){
+                            index = i;
+                        }
+                    }
                 }
                 */
             }
-
-            console.log('CURRENT VAL: ', this.value, index);
 
             if (index != -1){
                 this.onSelectVal(index);   
@@ -195,7 +203,6 @@ export default {
             let re = new RegExp(this.currentValueLabel, 'i');
             let label = this.getLabel(index, true);
             if (label && label.match(re)){
-                //console.log(`${label} matches ${this.currentValueLabel}`)
                 return false;
             }
             return true;
@@ -212,7 +219,6 @@ export default {
             let newOpts = [];
             for (let i=0; i<this.options.length; i+=1){
                 if (!this.isFiltered(i)){
-                    //console.log(`match for`, this.options[i])
                     newOpts.push(this.options[i]);
                 }
             }
@@ -289,7 +295,7 @@ export default {
                 return null;
             }
 
-            if (this.labelField) {
+            if (this.labelField) {            
                 return item[this.labelField];
             } 
             else if (item.label) {
