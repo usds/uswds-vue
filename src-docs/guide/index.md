@@ -53,7 +53,7 @@ Or in your sass files;
 Support for SASS is baked in. To use, import the scss style sheets from `USWDS` and `uswds-vue`;
 
 ```scss
-@import "~uswds/dist/scss/uswds.css";
+@import "~uswds/dist/css/uswds.css";
 @import "~uswds-vue/src/styles/uswds-vue.scss";
 ```
 
