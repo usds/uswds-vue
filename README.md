@@ -57,7 +57,7 @@ Or in your css files;
 Or in your sass files;
 
 ```scss
-@import "~uswds/dist/scss/uswds.css";
+@import "~uswds/dist/css/uswds.css";
 @import "~uswds-vue/src/styles/uswds-vue.scss";
 ```
 
