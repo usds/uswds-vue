@@ -1,5 +1,15 @@
 # uswds-vue
 
+## **NEW** Getting Help & Contributing
+
+Apologies for lack of support lately, if you need help you can find me on Twitter at @MikeJPritchard. Please just ping me to let me know you're using this. If I know people are using this, then I'll be more active building and supporting it! 
+
+And even better, if you want to contribute let me know!
+
+## **NEW** Slack Community
+
+Come talk to me and others, [join our Slack community](https://join.slack.com/t/uswds-vue/shared_invite/zt-12y2dore9-YB8~OwFlOhpepubbgp8aPw).
+
 ## Introduction
 
 [Vue USWDS component library](https://usds.github.io/uswds-vue/)
@@ -61,3 +71,32 @@ Or in your sass files;
 @import "~uswds-vue/src/styles/uswds-vue.scss";
 ```
 
+## Building & Contributing
+
+To get started locally just run `yarn install`, you can develop components in your own projects by pulling in the local copy of `usdws-vue` (using `yarn link` or just manually import).
+
+Personally, I find it easiest to develop both the component and the docs at the same time. [VuePress](https://vuepress.vuejs.org/) has hot reloading, so you can develop the component and also create the docs at the same time. You can spin up the VuePress locally by running `yarn docs:dev`.
+
+## Documentation
+
+The project uses [VuePress](https://vuepress.vuejs.org/), all the docs are found under `/src-docs/guide`. It's fairly easy to add a new component;
+
+Create a new page by adding an entry to the side-nav, this is done by editing `themeConfig.sidebar` in `/src-docs/.vuepress/config.js`. The entry you add is the file path to the markdown doc itself. 
+
+For example, you can see the documentation for the alert component is in the `children` array in the object with a title `Component` in `themeConfig.sidebar`. The entry is `components/alert`, which corresponds to the markdown file
+in the directory `/src-docs/guide/components/alert.md`.
+
+## Contributing & Versioning
+
+We follow the semantic versioning convention, when you commit do so in the following manner;
+
+```
+git commit -m "fix: JIRA-1234 Fixed bug on foo"
+git commit -m "feat: JIRA-2345 Adds new Widget"
+git commit -m "chore: JIRA-3456 Updated README"
+git commit -m 'feat: JIRA-4567 Added new theme
+```
+
+We use [standard_version](https://github.com/conventional-changelog/standard-version) to automate versioning and release notes.
+
+Simply run `yarn run release` to bump the version number appropriately and generate release notes. Run `git push --follow-tags origin master` to publish.

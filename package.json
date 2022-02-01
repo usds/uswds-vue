@@ -1,6 +1,6 @@
 {
   "name": "uswds-vue",
-  "version": "0.1.36",
+  "version": "0.1.39",
   "private": false,
   "description": "Vue USWDS component library",
   "scripts": {
@@ -31,10 +31,10 @@
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-plugin-unit-jest": "~4.5.15",
+    "@vue/cli-service": "~4.5.15",
     "@vue/test-utils": "^1.1.1",
     "babel-eslint": "^10.1.0",
     "chance": "^1.1.7",
