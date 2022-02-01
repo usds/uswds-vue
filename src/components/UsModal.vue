@@ -77,7 +77,7 @@ export default {
             
             // Grab a reference to the modal if we don't already have it
             if (!this.modalRef){
-                this.modalRef = new Modal(document.getElementById(`modal_${this.divId}`), {})
+                this.modalRef = new Modal(window.document.getElementById(`modal_${this.divId}`), {})
             }
 
             if (this.value && this.modalRef){

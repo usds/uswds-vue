@@ -89,11 +89,10 @@ module.exports = {
             'utils/breakpoints',
             'utils/display',
             'utils/spacing',
-            'utils/layout',
+            //'utils/layout',
             'utils/colors',
-            'utils/theme-generator',
-            'utils/typography',
-            'utils/validation'           
+            //'utils/theme-generator',
+            //'utils/typography',
           ]
         },       
         {
@@ -101,10 +100,11 @@ module.exports = {
           collapsable: false,
           children: [
             'components/alert',
+            'components/accordion',
             'components/button',
             'components/card',
-            'components/footer',
-            'components/header',
+            //'components/footer',
+            //'components/header',
             'components/gov-banner',
             'components/left-nav',
             'components/lists',
@@ -123,6 +123,7 @@ module.exports = {
           children: [
             'forms/form',
             'forms/form-group',
+            'utils/validation',
             'forms/form-inputs/form-checkbox',
             'forms/form-inputs/form-radio',
             'forms/form-inputs/form-combobox',

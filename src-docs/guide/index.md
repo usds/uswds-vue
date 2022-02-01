@@ -6,7 +6,7 @@ This is a front end component library whose aim is to develop [Vue.js](https://v
 
 The primary goal of this library is to document and provide common UI components that can be included in other projects that adhere to or are based off of the USWDS, removing a significant amount of overhead UI development from such projects.
 
-This library attempts to follow the conventions laid down by [BootstrapVue](https://bootstrap-vue.org/), as these seem entirely sensible!
+This library attempts to follow the conventions laid down by [Bootstrap](https://getbootstrap.org/), as these seem entirely sensible!
 
 ## Install
 
@@ -37,14 +37,12 @@ Vue.use(UsCard);
 To impoprt the `uswds` styles, you can add this to you `index.html` file;
 
 ```html
-<link rel="stylesheet" href="~uswds/dist/css/uswds.min.css">
 <link rel="stylesheet" href="~uswds/dist/css/uswds-vue.min.css">
 ```
 
 Or in your sass files;
 
 ```scss
-@import "~uswds/dist/css/uswds.min.css";
 @import "~uswds-vue/dist/uswds-vue.css";
 ```
 
@@ -53,7 +51,6 @@ Or in your sass files;
 Support for SASS is baked in. To use, import the scss style sheets from `USWDS` and `uswds-vue`;
 
 ```scss
-@import "~uswds/dist/css/uswds.css";
 @import "~uswds-vue/src/styles/uswds-vue.scss";
 ```
 

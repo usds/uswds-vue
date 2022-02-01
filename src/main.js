@@ -2,6 +2,8 @@ import Logger from './utils/Logger';
 import 'bootstrap';
 
 import UsAlert from './components/UsAlert';
+import UsAccordion from './components/accordion/UsAccordion.vue';
+import UsAccordionItem from './components/accordion/UsAccordionItem.vue';
 import UsCard from './components/cards/UsCard';
 import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
@@ -44,13 +46,15 @@ import UsProgress from './components/UsProgress';
 import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 
 export const Components = {
+    UsAlert,
+    UsAccordion,
+    UsAccordionItem,
     UsSideNav,
     UsSideNavItem,
     UsRow,
     UsCol,
     UsTab,
     UsTabs,
-    UsAlert,
     'UsTag': UsBadge,
     UsCard,
     UsButton,

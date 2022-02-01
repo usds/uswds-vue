@@ -1,24 +1,35 @@
 <template>
-    <span class="usx-component">
-        <slot name="heading">
-            <h2 class="usa-accordion__heading" :class="`bg-${variant}`">
-                <button class="usa-accordion__button" :aria-expanded="expanded" :aria-controls="divId">{{ title }}</button>
-            </h2>
-        </slot>
 
-        <div :id="divId" class="usa-accordion__content">
-            <slot>
-                <p>
-                    Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the
-                    press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
-                </p>
+<div class="usx-component accordion-item " v-if="divId">
+    <h2 class="accordion-header" :id="`heading-${divId}`" >
+        <button 
+            type="button" 
+            class="accordion-button collapsed fw-bold" 
+            :class="[`bg-${variant}`, `text-${variant}-contrast`]"
+            data-bs-toggle="collapse" 
+            :data-bs-target="`#collapse-${divId}`" 
+            :aria-expanded="expanded" 
+            :aria-controls="`collapse-${divId}`">
+            <slot name="heading">
+                {{heading}}
             </slot>
+        </button>
+    </h2>
+    <div :id="`collapse-${divId}`" 
+        class="accordion-collapse collapse" 
+        :class="{'show':expanded}"
+        :aria-labelledby="`heading${divId}`" 
+        :data-bs-parent="(!multiSelect) ? `#${parentDivId}` : false">
+        <div class="accordion-body" :class="`border-${variant}`">
+            <slot></slot>
         </div>
-    </span>
+    </div>
+</div>
 </template>
 
 <script>
-import CoreMixin from '../mixins/CoreMixin';
+import uuid from '../../utils/uuid';
+
 /**
  * USWDS accordion item component
  * Supports a default slot for the body content, and a 'header' slot for title.
@@ -30,20 +41,58 @@ import CoreMixin from '../mixins/CoreMixin';
  */
 export default {
     name: 'us-accordion-item',
-    mixins: [CoreMixin],
     props: {
-        variant: {
-            type: String,
-            default: 'info'
-        },
         expanded: {
             type: Boolean,
             default: false
         },
-        title: {
+        heading: {
             type: String,
-            default: 'First Amendment'
+            default: ''
         }
+    },
+    data() {
+        return {
+            divId: null,
+            parentDivId: null,
+            variant: '',
+            multiSelect: false
+        };
+    },
+    mounted() {
+        this.divId = uuid();
+        this.parentDivId = this.$parent.divId;
+        this.variant = this.$parent.variant;
+        this.multiSelect = this.$parent.multiSelect;
+        this.$log(this.parentDivId)
+    },
+    methods: {
+
     }
 };
 </script>
+<style lang="scss">
+
+.usx-component.accordion-item {
+/*
+    border: none;
+
+    .accordion-header {
+        padding-bottom: 0.5rem;
+    }
+
+    .accordion-button {
+        border-radius: 0px;
+        background-color: #f0f0f0;
+        color: black;
+        box-shadow: none;
+    }
+
+    .accordion-button:not(.collapsed) {
+        border-radius: 0px;
+        background-color: #f0f0f0;
+    }
+*/
+}
+
+</style>
