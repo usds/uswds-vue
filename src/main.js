@@ -1,9 +1,8 @@
+import Logger from './utils/Logger';
+import 'bootstrap';
+
 import UsAlert from './components/UsAlert';
 import UsCard from './components/cards/UsCard';
-import UsCardHeader from './components/cards/UsCardHeader';
-import UsCardFooter from './components/cards/UsCardFooter';
-import UsCardBody from './components/cards/UsCardBody';
-import UsCardGroup from './components/cards/UsCardGroup';
 import UsForm from './components/form/UsForm';
 import UsFormInput from './components/form/UsFormInput';
 import UsFormInputMasked from './components/form/UsFormInputMasked';
@@ -20,8 +19,7 @@ import UsStepIndicator from './components/form/UsStepIndicator';
 import UsButton from './components/UsButton';
 import UsButtonGroup from './components/UsButtonGroup';
 //import UsButtonGroup from './components/UsButtonGroup';
-import UsTag from './components/UsTag';
-import UsPill from './components/UsPill';
+import UsBadge from './components/UsBadge';
 import UsImg from './components/UsImg';
 import UsHeader from './components/header/UsHeader';
 import UsFooter from './components/UsFooter';
@@ -48,18 +46,13 @@ import UsResponsiveInfo from './components/debug/UsResponsiveInfo';
 export const Components = {
     UsSideNav,
     UsSideNavItem,
-    UsPill,
-    UsTag,
     UsRow,
     UsCol,
     UsTab,
     UsTabs,
     UsAlert,
+    'UsTag': UsBadge,
     UsCard,
-    UsCardHeader,
-    UsCardFooter,
-    UsCardGroup,
-    UsCardBody,
     UsButton,
     UsButtonGroup,
     UsForm,
@@ -101,6 +94,9 @@ export const Components = {
  */
 const UswdsVue = {
     install(Vue, config = {}) {
+
+        Vue.use(Logger);
+
         Object.keys(Components).forEach((name) => {
             Vue.component(name, Components[name]);
         });

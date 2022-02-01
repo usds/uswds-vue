@@ -1,57 +1,55 @@
 <template>
-    <section class="usx-component usa-banner" aria-label="Official government website" :class="`bg-${variant}`">
         
-        <div class="usa-accordion">
+       
+        <header class="usx-component usx-banner" aria-label="Official government website" :class="`bg-${variant}`">
+            
+            <us-container>
 
-            <header class="usa-banner__header" :class="{'usa-banner__header--expanded':isOpen}">
-                <div class="usa-banner__inner" :class="`bg-${variant} fluid-${this.fluid}`">
-                    <slot>
-                        <div class="grid-col-auto">
-                            <icon-flag class="mr-1 mt-1" />
-                        </div>
-                        <div class="grid-col-fill tablet:grid-col-auto">
-                            <p class="usa-banner__header-text">An official website of the United States government</p>
-                            <p class="usa-banner__header-action" :aria-hidden="!isOpen" @click="isOpen = !isOpen">Here’s how you know</p>
-                        </div>
-                    </slot>
-                    <us-button variant="link" class="usa-banner__button" :aria-expanded="isOpen" aria-controls="gov-banner" @click="isOpen = !isOpen">
-                        <span class="usa-banner__button-text">Here’s how you know</span>
-                    </us-button>
-                </div>
-            </header>
+                <p class="usx-banner-text">
+                    <icon-flag class="usx-flag"/>
+                    An official website of the United States government
+                    <span class="usx-banner-toggle" @click="isOpen = !isOpen">
+                        Here’s how you know
+                        <i v-if="!isOpen" class="fas fa-chevron-down"></i>
+                        <i v-else class="fas fa-chevron-up"></i>
+                    </span>
+                </p>
+                
 
-            <div class="usa-banner__content usa-accordion__content" id="gov-banner" :class="`bg-${variant}`" v-if="isOpen">
-                <div class="grid-row grid-gap-lg">
-                    <div class="usa-banner__guidance tablet:grid-col-6">
-                        <icon-dot-gov class="mr-1" />
-                        <div class="usa-media-block__body">
-                            <p>
-                                <strong>Official websites use .gov</strong><br />
-                                A <strong>.gov</strong>website belongs to an official government organization in the United States.
+                <div class="mt-2" v-if="isOpen">
+
+                    <us-row fluid class="usx-banner-info-container">
+                        <us-col>
+                            <icon-dot-gov class="usx-banner-icon" />
+                            <p class="usx-banner-info-text">
+                                <strong>Official websites use {{domain}}</strong><br />
+                                A <strong>{{domain}}</strong> website belongs to an official government organization in the United States.
                             </p>
-                        </div>
-                    </div>
-                    <div class="usa-banner__guidance tablet:grid-col-6">
-                        <icon-https class="mr-1" />
-                        <div class="usa-media-block__body">
-                            <p>
-                                <strong>Secure .gov websites use HTTPS</strong><br />
-                                A <strong>lock</strong> (<icon-lock />) or <strong>https://</strong> means you’ve safely connected to the .gov website. 
+                        </us-col>
+                        <us-col>
+                            <icon-https class="usx-banner-icon"/>
+                            <p class="usx-banner-info-text">
+                                <strong>Secure {{domain}} websites use HTTPS</strong><br />
+                                A <strong>lock</strong> (<i class="fas fa-lock"></i>) or <strong>https://</strong> means you’ve safely connected to the {{domain}} website. 
                                 Share sensitive information only on official, secure websites.
                             </p>
-                        </div>
-                    </div>
+                        </us-col>
+                    </us-row>
                 </div>
-            </div>
-        </div>
-    </section>
+            
+            </us-container>
+
+        </header>
+
+
+
 </template>
 
 <script>
 import IconFlag from '../icons/IconFlag.vue';
 import IconDotGov from '../icons/IconDotGov';
 import IconHttps from '../icons/IconHttps';
-import IconLock from '../icons/IconLock';
+import TranslateMixin from '../../mixins/translation/TranslateMixin';
 
 /**
  * USWDS component for official US government website header
@@ -61,9 +59,9 @@ export default {
     components: {
         IconFlag,
         IconDotGov,
-        IconHttps,
-        IconLock
+        IconHttps
     },
+    mixins: [TranslateMixin],        
     props: {
         variant: {
             type: String,
@@ -72,17 +70,108 @@ export default {
         fluid: {
             type: String,
             default: 'none'
-        }          
+        },
+        domain: {
+            type: String,
+            default: '.gov'
+        },
+        locale: {
+            type: String,
+            default: 'en' // 'es', 'es-XX'
+        },        
+        translations: {
+            type: Object,
+            default(){
+                return {
+                    en: {
+                        title: 'An official website of the United States government',
+                        subTitle: 'Official websites use',
+                        home_1: 'website belongs to an official government organization in the United States',
+                        link: 'Here’s how you know',
+                    },
+                    es: {
+                        title: 'Un sitio oficial del Gobierno de Estados Unidos',
+                        subTitle: 'Los sitios web oficiales usan',
+                        home_1: 'pertenece a una organización oficial del Gobierno de Estados Unidos',
+                        link: 'Así es como usted puede verificarlo',
+                    }  
+                }
+            }                          
+        }
+    },
+    mounted(){
+
     },
     data(){
         return {
             isOpen: false
         }
     },
+    watch: {
+        locale(newVal){
+            this.$log('Locale changed to ', newVal);
+            this.updateLocale(newVal);
+        }
+    }   
 };
 </script>
 <style lang="scss">
 
+.usx-banner {
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    .usx-banner-icon {
+        margin-top: 4px;
+        width: 40px;
+        height: 40px;
+        float: left;
+    }
+
+    .fa-lock {
+        font-size: 0.9em;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .usx-banner-text {
+        
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: .75rem;
+        line-height: 1.2rem;
+
+        .usx-flag {
+            margin-bottom: 0.1rem;
+            margin-right: 0.2rem;
+            line-height: inherit;
+            height: inherit;
+        }
+
+        .usx-banner-toggle {
+            color: #adadad;
+            text-decoration: underline;
+            padding: 0px;
+            padding-left: 8px;
+            &:hover {
+                color: #ccc
+            }
+        }
+    }
+
+    &.bg-dark {
+        color: white;
+    }
+
+    .usx-banner-info-text {
+        padding-left: 50px;
+        font-size: .94rem;
+    }
+}
+
+
+/*
 @import '../../styles/variables.scss';
 
 .usa-banner {
@@ -120,5 +209,5 @@ export default {
     }
 }
 
-
+*/
 </style>

@@ -12,7 +12,7 @@
 
 ```vue
 <us-modal v-model="showModal" title="A simple modal" @ok="" @cancel="">
-    Lorem ipsum dolor sit.....
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
 </us-modal>
 <us-button v-if="!showModal" variant="primary" @click="showModal = true">Show</us-button>
 <us-button v-else variant="primary" @click="showModal = false">Hide</us-button>
@@ -26,7 +26,7 @@
 
 | Property | Type  | Default | Description |
 | -------- | ----- | ------- | ----------- | 
-| v-model (input) | any | dalse | The v-model prop is used to hide and show the modal |
+| show | boolean | false | This prop is used to hide and show the modal |
 | title  | string | 'Confirm' | The modal title |
 | btn-ok | string | 'Ok' | The affirmative button content |
 | btn-cancel | string | 'Cancel' | The cancel button content |
@@ -35,7 +35,6 @@
 
 | Slot Name | Arguments | Description |
 | -------- | ----- | ------- | ----------- | 
-| input  | none | Updates the input (v-model) value |
 | ok  | none | Emitted when the affirmative button is clicked |
 | cancel  | none | Emitted when the cancel button is clicked |
 

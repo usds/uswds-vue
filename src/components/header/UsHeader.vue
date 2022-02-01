@@ -125,8 +125,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import '../../styles/variables.scss';
-
 // Layer in some styles to help standardize
 .usa-nav-container {
     
@@ -141,19 +139,19 @@ export default {
     }
 
     &.fluid-sm {
-        max-width: map-get($grid-breakpoints, 'sm');
+        //max-width: map-get($grid-breakpoints, 'sm');
     }
 
     &.fluid-md {
-        max-width: map-get($grid-breakpoints, 'md');
+        //max-width: map-get($grid-breakpoints, 'md');
     }
 
     &.fluid-lg {
-        max-width: map-get($grid-breakpoints, 'lg');
+       //max-width: map-get($grid-breakpoints, 'lg');
     }
 
     &.fluid-xl {
-        max-width: map-get($grid-breakpoints, 'xl');
+        ///max-width: map-get($grid-breakpoints, 'xl');
     }
 }
 </style>

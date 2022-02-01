@@ -6,7 +6,7 @@ Apologies for lack of support lately, if you need help you can find me on Twitte
 
 And even better, if you want to contribute let me know!
 
-## **NEW** Slack Community
+### **NEW** Slack Community
 
 Come talk to me and others, [join our Slack community](https://join.slack.com/t/uswds-vue/shared_invite/zt-12y2dore9-YB8~OwFlOhpepubbgp8aPw).
 

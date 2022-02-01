@@ -4,34 +4,34 @@ An alert keeps users informed of important and sometimes time-sensitive changes.
 
 ## Overview
 
-<us-alert variant="info" title="Info">This is a info message</us-alert>
+<us-alert show dismissible title="Info">This is a info message</us-alert>
 
-``` vue
-<us-alert variant="info" title="Info">
+```vue
+<us-alert show variant="info" title="Info">
     This is a info message
 </us-alert>
 ```
 
 ## Alert Size
 
-<us-alert variant="info" size="sm" class="mb-3">This is a small alert</us-alert>
-<us-alert variant="info"  class="mb-3">This is a normal size alert</us-alert>
+<us-alert show variant="info" size="sm" class="mb-3">This is a small alert</us-alert>
+<us-alert show variant="info" class="mb-3">This is a normal size alert</us-alert>
 
-``` vue
-<us-alert variant="info" size="sm">
+```vue
+<us-alert show variant="info" size="sm">
     This is a small alert
 </us-alert>
 
-<us-alert variant="info">
+<us-alert show variant="info">
     This is a normal size alert
 </us-alert>
 ```
 
 ## No Icon
 
-<us-alert variant="info" no-icon>This is a alert with no icon</us-alert>
+<us-alert show variant="info" no-icon>This is a alert with no icon</us-alert>
 
-``` vue
+```vue
 <us-alert variant="info" no-icon>
     This is a alert with no icon
 </us-alert>
@@ -41,8 +41,8 @@ An alert keeps users informed of important and sometimes time-sensitive changes.
 
 For proper styling of `<us-alert>`, use one of the contextual variants by setting the variant prop to one of the following: info, success, warning or danger. The default is info.
 
-<span v-for="(variant,index) in ['info','success','danger','warning']" :key="index">
-    <us-alert :variant="variant">This is a <strong>{{variant}}</strong> message</us-alert><br/>
+<span v-for="(variant,index) in ['info','primary','success','danger','warning']" :key="index">
+    <us-alert show :variant="variant" class="mb-0 mt-0">This is a <strong>{{variant}}</strong> message</us-alert><br/>
 </span>
 
 ## Dismissible alerts
@@ -51,13 +51,13 @@ Using the `dismissible` prop it's possible to dismiss any `<us-alert>` inline. T
 
 <div class="mt-3 mb-3">
     <us-alert :show="showAlert1" variant="danger" dismissible @onDismissed="onDismissed(1)">You can dismiss this alert</us-alert>
-    <us-button class="mt-1" variant="primary" @click="showAlert1 = true" v-if="!showAlert1">Show</us-button>
+    <b-button class="mt-1" variant="primary" @click="showAlert1 = true" v-if="!showAlert1">Show</b-button>
 </div>
 
 ```vue
 <template>
     <us-alert :show="showAlert" variant="danger" dismissible @onDismissed="onDismissed(1)">You can dismiss this alert</us-alert>
-    <us-button class="mt-1" variant="primary" @click="variant = true" v-if="!variant">Show</us-button>
+    <b-button class="mt-1" variant="primary" @click="variant = true" v-if="!variant">Show</b-button>
 </template>
 <script>
 export default {
@@ -75,39 +75,6 @@ export default {
 </script>
 ```
 
-## Auto dismissing alerts
-
-To create a `<us-alert>` that dismisses automatically after a period of time, set the `show` prop to the number of seconds you would like the `<us-alert>` to remain visible for. Only integer number of seconds are supported.
-
-<div class="mt-3 mb-3">
-    <us-alert :show="showAlert2" variant="info" :time="10" show-countdown @onDismissed="onDismissed(2)" class="mb-1">This alert will self destruct in 10 seconds</us-alert>
-    <us-alert :show="showAlert2" variant="info" :time="10" @onDismissed="onDismissed(2)">This alert will self destruct in 10 seconds</us-alert>
-    <us-button class="mt-1" variasnt="primary" @click="showAlert2 = true" v-if="!showAlert2">Show</us-button>
-    <us-button class="mt-1" variant="primary" @click="showAlert2 = false" v-else>Hide</us-button>
-</div>
-
-```vue
-<template>
-    <us-alert :show="showAlert" variant="info" :time="10" show-countdown @onDismissed="onDismissed()" class="mb-1">This alert will self destruct in 10 seconds</us-alert>
-    <us-alert :show="showAlert" variant="info" :time="10" @onDismissed="onDismissed()">This alert will self destruct in 10 seconds</us-alert>
-    <us-button class="mt-1" variasnt="primary" @click="showAlert = true" v-if="!showAlert">Show</us-button>
-    <us-button class="mt-1" variant="primary" @click="showAlert = false" v-else>Hide</us-button>
-</template>
-<script>
-export default {
-    data() {
-        return {
-            showAlert: true
-        };
-    },
-    methods: {
-        onDismissed(){
-            this.showAlert = false;
-        }        
-    } 
-};
-</script>
-```
 
 ## When to use the alert component <Badge text="uswds"/>
 
@@ -135,6 +102,48 @@ export default {
 
 **<strong>**Understand the user’s context.** </strong>** Don’t include notifications that aren’t related to the user’s current goal.
 
+## Vanilla HTML
+
+And of course, as this component is built from Bootstrap you can just use vanilla html if you like.
+
+<div class="usx-component alert alert-info" role="alert">
+  A simple primary alert—check it out!
+</div>
+
+<div class="usx-component alert alert-info d-flex align-items-center" role="alert">
+    <i class="fas fa-exclamation-triangle" ></i>
+    <div>A simple primary alert—check it out!</div>
+</div>
+
+<div class="usx-component alert alert-info d-flex align-items-start" role="alert">
+    <h4><i class="fas fa-exclamation-triangle"></i></h4>
+    <div>
+        <h4 class="p-0 m-0">Example Title</h4>
+        An example alert with an icon
+    </div>
+</div>
+
+
+```html
+<div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+
+<div class="alert alert-primary d-flex align-items-start" role="alert">
+    <i class="fas fa-exclamation-triangle"></i>
+    <div>
+        An example alert with an icon
+    </div>
+</div>
+
+<div class="usx-component alert alert-info d-flex align-items-start" role="alert">
+    <h4><i class="fas fa-exclamation-triangle"></i></h4>
+    <div>
+        <h4 class="p-0 m-0">Example Title</h4>
+        An example alert with an icon
+    </div>
+</div>
+```
 
 ## Component Reference
 

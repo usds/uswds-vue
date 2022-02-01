@@ -1,5 +1,5 @@
 <template>
-    <div class="usx-component grid-container" :class="`fluid-${this.fluid}`">
+    <div :class="['usx-component', 'container-'+size]" v-bind="$props">
         <slot></slot>
     </div>
 </template>
@@ -13,43 +13,10 @@
 export default {
     name: 'us-container',
     props: {
-        fluid: {
+        size: {
             type: String,
             default: 'lg'
         }
     }
 };
 </script>
-<style lang="scss">
-@import '../../styles/variables.scss';
-
-// Layer in some styles to help standardize
-.grid-container {
-    
-    &.fluid {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    &.fluid-full {
-        max-width: 100% !important;
-    }
-
-    &.fluid-sm {
-        max-width: map-get($grid-breakpoints, 'sm');
-    }
-
-    &.fluid-md {
-        max-width: map-get($grid-breakpoints, 'md');
-    }
-
-    &.fluid-lg {
-        max-width: map-get($grid-breakpoints, 'lg');
-    }
-
-    &.fluid-xl {
-        max-width: map-get($grid-breakpoints, 'xl');
-    }
-}
-</style>

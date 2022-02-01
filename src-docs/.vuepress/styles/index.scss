@@ -12,9 +12,7 @@
     }    
 }
 
-@import "~uswds/dist/css/uswds.css";
-@import '../../../dist/uswds-vue.css';
-//@import "../../../../src/styles/uswds-vue.scss";
+@import "../../../src/styles/uswds-vue.scss";
 
 
 a.sidebar-link.active,  a.sidebar-link:active {

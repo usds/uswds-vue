@@ -1,4 +1,38 @@
 <template>
+    <div class="usx-component usx-card card" :class="[`bg-${variant}`, `text-${variant}-contrast`]">
+
+        <img v-if="imgSrc && imgPos == 'top'" :src="imgSrc" class="card-img-top" :alt="imgAlt"/>
+                
+        <div class="row g-0" v-if="imgPos=='right' || imgPos=='left'">
+            <div class="col-md-8 d-flex flex-column pb-3">
+                <div class="card-body">
+                    <slot name="title"><h5 class="card-title" v-if="title && !hasHeader">{{title}}</h5></slot>
+                    <h6 class="card-subtitle mb-2 text-muted" v-if="subTitle">{{subTitle}}</h6>
+                    <p class="card-text"><slot name="default"/></p>
+                </div>             
+                <div class="card-footer" :class="{'order-1':imgPos=='right'}">
+                    <slot name="footer"/>
+                </div>                   
+            </div>
+            <div class="col-md-4">
+                <img v-if="imgSrc" :src="imgSrc" class="usx-card-fluid-img rounded-start" :alt="imgAlt"/>
+            </div>
+        </div>
+
+        <div class="card-body" v-else>
+            <slot name="title"><h5 class="card-title" v-if="title && !hasHeader">{{title}}</h5></slot>
+            <h6 class="card-subtitle mb-2 text-muted" v-if="subTitle">{{subTitle}}</h6>
+            <p class="card-text"><slot name="default"/></p>
+        </div>
+
+        <div class="card-footer" v-if="!imgSrc || imgPos=='bottom' || imgPos=='top'">
+            <slot name="footer"/>
+        </div>          
+
+        <img v-if="imgSrc && imgPos == 'bottom'" :src="imgSrc" class="card-img-bottom" :alt="imgAlt"/>
+                
+    </div>
+<!--
     <div class="usx-component usa-card usx-card" :class="{
             'usa-card--flag':imgSrc && imgPos=='left', 
             'usa-card--flag usa-card--media-right': imgSrc && imgPos=='right',
@@ -22,19 +56,11 @@
             <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent, 'usx-card-overflow':overflow}" v-else>
                 <slot name="default"/>
             </div>
-            
-            <!--
-            <div class="usa-card__body" :class="{'usa-card__body--exdent': cardExdent}" v-if="!hasChild('body')">
-            </div>
-            -->
 
-            <!--
-            <div class="usa-card__footer" :class="{'usa-card__footer--exdent': cardExdent}">
-                <slot name="footer"></slot>
-            </div>
-            -->
         </div>
     </div>
+
+    -->
 </template>
 
 <script>
@@ -44,7 +70,7 @@
  * @props
  */
 
-import CoreMixin from '../mixins/CoreMixin';
+import CoreMixin from '../../mixins/CoreMixin';
 
 export default {
     name: 'us-card',
@@ -54,6 +80,10 @@ export default {
             type: String,
             default: null
         },
+        subTitle: {
+            type: String,
+            default: null
+        },        
         variant: {
             type: String,
             default: 'none'
@@ -112,15 +142,22 @@ export default {
 };
 </script>
 <style lang="scss">
-// Fix style bug in uswds for right images
-@media (min-width: 40em) {
-    //.usa-card--flag .usa-card__media {
-        //width: unset !important;
-    //}
-    .usx-card-overflow {
-        overflow: auto;
-        max-height: 400px;
+
+.usx-card {
+    
+    .usx-card-fluid-img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .card-footer {
+        border: none;
+        background: none;
     }
 }
+
 
 </style>

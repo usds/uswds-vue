@@ -95,7 +95,7 @@ module.exports = {
             'utils/typography',
             'utils/validation'           
           ]
-        },
+        },       
         {
           title: 'Components',
           collapsable: false,
@@ -103,27 +103,9 @@ module.exports = {
             'components/alert',
             'components/button',
             'components/card',
-            'components/form',
-            'components/form-group',
-            {
-              title: 'Form Inputs',
-              collapsable: false,
-              children: [
-                'components/form-inputs/form-checkbox',
-                'components/form-inputs/form-radio',
-                'components/form-inputs/form-combobox',
-                'components/form-inputs/form-date',
-                'components/form-inputs/form-date-picker',
-                'components/form-inputs/form-date-range',
-                'components/form-inputs/form-fileinput',
-                'components/form-inputs/form-input',
-                'components/form-inputs/form-slider',
-                'components/form-inputs/form-time',
-                'components/form-inputs/form-boolean'
-              ]
-            },
             'components/footer',
             'components/header',
+            'components/gov-banner',
             'components/left-nav',
             'components/lists',
             'components/modal',
@@ -134,8 +116,26 @@ module.exports = {
             'components/tabs',
             'components/tag'
           ]
+        },       
+        {
+          title: 'Forms',
+          collapsable: false,
+          children: [
+            'forms/form',
+            'forms/form-group',
+            'forms/form-inputs/form-checkbox',
+            'forms/form-inputs/form-radio',
+            'forms/form-inputs/form-combobox',
+            'forms/form-inputs/form-date',
+            'forms/form-inputs/form-date-picker',
+            'forms/form-inputs/form-date-range',
+            'forms/form-inputs/form-fileinput',
+            'forms/form-inputs/form-input',
+            'forms/form-inputs/form-slider',
+            'forms/form-inputs/form-time',
+            'forms/form-inputs/form-boolean'
+          ]
         }
-
       ],
     }
   },

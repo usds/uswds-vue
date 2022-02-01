@@ -336,7 +336,7 @@ export default {
 </script>
 <style lang="scss">
     
-    @import "../../../src/styles/all-colors.scss";
+    //@import "../../../src/styles/all-colors.scss";
 
     .usxd-color-square {
         display: inline-block;

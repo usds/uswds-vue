@@ -1,27 +1,21 @@
-
-// Pull in uswds defaults
-//@import "./uswds/settings/settings-color";
-
-@import "~uswds/dist/css/uswds.css";
-
-//@import "./core.scss";
-//@import "./usx-component.scss";
-//`@import "./variables.scss";
-//@import "./mixins.scss";
-//@import "./functions.scss";
-//@import "./colors.scss";
-@import "./default-theme.scss";
+// USWDS has an excellent color system, check it out here for a deeper dive
+// @see https://designsystem.digital.gov/utilities/color/
 @import "./a11y-color.scss";
 
-// TODO: bring into project.. but only used icons?
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css');
-
-// Then import Bootstrap, starting to standardize components around bootstrap
-@import "~bootstrap/scss/bootstrap.scss";
-
-// Any overrides of bootstrap or uswds that wasn't caught by sass
-@import "./utilities.scss";
-
+$theme-colors: (
+  primary: #2c608a, // 'blue-60'
+  secondary: #757575, // 'gray-50'
+  accent: #ffbc78, // 'orange-20v'
+  success: #719f2a, // 'green-40v' 
+  warning: #e5a000, // 'gold-30v'
+  info: #8bd3df, // 'cyan-30v',
+  danger: #d54309, // 'red-warm-50v'
+  dark: #1b1b1b, // 'gray-90',
+  light: #c9c9c9, // 'gray-20',
+  muted: #adadad, // 'gray-30',
+  white: #fcfcfc, // 'gray-1',
+  black: #000000
+) !default;
 
 $border-darken: 10% !default;
 $bg-lighten: 15% !default;
@@ -44,7 +38,7 @@ $bg-lighten: 15% !default;
     }  
 
     .bg-#{$variant} {
-        background-color: $color !important;
+        background-color: $colorLight !important;
         color: color-contrast($color) !important; // choose-contrast-color($colorLight) 
     }
 
@@ -61,10 +55,4 @@ $bg-lighten: 15% !default;
       border-style: solid;
       border-color: $color !important;
     }      
-}
-
-.btn {
-    &.btn-link {
-        text-decoration: underline;
-    }
 }

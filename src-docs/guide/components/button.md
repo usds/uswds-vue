@@ -59,8 +59,8 @@ The component has built-in support for [vue-router](https://router.vuejs.org/), 
 Set the `isLoading` property to display a loading spinner, this will also put the button into a disabled state so it can not be clicked again.
 
 <div class="mt-3 mb-3">
-<us-button variant="primary" :is-loading="isLoading">Submit</us-button>
-<us-button variant="outline-primary" @click="isLoading = !isLoading">Toggle Loading Flag</us-button>
+<us-button variant="primary" class="mr-3" :is-loading="isLoading">Submit</us-button>
+<us-button size="sm" variant="link" @click="isLoading = !isLoading">Toggle Loading Flag</us-button>
 </div>
 
 ``` vue
@@ -69,7 +69,7 @@ Set the `isLoading` property to display a loading spinner, this will also put th
 </us-button>
 
 <!-- Button to toggle isLoading flag for testing -->
-<us-button variant="outline-primary" @click="isLoading = !isLoading">
+<us-button variant="link" @click="isLoading = !isLoading">
     Toggle Loading Flag
 </us-button>
 ```
@@ -81,10 +81,30 @@ secondary,info, success, danger, warning, outline-primary, outline-secondary, ou
 outline-warning, inverse, link. The default is info.
 
 <div class="mt-3 mb-3">
-    <span v-for="variant in btnVariants" :key="variant">
-        <us-button :variant="variant" class="mb-1">{{variant}}</us-button>
-    </span>
-    <us-button variant="link" class="mb-1">A link</us-button>
+    <!--<us-button v-for="variant in btnVariants" :key="variant" :variant="variant" class="mr-2 mb-1">{{variant}}</us-button>-->
+    <div>
+        <us-button variant="primary" class="mr-1 mb-2">Primary</us-button>
+        <us-button variant="secondary" class="mr-1 mb-2">Secondary</us-button>
+        <us-button variant="info" class="mr-1 mb-2">info</us-button>
+        <us-button variant="success" class="mr-1 mb-2">success</us-button>
+        <us-button variant="danger" class="mr-1 mb-2">danger</us-button>
+        <us-button variant="warning" class="mr-1 mb-2">warning</us-button>
+        <us-button variant="dark" class="mr-1 mb-2">dark</us-button>
+        <us-button variant="light" class="mr-1 mb-2">light</us-button>
+    </div>
+    <div>
+        <us-button variant="outline-primary" class="mr-1 mb-2">outline-primary</us-button>
+        <us-button variant="outline-secondary" class="mr-1 mb-2">outline-secondary</us-button>
+        <us-button variant="outline-info" class="mr-1 mb-2">outline-info</us-button>
+        <us-button variant="outline-success" class="mr-1 mb-2">outline-success</us-button>
+        <us-button variant="outline-danger" class="mr-1 mb-2">outline-danger</us-button>
+        <us-button variant="outline-warning" class="mr-1 mb-2">outline-warning</us-button>
+        <us-button variant="outline-dark" class="mr-1 mb-2">outline-dark</us-button>
+        <us-button variant="outline-light" class="mr-1 mb-2">outline-light</us-button>
+    </div>
+    <div>
+        <us-button variant="link" class="mb-1 mb-1">A link</us-button>
+    </div>
 </div>
 
 ## Component Reference
