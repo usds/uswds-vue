@@ -1,77 +1,62 @@
 <template>
 
-    <nav class="usx-component nav flex-column">
-        <a class="nav-link active" aria-current="page" href="#">Active</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link disabled">Disabled</a>
-    </nav>
-<!--
-    <nav class="usx-component usx-side-nav nav flex-column" v-if="menu">
+    <ul class="usx-component nav flex-column">
+        
+        <li v-for="(link, index) in links" :key="index" class="nav-item">
 
-        <li class="nav-item" v-for="item in menu" :key="item._id">
+            <us-side-nav-item v-if="!link.children" :item="link" @click="onSelectParent(link)" :active="selectedParent && selectedParent._id == link._id"/>
+            
+            <div v-else>
 
-            <div class="nav-item-wrapper">
-                <us-nav-item 
-                    :item="item" 
-                    @click="onSelectParent(item)" 
-                    class="pt-1 pb-1"
-                    :class="{'active': item._id == selectedParent._id}"
-                    :aria-current="(item._id == item._id) ? 'page' : false"
-                />
+                <us-side-nav-item :item="link" :active="selectedParent && selectedParent._id == link._id" @click="onSelectParent(link)"/>
+
+                <ul v-for="(subLink, index2) in link.children" :key="index2" class="nav-item">
+                    
+                    <us-side-nav-item 
+                        v-if="!subLink.children" 
+                        :item="subLink" 
+                        :depth="2" 
+                        @click="onSelectChild(link, subLink)" 
+                        :active="selectedChild && selectedChild._id == subLink._id"/>
+
+                    <div v-else>
+
+                        <us-side-nav-item                             
+                            :depth="2" 
+                            :item="subLink"
+                            @click="onSelectChild(link, subLink)" 
+                            :active="selectedChild && selectedChild._id == subLink._id"/>
+
+                        <ul v-for="(subSubLink, index3) in subLink.children" :key="index3" class="nav-item">
+
+                            <us-side-nav-item                             
+                                :depth="3" 
+                                :item="subSubLink"
+                                @click="onSelectGrandChild(link, subLink, subSubLink)" 
+                                :active="selectedGrandChild && selectedGrandChild._id == subSubLink._id"/>
+
+                        </ul>
+
+                    </div>
+                    
+                </ul>
+
             </div>
 
-            <ul class="nav flex-column" v-if="item.children">
-                
-                <li class="nav-item" v-for="childItem in item.children" :key="childItem._id">
-                    <us-nav-item 
-                        :item="childItem" 
-                        @click="onSelectChild(item, childItem)" 
-                        class="usx-nav-item-child"
-                        :class="{'active-child': childItem._id == selectedChild._id}"
-                        :aria-current="(childItem._id == selectedChild._id) ? 'page' : false"
-                    />
+        </li>
 
-                    <ul class="nav flex-column" v-if="childItem.children">
-                        <li class="nav-item" v-for="grandChildItem in childItem.children" :key="grandChildItem._id">
-                            <us-nav-item 
-                                :item="grandChildItem" 
-                                @click="onSelectChild(item, grandChildItem)" 
-                                class="usx-nav-item-grandchild"
-                                :class="{'active-child': grandChildItem._id == selectedChild._id}"
-                                :aria-current="(grandChildItem._id == selectedChild._id) ? 'page' : false"
-                            />
-                        </li>  
-                    </ul>
+    </ul>
 
-                </li>   
-            </ul>
-
-        </li>        
-
-    </nav>
--->
-
-     <!--
-    <ul v-if="!title" ref="sidenavParentRef" class="usx-component usx-sidenav usa-sidenav">
-        Slots for side nav item 
-        <slot></slot>
-    </ul>        
-
-     Slots for side nav item 
-    <us-side-nav-item v-else :title="title" @click="onClick()">
-        <slot></slot>
-    </us-side-nav-item>      
-        -->
 </template>
 
 <script>
 
-//import UsNavItem from "./UsNavLink.vue";
+import UsSideNavItem from "./UsSideNavItem.vue"
 
 // https://designsystem.digital.gov/components/side-navigation/
 export default {
     name: 'us-side-nav',
+    components: {UsSideNavItem},
     props: {
         links: {
             type: Array,
@@ -94,8 +79,9 @@ export default {
     data() {
         return {
             menu: null,
-            selectedParent: {},
-            selectedChild: {}
+            selectedParent: null,
+            selectedChild: null,
+            selectedGrandChild: null
         }
     },  
     mounted(){
@@ -119,124 +105,33 @@ export default {
     },  
     methods: {
         
+        onSelectItem(item){
+
+        },
+
         onSelectParent(parent){
             this.selectedParent = parent;
-            this.$emit('click');
+            this.selectedChild = null;
+            this.selectedGrandChild = null;
+            this.$emit('click', parent);
         },
 
         onSelectChild(parent, child){
             this.selectedParent = parent;
             this.selectedChild = child;
-            this.$emit('click');
-        }
+            this.selectedGrandChild = null;
+            this.$emit('click', child);
+        },
+
+        onSelectGrandChild(parent, child, grandChild){
+            this.selectedParent = parent;
+            this.selectedChild = child;
+            this.selectedGrandChild = grandChild;
+            this.$emit('click', grandChild);
+        },
     }
 };
 </script>
 <style lang="scss">
-// Side nav
 
-.usx-component.nav {
-
-    &.flex-column {
-
-        a.nav-link:hover {
-            text-decoration: none !important;
-        }
-            
-        :focus {
-            outline: none;
-            outline-offset: 0;;
-        }
-
-        a.active {
-            background-color: unset;
-        }
-        
-        .nav-link {
-
-            border: none;
-            border-top: 1px solid #e6e6e6;
-            margin-bottom: 0;
-            color: #5c5c5c;
-            font-weight: normal;
-
-            &:hover {
-                background-color: #eee;                
-            }
-
-            &.active {
-
-                color: #005ea2;
-                font-weight: 700;
-
-                &::before {                
-                    display: block;
-                    content: "";
-                    background-color: #005ea2;
-                    width: 3px;
-                    height: 1.8em;
-                    position: absolute;
-                    transform: translate(-1rem, -0.1rem);           
-                }
-            }
-        }
-        
-    }
-}
-    
-
-/*::-webkit-scrollbar-track
-.usx-side-nav {
-
-    .nav-item-wrapper {
-        padding-top: 4px;
-        padding-bottom: 4px;
-        &:hover {
-            background-color: #eee;                
-        }        
-    }
-
-    .nav-item {
-        border: none;
-        border-top: 1px solid #e6e6e6;
-        margin-bottom: 0;
-    }
-
-    .usx-nav-item-child {
-        padding-left: 2rem;
-    }
-
-    .usx-nav-item-grandchild {
-        padding-left: 4rem;
-    }
-
-    .nav-link {
-
-        cursor: pointer;
-
-        color: #5c5c5c;
-        font-weight: normal;
-
-        &.active-child {
-            color: #005ea2;
-            font-weight: 700;
-        }
-
-        &.active, &.router-link-active {
-            color: #005ea2;
-            font-weight: 700;      
-            //background-color: #eee;
-            border-left: 3px solid #004c97;    
-        }       
-
-        &:hover {
-            background-color: #eee;                
-            border-bottom: none !important;
-            margin-bottom: 0px !important; 
-        }
-    }
-
-
-}    
-*/
 </style>

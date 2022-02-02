@@ -55,6 +55,7 @@ export const Components = {
     UsCol,
     UsTab,
     UsTabs,
+    UsBadge,
     'UsTag': UsBadge,
     UsCard,
     UsButton,
