@@ -33,17 +33,6 @@ export default {
                         {name: 'Sub-Page 3', icon: 'far fa-file-alt'}
                     ]}
                 ]},                
-                {name: 'Release & Monitor', children: [
-                    {name: 'Crashlytics', icon: 'fal fa-car-crash'},
-                    {name: 'Performance', icon: 'fal fa-gauge'},
-                ]},
-                {name: 'Analytics', children: [
-                    {name: 'Dashboard', icon: 'fal fa-chart-line'}
-                ]},
-                {name: 'Engage', children: [
-                    {name: 'A/B Testing', icon: 'fal fa-flask'},
-                    {name: 'Remote Config', icon: 'fal fa-code'}
-                ]},
                 {name: 'Admin', children: [
                     {name: 'Registry', icon: 'fal fa-users'}
                 ]},
@@ -80,17 +69,6 @@ export default {
                         {name: 'Sub-Page 3', icon: 'far fa-file-alt'}
                     ]}
                 ]},                
-                {name: 'Release & Monitor', children: [
-                    {name: 'Crashlytics', icon: 'fal fa-car-crash'},
-                    {name: 'Performance', icon: 'fal fa-gauge'},
-                ]},
-                {name: 'Analytics', children: [
-                    {name: 'Dashboard', icon: 'fal fa-chart-line'}
-                ]},
-                {name: 'Engage', children: [
-                    {name: 'A/B Testing', icon: 'fal fa-flask'},
-                    {name: 'Remote Config', icon: 'fal fa-code'}
-                ]},
                 {name: 'Admin', children: [
                     {name: 'Registry', icon: 'fal fa-users'}
                 ]},

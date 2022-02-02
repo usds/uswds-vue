@@ -6,7 +6,7 @@
 
 import {UswdsVue} from '../../src/main.js';
 import VueGtag from "vue-gtag";
-
+//import 'bootstrap';
 import './styles/index.scss';
 
 export default ({
