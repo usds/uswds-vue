@@ -3,7 +3,7 @@ home: true
 heroImage: ./usds-logo-footer.svg
 tagline: Vue.js components the implement the awesome U.S. Web Design Standards.
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: https://thepipster.github.io/uswds-vue/
 features:
 - title: Simplicity First
   details: Adopting common sense defaults to make bootstraping your project using the U.S. Web Design Standards nice and simple!

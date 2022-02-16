@@ -54,7 +54,7 @@ module.exports = {
     nav: [
       {
         text: 'Guide',
-        link: '/guide/',
+        link: 'https://thepipster.github.io/uswds-vue/',
       },
       {
         text: 'US Digital',

@@ -1,14 +1,10 @@
 # uswds-vue
 
-## **NEW** Getting Help & Contributing
-
-Apologies for lack of support lately, if you need help you can find me on Twitter at @MikeJPritchard. Please just ping me to let me know you're using this. If I know people are using this, then I'll be more active building and supporting it! 
-
-And even better, if you want to contribute let me know!
+> **IMPORTANT!** `USDS-Vue` has moved! Although not an *officially supported project of USDS, it is being used by various people throughout the US Government. So I can continue supporting and developing this library, I have moved it to a personal space. 
 
 ## Introduction
 
-[Vue USWDS component library](https://usds.github.io/uswds-vue/)
+[Vue USWDS component library](https://thepipster.github.io/uswds-vue/)
 
 This is a front end component library whose aim is to develop [Vue.js](https://vuejs.org/) implementations of the design patterns defined by the [United States Web Design System (USWDS)](https://designsystem.digital.gov/). 
 
@@ -22,7 +18,7 @@ Support for Vue 3 is on the roadmap, but too many 3rd party libraries don't yet 
 
 ## Documentation
 
-Full docs can be found [here](https://usds.github.io/uswds-vue/)
+Full docs can be found [here](https://thepipster.github.io/uswds-vue/)
 
 ## Install
 
